@@ -1,0 +1,273 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Component Diagram - Component Diagram Modificar Cuenta</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		Component Diagram - Component Diagram Modificar Cuenta	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|32.0|2.0|130.0|50.0|Component_9yRpbHGAUCCo_KA6.html|Component_9yRpbHGAUCCo_KA6.html|87Z8cXGAUAgAAtmu" id="option87Z8cXGAUAgAAtmu">home.html : Component</option>
+<option value="shape|282.0|2.0|130.0|50.0|Component_tfj8cXGAUAgAAuBr.html|Component_tfj8cXGAUAgAAuBr.html|tfj8cXGAUAgAAuBp" id="optiontfj8cXGAUAgAAuBp">cuentaView.py : Component</option>
+<option value="shape|582.0|2.0|160.0|50.0|Component_Hfj8cXGAUAgAAuDy.html|Component_Hfj8cXGAUAgAAuDy.html|Hfj8cXGAUAgAAuDw" id="optionHfj8cXGAUAgAAuDw">datos_cuenta.html : Component</option>
+<option value="shape|282.0|272.0|130.0|50.0|Component_tP5ZbHGAUCCo_Bad.html|Component_tP5ZbHGAUCCo_Bad.html|cSQCcXGAUAgAAg1W" id="optioncSQCcXGAUAgAAg1W">Data Base : Component</option>
+<option value="shape|272.0|162.0|130.0|50.0|Component_YhmicXGAUAgAAokh.html|Component_YhmicXGAUAgAAokh.html|YhmicXGAUAgAAokf" id="optionYhmicXGAUAgAAokf">Cuenta.py : Component</option>
+<option value="shape|2.0|162.0|180.0|50.0|Component_8hmicXGAUAgAAomo.html|Component_8hmicXGAUAgAAomo.html|8hmicXGAUAgAAomm" id="option8hmicXGAUAgAAomm">ModificarCuentaForm.py : Component</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/Component_Diagram_Modificar_Cuenta.png" usemap="#diagram_map" class="Image" width="746.0" height="373.0"/>				<map name = "diagram_map">
+
+<area coords="2.0, 162.0, 182.0, 212.0" coords2="2.0, 162.0, 182.0, 212.0" shape="rect" alt="ModificarCuentaForm.py:Component" id="area8hmicXGAUAgAAomm" href="Component_8hmicXGAUAgAAomo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 162.0, 402.0, 212.0" coords2="272.0, 162.0, 402.0, 212.0" shape="rect" alt="Cuenta.py:Component" id="areaYhmicXGAUAgAAokf" href="Component_YhmicXGAUAgAAokh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="282.0, 272.0, 412.0, 322.0" coords2="282.0, 272.0, 412.0, 322.0" shape="rect" alt="Data Base:Component" id="areacSQCcXGAUAgAAg1W" href="Component_tP5ZbHGAUCCo_Bad.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="582.0, 2.0, 742.0, 52.0" coords2="582.0, 2.0, 742.0, 52.0" shape="rect" alt="datos_cuenta.html:Component" id="areaHfj8cXGAUAgAAuDw" href="Component_Hfj8cXGAUAgAAuDy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="282.0, 2.0, 412.0, 52.0" coords2="282.0, 2.0, 412.0, 52.0" shape="rect" alt="cuentaView.py:Component" id="areatfj8cXGAUAgAAuBp" href="Component_tfj8cXGAUAgAAuBr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 2.0, 162.0, 52.0" coords2="32.0, 2.0, 162.0, 52.0" shape="rect" alt="home.html:Component" id="area87Z8cXGAUAgAAtmu" href="Component_9yRpbHGAUCCo_KA6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="402.0, 25.0, 402.0, 39.0, 591.0, 39.0, 591.0, 25.0" coords2="402.0, 25.0, 402.0, 39.0, 591.0, 39.0, 591.0, 25.0" shape="poly" alt=":Dependency" id="areag_j8cXGAUAgAAuF4" href="Dependency_g_j8cXGAUAgAAuF6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="402.0, 25.0, 402.0, 39.0, 591.0, 39.0, 591.0, 25.0" coords2="402.0, 25.0, 402.0, 39.0, 591.0, 39.0, 591.0, 25.0" shape="poly" alt=":Dependency" id="areaw_j8cXGAUAgAAuG2" href="Dependency_w_j8cXGAUAgAAuG4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="152.0, 20.0, 152.0, 34.0, 291.0, 34.0, 291.0, 20.0" coords2="152.0, 20.0, 152.0, 34.0, 291.0, 34.0, 291.0, 20.0" shape="poly" alt=":Dependency" id="areaMw_8cXGAUAgAAgpg" href="Dependency_Mw_8cXGAUAgAAgpX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="172.0, 175.0, 172.0, 189.0, 281.0, 189.0, 281.0, 175.0" coords2="172.0, 175.0, 172.0, 189.0, 281.0, 189.0, 281.0, 175.0" shape="poly" alt=":Dependency" id="areaWhmicXGAUAgAAoou" href="Dependency_WhmicXGAUAgAAoow.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="355.0, 202.0, 355.0, 281.0, 369.0, 281.0, 369.0, 202.0" coords2="355.0, 202.0, 355.0, 281.0, 369.0, 281.0, 369.0, 202.0" shape="poly" alt=":Association" id="area2alicXGAUAgAArc4" href="Association_2alicXGAUAgAArcb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="283.0, 40.0, 170.0, 163.0, 180.0, 173.0, 293.0, 50.0, 283.0, 40.0" coords2="283.0, 40.0, 170.0, 163.0, 180.0, 173.0, 293.0, 50.0, 283.0, 40.0" shape="poly" alt=":Dependency" id="areaJt1icXGAUAgAArdv" href="Dependency_Jt1icXGAUAgAArdm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="345.0, 42.0, 345.0, 171.0, 359.0, 171.0, 359.0, 42.0" coords2="345.0, 42.0, 345.0, 171.0, 359.0, 171.0, 359.0, 42.0" shape="poly" alt=":Dependency" id="areaN6NicXGAUAgAArd8" href="Dependency_N6NicXGAUAgAArdz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_9yRpbHGAUCCo_KA6.html">home.html : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_tfj8cXGAUAgAAuBr.html">cuentaView.py : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_Hfj8cXGAUAgAAuDy.html">datos_cuenta.html : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_tP5ZbHGAUCCo_Bad.html">Data Base : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_YhmicXGAUAgAAokh.html">Cuenta.py : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_8hmicXGAUAgAAomo.html">ModificarCuentaForm.py : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

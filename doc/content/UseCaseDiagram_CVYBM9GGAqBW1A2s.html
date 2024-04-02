@@ -1,0 +1,504 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Use Case Diagram - Use Case Diagram ViajaYA</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+	<style>
+		#diagramLayer0 {background: url('../images/Use_Case_Diagram_ViajaYA_0.png'); _background: url('../images/icons/transp.gif'); _filter:progId:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/Use_Case_Diagram_ViajaYA_0.png'); }
+		#diagramLayer1 {background: url('../images/Use_Case_Diagram_ViajaYA_1.png'); _background: url('../images/icons/transp.gif'); _filter:progId:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/Use_Case_Diagram_ViajaYA_1.png'); }
+		#diagramLayer2 {background: url('../images/Use_Case_Diagram_ViajaYA_2.png'); _background: url('../images/icons/transp.gif'); _filter:progId:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/Use_Case_Diagram_ViajaYA_2.png'); }
+		#diagramLayer3 {background: url('../images/Use_Case_Diagram_ViajaYA_3.png'); _background: url('../images/icons/transp.gif'); _filter:progId:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/Use_Case_Diagram_ViajaYA_3.png'); }
+</style>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		Use Case Diagram - Use Case Diagram ViajaYA	</p>
+	<table width="auto" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<table width="100%" cellpadding="0" border="0" cellspacing="0">
+					<tr>
+						<td>
+<span class="TableContent">Jump to:</span>							<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|32.0|82.0|30.0|60.0|Actor_DKzZM9GGAqBW1Iqv.html|Actor_DKzZM9GGAqBW1Iqv.html|DKzZM9GGAqBW1Iqu" id="optionDKzZM9GGAqBW1Iqu">Administrador : Actor</option>
+<option value="shape|32.0|452.0|30.0|60.0|Actor_iKrZM9GGAqBW1Irw.html|Actor_iKrZM9GGAqBW1Irw.html|iKrZM9GGAqBW1Irv" id="optioniKrZM9GGAqBW1Irv">Cliente : Actor</option>
+<option value="shape|372.0|262.0|30.0|60.0|Actor_aa7ZM9GGAqBW1Isu.html|Actor_aa7ZM9GGAqBW1Isu.html|aa7ZM9GGAqBW1Ist" id="optionaa7ZM9GGAqBW1Ist">Usuario : Actor</option>
+<option value="shape|382.0|472.0|30.0|60.0|Actor_S7HZM9GGAqBW1Itq.html|Actor_S7HZM9GGAqBW1Itq.html|S7HZM9GGAqBW1Itp" id="optionS7HZM9GGAqBW1Itp">Pasarela de Pago : Actor</option>
+<option value="shape|32.0|182.0|30.0|20.0|GeneralizationSet__xY5M9GGAqBW1I0e.html|GeneralizationSet__xY5M9GGAqBW1I0e.html|JxY5M9GGAqBW1I0o" id="optionJxY5M9GGAqBW1I0o">Unnamed Generalization Set : Generalization Set</option>
+<option value="shape|212.0|2.0|100.0|40.0|UseCase_Dki5M9GGAqBW1JE4.html|UseCase_Dki5M9GGAqBW1JE4.html|Dki5M9GGAqBW1JE3" id="optionDki5M9GGAqBW1JE3">Gestionar agencia : Use Case</option>
+<option value="shape|232.0|82.0|80.0|40.0|UseCase_SUK5M9GGAqBW1JLr.html|UseCase_SUK5M9GGAqBW1JLr.html|SUK5M9GGAqBW1JLq" id="optionSUK5M9GGAqBW1JLq">Gestionar ruta : Use Case</option>
+<option value="shape|212.0|142.0|100.0|40.0|UseCase__Xa5M9GGAqBW1JSe.html|UseCase__Xa5M9GGAqBW1JSe.html|.Xa5M9GGAqBW1JSd" id="option.Xa5M9GGAqBW1JSd">Administrar usuario : Use Case</option>
+<option value="shape|532.0|242.0|110.0|40.0|UseCase_IoR5M9GGAqBW1JZV.html|UseCase_IoR5M9GGAqBW1JZV.html|IoR5M9GGAqBW1JZU" id="optionIoR5M9GGAqBW1JZU">Autenticar : Use Case</option>
+<option value="shape|212.0|402.0|80.0|40.0|UseCase_X3t5M9GGAqBW1Jv4.html|UseCase_X3t5M9GGAqBW1Jv4.html|X3t5M9GGAqBW1Jv3" id="optionX3t5M9GGAqBW1Jv3">Reportar agencia : Use Case</option>
+<option value="shape|182.0|222.0|100.0|40.0|UseCase_FTlFM9GGAqBW1Nlg.html|UseCase_FTlFM9GGAqBW1Nlg.html|FTlFM9GGAqBW1Nlf" id="optionFTlFM9GGAqBW1Nlf">Gestionar pasaje : Use Case</option>
+<option value="shape|202.0|342.0|100.0|40.0|UseCase_fAnFM9GGAqBW1OWJ.html|UseCase_fAnFM9GGAqBW1OWJ.html|fAnFM9GGAqBW1OWI" id="optionfAnFM9GGAqBW1OWI">Gestionar viajero : Use Case</option>
+<option value="shape|202.0|482.0|80.0|40.0|UseCase_EDolM9GGAqBW1ADG.html|UseCase_EDolM9GGAqBW1ADG.html|EDolM9GGAqBW1ADF" id="optionEDolM9GGAqBW1ADF">Administrar reserva : Use Case</option>
+<option value="shape|522.0|172.0|110.0|40.0|UseCase_jloH6DGD_AAAAUYh.html|UseCase_jloH6DGD_AAAAUYh.html|9loH6DGD.AAAAUYf" id="option9loH6DGD.AAAAUYf">Registrar cuenta : Use Case</option>
+<option value="shape|542.0|322.0|100.0|40.0|UseCase_GkKH6DGD_AAAAW_w.html|UseCase_GkKH6DGD_AAAAW_w.html|GkKH6DGD.AAAAW_v" id="optionGkKH6DGD.AAAAW_v">Modificar cuenta : Use Case</option>
+</select>						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="10px">
+			</td>
+			<td>
+				<a href="javascript:showLayersDialog('layersDialog')">
+					<img style="border:none" src="../images/icons/Layers.gif" alt="Layers"/></a>
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<div style="position: relative;">
+					<img id = "diagram" src = "../images/icons/transp.gif" usemap="#diagram_map" class="Image" width="646" height="550" />
+					<img id = "fullDiagram" src = "../images/Use_Case_Diagram_ViajaYA.png" usemap="#diagram_map" class="Image" width="646" height="550" style="position: absolute; top: 0; left: 0;"/>
+					<img id = "diagramLayer0" src = "../images/icons/transp.gif" usemap="#diagram_map" class="Image" width="333" height="286" style="position: absolute; top: -11; left: -8; border: none; display: none;"/>
+					<img id = "diagramLayer1" src = "../images/icons/transp.gif" usemap="#diagram_map" class="Image" width="304" height="207" style="position: absolute; top: 329; left: 11; border: none; display: none;"/>
+					<img id = "diagramLayer2" src = "../images/icons/transp.gif" usemap="#diagram_map" class="Image" width="321" height="397" style="position: absolute; top: 159; left: 334; border: none; display: none;"/>
+					<img id = "diagramLayer3" src = "../images/icons/transp.gif" usemap="#diagram_map" class="Image" width="540" height="486" style="position: absolute; top: 27; left: 19; border: none; display: none;"/>
+					<map name = "diagram_map">
+
+<area coords="32.0, 182.0, 62.0, 202.0" coords2="32.0, 182.0, 62.0, 202.0" shape="rect" alt=":Generalization Set" id="areaJxY5M9GGAqBW1I0o" href="GeneralizationSet__xY5M9GGAqBW1I0e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="542.0, 322.0, 642.0, 374.0" coords2="542.0, 322.0, 642.0, 374.0" shape="rect" alt="Modificar cuenta:Use Case" id="areaGkKH6DGD.AAAAW_v" href="UseCase_GkKH6DGD_AAAAW_w.html" onmouseover="storeReferenceAndSubdiagramInfos('542.0, 322.0, 642.0, 362.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=I2dhM9GGAqBW1Bva/Modificar usuario/Requirement'),new Array('UserInterfaceDiagram_qwum19GAUCCo_o_j.html?shapeid=ibBm19GAUCCo.pFD/Modificar Usuario/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('542.0, 322.0, 642.0, 362.0')"/>
+<area coords="522.0, 172.0, 632.0, 224.0" coords2="522.0, 172.0, 632.0, 224.0" shape="rect" alt="Registrar cuenta:Use Case" id="area9loH6DGD.AAAAUYf" href="UseCase_jloH6DGD_AAAAUYh.html" onmouseover="storeReferenceAndSubdiagramInfos('522.0, 172.0, 632.0, 212.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=v7lhM9GGAqBW1Bor/Registrar cuenta/Requirement'),new Array('UserInterfaceDiagram_oRZ_l9GAUCCo_oug.html?shapeid=dc9.l9GAUCCo.o5G/Registrar Usuario/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('522.0, 172.0, 632.0, 212.0')"/>
+<area coords="202.0, 482.0, 282.0, 534.0" coords2="202.0, 482.0, 282.0, 534.0" shape="rect" alt="Administrar reserva:Use Case" id="areaEDolM9GGAqBW1ADF" href="UseCase_EDolM9GGAqBW1ADG.html" onmouseover="storeReferenceAndSubdiagramInfos('202.0, 482.0, 282.0, 522.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=mZKRM9GGAqBW1CD3/Buscar pasaje/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=qkjbM9GGAqBW1K2g/Visualizar reserva/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=LX1RM9GGAqBW1C4i/Listar reserva/Requirement'),new Array('UserInterfaceDiagram_nP2Tl9GAUCCo_ua2.html?shapeid=aAV7V9GAUCCo.jFg/Buscar Pasaje/UIWebPanel','UserInterfaceDiagram_nP2Tl9GAUCCo_ua2.html?shapeid=zkvQ19GAUCCo.lif/Listar Pasaje/UIWebPanel','UserInterfaceDiagram_nP2Tl9GAUCCo_ua2.html?shapeid=0Jb3V9GAUCCo.jwp/Reservar Pasaje/UIWebPanel','UserInterfaceDiagram_nP2Tl9GAUCCo_ua2.html?shapeid=WL4w19GAUCCo.mXu/Visualizar Reserva/UIWebPanel','UserInterfaceDiagram_nP2Tl9GAUCCo_ua2.html?shapeid=xz_gL9GGAqEGWNeL/Listar Reservas/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('202.0, 482.0, 282.0, 522.0')"/>
+<area coords="202.0, 342.0, 302.0, 394.0" coords2="202.0, 342.0, 302.0, 394.0" shape="rect" alt="Gestionar viajero:Use Case" id="areafAnFM9GGAqBW1OWI" href="UseCase_fAnFM9GGAqBW1OWJ.html" onmouseover="storeReferenceAndSubdiagramInfos('202.0, 342.0, 302.0, 382.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=ck8xM9GGAqBW1D4E/Modificar viajero/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=9t0xM9GGAqBW1DxV/Registrar viajero/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=0cixM9GGAqBW1D.x/Eliminar viajero/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=eD4xM9GGAqBW1Dqm/Listar viajero/Requirement'),new Array('UserInterfaceDiagram_Auxxc9GD_AAAAZzc.html?shapeid=VAYJc9GD.AAAAc51/Listar Viajero/UIWebPanel','UserInterfaceDiagram_Auxxc9GD_AAAAZzc.html?shapeid=ZfDpc9GD.AAAAQZ3/Modificar Viajero/UIWebPanel','UserInterfaceDiagram_Auxxc9GD_AAAAZzc.html?shapeid=bAYJc9GD.AAAAc6B/Registrar Viajero/UIWebPanel','UserInterfaceDiagram_Auxxc9GD_AAAAZzc.html?shapeid=4qsjl9GAUCCo.tIC/Notificación Viajero/UIWebPanel','UserInterfaceDiagram_Auxxc9GD_AAAAZzc.html?shapeid=eqsjl9GAUCCo.tJC/Advertencia Viajero/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('202.0, 342.0, 302.0, 382.0')"/>
+<area coords="182.0, 222.0, 282.0, 274.0" coords2="182.0, 222.0, 282.0, 274.0" shape="rect" alt="Gestionar pasaje:Use Case" id="areaFTlFM9GGAqBW1Nlf" href="UseCase_FTlFM9GGAqBW1Nlg.html" onmouseover="storeReferenceAndSubdiagramInfos('182.0, 222.0, 282.0, 262.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=jrepM9GGAqBW1GHU/Eliminar pasaje/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=Yf6RM9GGAqBW1CKm/Listar pasaje/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=b6WpM9GGAqBW1GAr/Modificar pasaje/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=iKqpM9GGAqBW1F6A/Registrar pasaje/Requirement'),new Array('UserInterfaceDiagram_qiWvz9GGAqEGWE_M.html?shapeid=KV.vz9GGAqEGWFQ2/Advertencia Pasaje/UIWebPanel','UserInterfaceDiagram_qiWvz9GGAqEGWE_M.html?shapeid=3l.vz9GGAqEGWFNL/Listar Pasaje/UIWebPanel','UserInterfaceDiagram_qiWvz9GGAqEGWE_M.html?shapeid=8V.vz9GGAqEGWFP7/Notificación Pasaje/UIWebPanel','UserInterfaceDiagram_qiWvz9GGAqEGWE_M.html?shapeid=QV.vz9GGAqEGWFOF/Registrar Pasaje/UIWebPanel','UserInterfaceDiagram_qiWvz9GGAqEGWE_M.html?shapeid=.pm_z9GGAqEGWKKd/Modificar Pasaje/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('182.0, 222.0, 282.0, 262.0')"/>
+<area coords="212.0, 402.0, 292.0, 454.0" coords2="212.0, 402.0, 292.0, 454.0" shape="rect" alt="Reportar agencia:Use Case" id="areaX3t5M9GGAqBW1Jv3" href="UseCase_X3t5M9GGAqBW1Jv4.html" onmouseover="storeReferenceAndSubdiagramInfos('212.0, 402.0, 292.0, 442.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=fsb06DGD.AAAAUkY/Reportar agencia/Requirement'),new Array('UserInterfaceDiagram_I1hec9GD_AAAATf_.html?shapeid=wi1ec9GD.AAAAWd5/Listar Agencia/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('212.0, 402.0, 292.0, 442.0')"/>
+<area coords="532.0, 242.0, 642.0, 294.0" coords2="532.0, 242.0, 642.0, 294.0" shape="rect" alt="Autenticar:Use Case" id="areaIoR5M9GGAqBW1JZU" href="UseCase_IoR5M9GGAqBW1JZV.html" onmouseover="storeReferenceAndSubdiagramInfos('532.0, 242.0, 642.0, 282.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=pFLBM9GGAqBW1A3D/Autenticar/Requirement'),new Array('UserInterfaceDiagram_oRZ_l9GAUCCo_oug.html?shapeid=dc9.l9GAUCCo.o5G/Registrar Usuario/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('532.0, 242.0, 642.0, 282.0')"/>
+<area coords="212.0, 142.0, 312.0, 194.0" coords2="212.0, 142.0, 312.0, 194.0" shape="rect" alt="Administrar usuario:Use Case" id="area.Xa5M9GGAqBW1JSd" href="UseCase__Xa5M9GGAqBW1JSe.html" onmouseover="storeReferenceAndSubdiagramInfos('212.0, 142.0, 312.0, 182.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=X6DRM9GGAqBW1C_P/Listar usuario/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=I2dhM9GGAqBW1Bva/Modificar usuario/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=v7lhM9GGAqBW1Bor/Registrar cuenta/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=W8bzM9GGAqBW1Gy0/Eliminar usuario/Requirement'),new Array('UserInterfaceDiagram_qwum19GAUCCo_o_j.html?shapeid=VHBm19GAUCCo.ppa/Advertencia Usuario/UIWebPanel','UserInterfaceDiagram_qwum19GAUCCo_o_j.html?shapeid=QbBm19GAUCCo.pDO/Listar Usuario/UIWebPanel','UserInterfaceDiagram_qwum19GAUCCo_o_j.html?shapeid=ibBm19GAUCCo.pFD/Modificar Usuario/UIWebPanel','UserInterfaceDiagram_qwum19GAUCCo_o_j.html?shapeid=GHBm19GAUCCo.ple/Notificación Usuario/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('212.0, 142.0, 312.0, 182.0')"/>
+<area coords="232.0, 82.0, 312.0, 134.0" coords2="232.0, 82.0, 312.0, 134.0" shape="rect" alt="Gestionar ruta:Use Case" id="areaSUK5M9GGAqBW1JLq" href="UseCase_SUK5M9GGAqBW1JLr.html" onmouseover="storeReferenceAndSubdiagramInfos('232.0, 82.0, 312.0, 122.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=ELfJM9GGAqBW1FSo/Eliminar ruta/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=gXFJM9GGAqBW1FE./Listar ruta/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=PuXJM9GGAqBW1FLv/Modificar ruta/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=YWgpM9GGAqBW1FZV/Registrar ruta/Requirement'),new Array('UserInterfaceDiagram_TDgnM9GGAqBW1C2p.html?shapeid=Y4DXM9GGAqBW1C3E/Listar Ruta/UIWebPanel','UserInterfaceDiagram_TDgnM9GGAqBW1C2p.html?shapeid=rF1os9GGAqBW1FJN/Modificar Ruta/UIWebPanel','UserInterfaceDiagram_TDgnM9GGAqBW1C2p.html?shapeid=.YQos9GGAqBW1D49/Registrar Ruta/UIWebPanel','UserInterfaceDiagram_TDgnM9GGAqBW1C2p.html?shapeid=DBwbV9GAUCCo.gqL/Notificación Ruta/UIWebPanel','UserInterfaceDiagram_TDgnM9GGAqBW1C2p.html?shapeid=shwbV9GAUCCo.guJ/Advertencia Ruta/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('232.0, 82.0, 312.0, 122.0')"/>
+<area coords="212.0, 2.0, 312.0, 54.0" coords2="212.0, 2.0, 312.0, 54.0" shape="rect" alt="Gestionar agencia:Use Case" id="areaDki5M9GGAqBW1JE3" href="UseCase_Dki5M9GGAqBW1JE4.html" onmouseover="storeReferenceAndSubdiagramInfos('212.0, 2.0, 312.0, 42.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=COnxM9GGAqBW1EdW/Modificar agencia/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=tmrxM9GGAqBW1ERV/Registrar agencia/Requirement','RequirementDiagram_bWjBM9GGAqBW1A26.html?shapeid=pf3xM9GGAqBW1EkD/Eliminar agencia/Requirement'),new Array('UserInterfaceDiagram_I1hec9GD_AAAATf_.html?shapeid=1WEBc9GD.AAAAY2n/Modificar Agencia/UIWebPanel','UserInterfaceDiagram_I1hec9GD_AAAATf_.html?shapeid=ii1ec9GD.AAAAWeF/Registrar Agencia/UIWebPanel','UserInterfaceDiagram_I1hec9GD_AAAATf_.html?shapeid=GBhml9GAUCCo.lCR/Advertencia Agencia/UIWebPanel','UserInterfaceDiagram_I1hec9GD_AAAATf_.html?shapeid=E.hml9GAUCCo.lBQ/Notificación Agencia/UIWebPanel')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('212.0, 2.0, 312.0, 42.0')"/>
+<area coords="382.0, 472.0, 412.0, 532.0" coords2="382.0, 472.0, 412.0, 532.0" shape="rect" alt="Pasarela de Pago:Actor" id="areaS7HZM9GGAqBW1Itp" href="Actor_S7HZM9GGAqBW1Itq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="372.0, 262.0, 402.0, 322.0" coords2="372.0, 262.0, 402.0, 322.0" shape="rect" alt="Usuario:Actor" id="areaaa7ZM9GGAqBW1Ist" href="Actor_aa7ZM9GGAqBW1Isu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 452.0, 62.0, 512.0" coords2="32.0, 452.0, 62.0, 512.0" shape="rect" alt="Cliente:Actor" id="areaiKrZM9GGAqBW1Irv" href="Actor_iKrZM9GGAqBW1Irw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 82.0, 62.0, 142.0" coords2="32.0, 82.0, 62.0, 142.0" shape="rect" alt="Administrador:Actor" id="areaDKzZM9GGAqBW1Iqu" href="Actor_DKzZM9GGAqBW1Iqv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="35.0, 146.0, 35.0, 285.0, 32.0, 285.0, 32.0, 299.0, 35.0, 299.0, 35.0, 302.0, 49.0, 302.0, 49.0, 299.0, 382.0, 299.0, 382.0, 285.0, 49.0, 285.0, 49.0, 146.0" coords2="35.0, 146.0, 35.0, 285.0, 32.0, 285.0, 32.0, 299.0, 35.0, 299.0, 35.0, 302.0, 49.0, 302.0, 49.0, 299.0, 382.0, 299.0, 382.0, 285.0, 49.0, 285.0, 49.0, 146.0" shape="poly" alt=":Generalization" id="areaxI_ZM9GGAqBW1IwP" href="Generalization_RI_ZM9GGAqBW1IwG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="35.0, 282.0, 35.0, 285.0, 32.0, 285.0, 32.0, 299.0, 35.0, 299.0, 35.0, 461.0, 49.0, 461.0, 49.0, 299.0, 381.0, 299.0, 381.0, 285.0, 49.0, 285.0, 49.0, 282.0" coords2="35.0, 282.0, 35.0, 285.0, 32.0, 285.0, 32.0, 299.0, 35.0, 299.0, 35.0, 461.0, 49.0, 461.0, 49.0, 299.0, 381.0, 299.0, 381.0, 285.0, 49.0, 285.0, 49.0, 282.0" shape="poly" alt=":Generalization" id="areaXwA5M9GGAqBW1Iwf" href="Generalization_XwA5M9GGAqBW1IwW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="221.0, 364.0, 50.0, 450.0, 55.0, 463.0, 226.0, 377.0, 221.0, 364.0" coords2="221.0, 364.0, 50.0, 450.0, 55.0, 463.0, 226.0, 377.0, 221.0, 364.0" shape="poly" alt=":Association" id="areaQUcDM9GGAqBW1E_m" href="Association_QUcDM9GGAqBW1E_J.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="52.0, 495.0, 52.0, 509.0, 212.0, 509.0, 212.0, 495.0" coords2="52.0, 495.0, 52.0, 509.0, 212.0, 509.0, 212.0, 495.0" shape="poly" alt=":Association" id="area8ncDM9GGAqBW1FAI" href="Association_8ncDM9GGAqBW1E_r.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="392.0, 255.0, 392.0, 269.0, 542.0, 269.0, 542.0, 255.0" coords2="392.0, 255.0, 392.0, 269.0, 542.0, 269.0, 542.0, 255.0" shape="poly" alt=":Association" id="areaUByDM9GGAqBW1FC4" href="Association_UByDM9GGAqBW1FCb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="241.0, 433.0, 52.0, 446.0, 52.0, 460.0, 241.0, 447.0, 241.0, 433.0" coords2="241.0, 433.0, 52.0, 446.0, 52.0, 460.0, 241.0, 447.0, 241.0, 433.0" shape="poly" alt=":Association" id="areaCoqDM9GGAqBW1FD." href="Association_8oqDM9GGAqBW1FDh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="233.0, 27.0, 51.0, 78.0, 55.0, 92.0, 236.0, 41.0, 233.0, 27.0" coords2="233.0, 27.0, 51.0, 78.0, 55.0, 92.0, 236.0, 41.0, 233.0, 27.0" shape="poly" alt=":Association" id="areajEGDM9GGAqBW1FFk" href="Association_jEGDM9GGAqBW1FFH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="52.0, 95.0, 52.0, 109.0, 242.0, 109.0, 242.0, 95.0" coords2="52.0, 95.0, 52.0, 109.0, 242.0, 109.0, 242.0, 95.0" shape="poly" alt=":Association" id="areaTrGDM9GGAqBW1FGG" href="Association_jrGDM9GGAqBW1FFp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="80.0, 145.0, 80.0, 159.0, 228.0, 159.0, 228.0, 145.0" coords2="80.0, 145.0, 80.0, 159.0, 228.0, 159.0, 228.0, 145.0" shape="poly" alt=":Association" id="areaXJmDM9GGAqBW1FGo" href="Association_nJmDM9GGAqBW1FGL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="85.0, 145.0, 77.0, 156.0, 196.0, 240.0, 204.0, 229.0, 85.0, 145.0" coords2="85.0, 145.0, 77.0, 156.0, 196.0, 240.0, 204.0, 229.0, 85.0, 145.0" shape="poly" alt=":Association" id="areawuWDM9GGAqBW1FHM" href="Association_wuWDM9GGAqBW1FGv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 495.0, 272.0, 509.0, 391.0, 509.0, 391.0, 495.0" coords2="272.0, 495.0, 272.0, 509.0, 391.0, 509.0, 391.0, 495.0" shape="poly" alt=":Association" id="areayZGS_9GD.AAAAWug" href="Association_yZGS_9GD_AAAAWt2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="542.0, 194.0, 390.0, 260.0, 395.0, 273.0, 547.0, 207.0, 542.0, 194.0" coords2="542.0, 194.0, 390.0, 260.0, 395.0, 273.0, 547.0, 207.0, 542.0, 194.0" shape="poly" alt=":Association" id="areapacH6DGD.AAAAVz6" href="Association_pacH6DGD_AAAAVzd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="406.0, 325.0, 406.0, 339.0, 558.0, 339.0, 558.0, 325.0" coords2="406.0, 325.0, 406.0, 339.0, 558.0, 339.0, 558.0, 325.0" shape="poly" alt=":Association" id="area_EmH6DGD.AAAAXM6" href="Association__EmH6DGD_AAAAXMd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>				</div>
+			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Actor_DKzZM9GGAqBW1Iqv.html">Administrador : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Actor_iKrZM9GGAqBW1Irw.html">Cliente : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Actor_aa7ZM9GGAqBW1Isu.html">Usuario : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Actor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Actor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Actor_S7HZM9GGAqBW1Itq.html">Pasarela de Pago : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/GeneralizationSet.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/GeneralizationSet.png');">
+					</div>
+					&nbsp; <span class="TableContent">N/A : Generalization Set</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_Dki5M9GGAqBW1JE4.html">Gestionar agencia : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_SUK5M9GGAqBW1JLr.html">Gestionar ruta : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase__Xa5M9GGAqBW1JSe.html">Administrar usuario : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_IoR5M9GGAqBW1JZV.html">Autenticar : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_X3t5M9GGAqBW1Jv4.html">Reportar agencia : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_FTlFM9GGAqBW1Nlg.html">Gestionar pasaje : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_fAnFM9GGAqBW1OWJ.html">Gestionar viajero : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_EDolM9GGAqBW1ADG.html">Administrar reserva : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_jloH6DGD_AAAAUYh.html">Registrar cuenta : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UseCase.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UseCase.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UseCase_GkKH6DGD_AAAAW_w.html">Modificar cuenta : Use Case</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div id="layersDialog" style="width:480px; height:220px; position: fixed; _position: absolute; background-color: #F0F0F0; top: 100px; left: 100px; padding: 10px; display: none">
+		<table height="100%" width="100%" cellpadding="2" border="0" cellspacing="0">
+			<tr>
+				<td>
+Diagram Layers				</td>
+			</tr>
+			<tr>
+				<td>
+					<table bordercolor="#37525E" frame="border" width="auto" cellpadding="5" border="1" cellspacing="0" rules="all">
+						<tr>
+							<td>
+Visible							</td>
+							<td width="100%">
+Name							</td>
+						</tr>
+						<tr style="background: white;">
+							<td style="text-align: center">
+								<input id="paSWl9GAUCCo.m2f" type="checkbox" checked />
+							</td>
+							<td>
+								<table width="auto" cellpadding="0" border="0" cellspacing="0">
+									<tr>
+										<td>
+											<img id = "diagram" src = "../images/Use_Case_Diagram_ViajaYA_0preview.png" class="Image" width="90" height="50"/>										</td>
+										<td>
+New Layer										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr style="background: white;">
+							<td style="text-align: center">
+								<input id="paSWl9GAUCCo.m2g" value="diagramLayer0;diagramLayer1;diagramLayer2;diagramLayer3" type="checkbox" checked disabled />
+							</td>
+							<td>
+								<table width="auto" cellpadding="0" border="0" cellspacing="0">
+									<tr>
+										<td>
+											<img id = "diagram" src = "../images/Use_Case_Diagram_ViajaYA_1preview.png" class="Image" width="90" height="50"/>										</td>
+										<td>
+&lt;Default&gt;										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td style="text-align: right;">
+					<input onClick="javascript:okLayersDialog('layersDialog', ['paSWl9GAUCCo.m2f', 'paSWl9GAUCCo.m2g']);" value="Close" type="button" />
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface1</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface1	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|142.0|352.0|30.0|60.0|InteractionActor_CyXaoDGAUCCo_i93.html|InteractionActor_CyXaoDGAUCCo_i93.html|WIvvuDGD.AAAAbwp" id="optionWIvvuDGD.AAAAbwp">Administrador : Actor</option>
+<option value="shape|342.0|192.0|150.0|40.0|InteractionLifeLine_jSXaoDGAUCCo_i0b.html|InteractionLifeLine_jSXaoDGAUCCo_i0b.html|NwvvuDGD.AAAAbtI" id="optionNwvvuDGD.AAAAbtI">CI_Principal : Lifeline</option>
+<option value="shape|322.0|362.0|190.0|40.0|InteractionLifeLine_jSXaoDGAUCCo_i2T.html|InteractionLifeLine_jSXaoDGAUCCo_i2T.html|3wvvuDGD.AAAAbt1" id="option3wvvuDGD.AAAAbt1">CI_Listar_Pasaje : Lifeline</option>
+<option value="shape|1092.0|362.0|150.0|40.0|InteractionLifeLine_gyXaoDGAUCCo_i4M.html|InteractionLifeLine_gyXaoDGAUCCo_i4M.html|3wvvuDGD.AAAAbui" id="option3wvvuDGD.AAAAbui">CE_Pasaje : Lifeline</option>
+<option value="shape|682.0|362.0|260.0|40.0|InteractionLifeLine_gyXaoDGAUCCo_i6F.html|InteractionLifeLine_gyXaoDGAUCCo_i6F.html|UIvvuDGD.AAAAbvP" id="optionUIvvuDGD.AAAAbvP">CC_Gestionar_Pasaje : Lifeline</option>
+<option value="shape|292.0|572.0|250.0|40.0|InteractionLifeLine_CyXaoDGAUCCo_i7_.html|InteractionLifeLine_CyXaoDGAUCCo_i7_.html|UIvvuDGD.AAAAbv8" id="optionUIvvuDGD.AAAAbv8">CI_Registrar_Pasaje : Lifeline</option>
+<option value="shape|882.0|132.0|130.0|40.0|InteractionLifeLine_t0U7uDGD_AAAAVyT.html|InteractionLifeLine_t0U7uDGD_AAAAVyT.html|RovvuDGD.AAAAb7z" id="optionRovvuDGD.AAAAb7z">CE_Ruta : Lifeline</option>
+<option value="shape|532.0|342.0|60.0|60.0|Message_ByXaoDGAUCCo_i_e.html|Message_ByXaoDGAUCCo_i_e.html|WIvvuDGD.AAAAbxO" id="optionWIvvuDGD.AAAAbxO">MostrarListaPasaje() : Message</option>
+<option value="shape|612.0|452.0|60.0|60.0|Message_ByXaoDGAUCCo_jGl.html|Message_ByXaoDGAUCCo_jGl.html|WIvvuDGD.AAAAbx9" id="optionWIvvuDGD.AAAAbx9">muestraFormularioRegistrarPasaje() : Message</option>
+<option value="shape|612.0|452.0|60.0|60.0|Message_ByXaoDGAUCCo_jNs.html|Message_ByXaoDGAUCCo_jNs.html|VIvvuDGD.AAAAbys" id="optionVIvvuDGD.AAAAbys">MuestraMensaje("“La operación se ha realizado con éxitos") : Message</option>
+<option value="shape|612.0|452.0|60.0|60.0|Message_DyXaoDGAUCCo_jRn.html|Message_DyXaoDGAUCCo_jRn.html|VIvvuDGD.AAAAbzX" id="optionVIvvuDGD.AAAAbzX">[A == False] MuestraMensaje("“Este campo es requerido") : Message</option>
+<option value="shape|212.0|242.0|60.0|60.0|Message_DyXaoDGAUCCo_jVi.html|Message_DyXaoDGAUCCo_jVi.html|TIvvuDGD.AAAAb0C" id="optionTIvvuDGD.AAAAb0C">SeleccionaGestionarPasaje : Message</option>
+<option value="shape|552.0|252.0|60.0|60.0|Message_DyXaoDGAUCCo_jcp.html|Message_DyXaoDGAUCCo_jcp.html|TIvvuDGD.AAAAb0x" id="optionTIvvuDGD.AAAAb0x">enviarAccion(listar) : Message</option>
+<option value="shape|982.0|372.0|60.0|60.0|Message__yXaoDGAUCCo_jjw.html|Message__yXaoDGAUCCo_jjw.html|TIvvuDGD.AAAAb1g" id="optionTIvvuDGD.AAAAb1g">listar() : Message</option>
+<option value="shape|782.0|272.0|60.0|60.0|Message__yXaoDGAUCCo_jq3.html|Message__yXaoDGAUCCo_jq3.html|QovvuDGD.AAAAb2P" id="optionQovvuDGD.AAAAb2P">A := validarCampos() : Message</option>
+<option value="shape|222.0|342.0|60.0|60.0|Message__yXaoDGAUCCo_jx_.html|Message__yXaoDGAUCCo_jx_.html|QovvuDGD.AAAAb2." id="optionQovvuDGD.AAAAb2.">SeleccionaRegistrarPasaje : Message</option>
+<option value="shape|532.0|372.0|60.0|60.0|Message_iKXaoDGAUCCo_j5F.html|Message_iKXaoDGAUCCo_j5F.html|QovvuDGD.AAAAb3t" id="optionQovvuDGD.AAAAb3t">enviarAccion(registrar) : Message</option>
+<option value="shape|182.0|442.0|60.0|60.0|Message_iKXaoDGAUCCo_j9A.html|Message_iKXaoDGAUCCo_j9A.html|CovvuDGD.AAAAb4Y" id="optionCovvuDGD.AAAAb4Y">CompletarFormularioRegistrarPasaje(origen, destino, fecha, precio, tranporte, capacidad) : Message</option>
+<option value="shape|522.0|512.0|60.0|60.0|Message_hKXaoDGAUCCo_kEH.html|Message_hKXaoDGAUCCo_kEH.html|SovvuDGD.AAAAb5H" id="optionSovvuDGD.AAAAb5H">enviarAccion(registrar) : Message</option>
+<option value="shape|982.0|372.0|60.0|60.0|Message_hKXaoDGAUCCo_kIC.html|Message_hKXaoDGAUCCo_kIC.html|SovvuDGD.AAAAb5y" id="optionSovvuDGD.AAAAb5y">[B==True] registrar(origen, destino, fecha, precio, tranporte, capacidad) : Message</option>
+<option value="shape|782.0|272.0|60.0|60.0|Message_K2XauDGD_AAAAQUM.html|Message_K2XauDGD_AAAAQUM.html|SovvuDGD.AAAAb6d" id="optionSovvuDGD.AAAAb6d">[A==True] B := validarDatos() : Message</option>
+<option value="shape|612.0|452.0|60.0|60.0|Message_kWu6uDGD_AAAAQug.html|Message_kWu6uDGD_AAAAQug.html|RovvuDGD.AAAAb7I" id="optionRovvuDGD.AAAAb7I">[B == False] MuestraMensaje("Datos incorrectos") : Message</option>
+<option value="shape|932.0|212.0|60.0|60.0|Message_3JSHuDGD_AAAAV5u.html|Message_3JSHuDGD_AAAAV5u.html|VovvuDGD.AAAAb8g" id="optionVovvuDGD.AAAAb8g">listar() : Message</option>
+<option value="shape|2.0|2.0|1450.0|740.0|UIPanel_hGrvuDGD_AAAAYkN.html|UIPanel_hGrvuDGD_AAAAYkN.html|hGrvuDGD.AAAAYkM" id="optionhGrvuDGD.AAAAYkM">Panel : UIPanel</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface1.png" usemap="#diagram_map" class="Image" width="1456.0" height="746.0"/>				<map name = "diagram_map">
+
+<area coords="932.0, 212.0, 992.0, 272.0" coords2="932.0, 212.0, 992.0, 272.0" shape="rect" alt="7: listar():Message" id="areaVovvuDGD.AAAAb8g" href="Message_3JSHuDGD_AAAAV5u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="782.0, 272.0, 842.0, 332.0" coords2="782.0, 272.0, 842.0, 332.0" shape="rect" alt="12: [A==True] B := validarDatos():Message" id="areaSovvuDGD.AAAAb6d" href="Message_K2XauDGD_AAAAQUM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="982.0, 372.0, 1042.0, 432.0" coords2="982.0, 372.0, 1042.0, 432.0" shape="rect" alt="13: [B==True] registrar(origen, destino, fecha, precio, tranporte, capacidad):Message" id="areaSovvuDGD.AAAAb5y" href="Message_hKXaoDGAUCCo_kIC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="522.0, 512.0, 582.0, 572.0" coords2="522.0, 512.0, 582.0, 572.0" shape="rect" alt="10: enviarAccion(registrar):Message" id="areaSovvuDGD.AAAAb5H" href="Message_hKXaoDGAUCCo_kEH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="182.0, 442.0, 242.0, 502.0" coords2="182.0, 442.0, 242.0, 502.0" shape="rect" alt="9: CompletarFormularioRegistrarPasaje(origen, destino, fecha, precio, tranporte, capacidad):Message" id="areaCovvuDGD.AAAAb4Y" href="Message_iKXaoDGAUCCo_j9A.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 372.0, 592.0, 432.0" coords2="532.0, 372.0, 592.0, 432.0" shape="rect" alt="6: enviarAccion(registrar):Message" id="areaQovvuDGD.AAAAb3t" href="Message_iKXaoDGAUCCo_j5F.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="222.0, 342.0, 282.0, 402.0" coords2="222.0, 342.0, 282.0, 402.0" shape="rect" alt="5: SeleccionaRegistrarPasaje:Message" id="areaQovvuDGD.AAAAb2." href="Message__yXaoDGAUCCo_jx_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="782.0, 272.0, 842.0, 332.0" coords2="782.0, 272.0, 842.0, 332.0" shape="rect" alt="11: A := validarCampos():Message" id="areaQovvuDGD.AAAAb2P" href="Message__yXaoDGAUCCo_jq3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="982.0, 372.0, 1042.0, 432.0" coords2="982.0, 372.0, 1042.0, 432.0" shape="rect" alt="3: listar():Message" id="areaTIvvuDGD.AAAAb1g" href="Message__yXaoDGAUCCo_jjw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="552.0, 252.0, 612.0, 312.0" coords2="552.0, 252.0, 612.0, 312.0" shape="rect" alt="2: enviarAccion(listar):Message" id="areaTIvvuDGD.AAAAb0x" href="Message_DyXaoDGAUCCo_jcp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="212.0, 242.0, 272.0, 302.0" coords2="212.0, 242.0, 272.0, 302.0" shape="rect" alt="1: SeleccionaGestionarPasaje:Message" id="areaTIvvuDGD.AAAAb0C" href="Message_DyXaoDGAUCCo_jVi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="612.0, 452.0, 672.0, 512.0" coords2="612.0, 452.0, 672.0, 512.0" shape="rect" alt="16: [B == False] MuestraMensaje("Datos incorrectos"):Message" id="areaRovvuDGD.AAAAb7I" href="Message_kWu6uDGD_AAAAQug.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="612.0, 452.0, 672.0, 512.0" coords2="612.0, 452.0, 672.0, 512.0" shape="rect" alt="15: [A == False] MuestraMensaje("“Este campo es requerido"):Message" id="areaVIvvuDGD.AAAAbzX" href="Message_DyXaoDGAUCCo_jRn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="612.0, 452.0, 672.0, 512.0" coords2="612.0, 452.0, 672.0, 512.0" shape="rect" alt="14: MuestraMensaje("“La operación se ha realizado con éxitos"):Message" id="areaVIvvuDGD.AAAAbys" href="Message_ByXaoDGAUCCo_jNs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="612.0, 452.0, 672.0, 512.0" coords2="612.0, 452.0, 672.0, 512.0" shape="rect" alt="8: muestraFormularioRegistrarPasaje():Message" id="areaWIvvuDGD.AAAAbx9" href="Message_ByXaoDGAUCCo_jGl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 342.0, 592.0, 402.0" coords2="532.0, 342.0, 592.0, 402.0" shape="rect" alt="4: MostrarListaPasaje():Message" id="areaWIvvuDGD.AAAAbxO" href="Message_ByXaoDGAUCCo_i_e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="882.0, 132.0, 1012.0, 184.0" coords2="882.0, 132.0, 1012.0, 184.0" shape="rect" alt="CE_Ruta : CE_Ruta:Lifeline" id="areaRovvuDGD.AAAAb7z" href="InteractionLifeLine_t0U7uDGD_AAAAVyT.html" onmouseover="storeReferenceAndSubdiagramInfos('882.0, 132.0, 1012.0, 172.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('Class_Pr1979GD_AAAATqJ.html/CE_Ruta/Class')),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('882.0, 132.0, 1012.0, 172.0')"/>
+<area coords="142.0, 352.0, 172.0, 412.0" coords2="142.0, 352.0, 172.0, 412.0" shape="rect" alt="Administrador:Actor" id="areaWIvvuDGD.AAAAbwp" href="InteractionActor_CyXaoDGAUCCo_i93.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 572.0, 542.0, 612.0" coords2="292.0, 572.0, 542.0, 612.0" shape="rect" alt="CI_Registrar_Pasaje : CI_Registrar_Pasaje:Lifeline" id="areaUIvvuDGD.AAAAbv8" href="InteractionLifeLine_CyXaoDGAUCCo_i7_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="682.0, 362.0, 942.0, 402.0" coords2="682.0, 362.0, 942.0, 402.0" shape="rect" alt="CC_Gestionar_Pasaje : CC_Gestionar_Pasaje:Lifeline" id="areaUIvvuDGD.AAAAbvP" href="InteractionLifeLine_gyXaoDGAUCCo_i6F.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1092.0, 362.0, 1242.0, 402.0" coords2="1092.0, 362.0, 1242.0, 402.0" shape="rect" alt="CE_Pasaje : CE_Pasaje:Lifeline" id="area3wvvuDGD.AAAAbui" href="InteractionLifeLine_gyXaoDGAUCCo_i4M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="322.0, 362.0, 512.0, 402.0" coords2="322.0, 362.0, 512.0, 402.0" shape="rect" alt="CI_Listar_Pasaje : CI_Listar_Pasaje:Lifeline" id="area3wvvuDGD.AAAAbt1" href="InteractionLifeLine_jSXaoDGAUCCo_i2T.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="342.0, 192.0, 492.0, 232.0" coords2="342.0, 192.0, 492.0, 232.0" shape="rect" alt="CI_Principal : CI_Principal:Lifeline" id="areaNwvvuDGD.AAAAbtI" href="InteractionLifeLine_jSXaoDGAUCCo_i0b.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 2.0, 1452.0, 742.0" coords2="2.0, 2.0, 1452.0, 742.0" shape="rect" alt="Panel:UIPanel" id="areahGrvuDGD.AAAAYkM" href="UIPanel_hGrvuDGD_AAAAYkN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="488.0, 221.0, 480.0, 232.0, 685.0, 372.0, 693.0, 361.0, 488.0, 221.0" coords2="488.0, 221.0, 480.0, 232.0, 685.0, 372.0, 693.0, 361.0, 488.0, 221.0" shape="poly" alt=":Link" id="areaTIvvuDGD.AAAAb1c" href="InteractionLifeLineLink__yXaoDGAUCCo_jgk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="507.0, 380.0, 507.0, 394.0, 696.0, 394.0, 696.0, 380.0" coords2="507.0, 380.0, 507.0, 394.0, 696.0, 394.0, 696.0, 380.0" shape="poly" alt=":Link" id="areaWIvvuDGD.AAAAbx5" href="InteractionLifeLineLink_ByXaoDGAUCCo_jDZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="790.0, 305.0, 790.0, 308.0, 787.0, 308.0, 787.0, 322.0, 790.0, 322.0, 790.0, 374.0, 804.0, 374.0, 804.0, 322.0, 820.0, 322.0, 820.0, 374.0, 834.0, 374.0, 834.0, 322.0, 837.0, 322.0, 837.0, 308.0, 834.0, 308.0, 834.0, 305.0, 820.0, 305.0, 820.0, 308.0, 804.0, 308.0, 804.0, 305.0" coords2="790.0, 305.0, 790.0, 308.0, 787.0, 308.0, 787.0, 322.0, 790.0, 322.0, 790.0, 374.0, 804.0, 374.0, 804.0, 322.0, 820.0, 322.0, 820.0, 374.0, 834.0, 374.0, 834.0, 322.0, 837.0, 322.0, 837.0, 308.0, 834.0, 308.0, 834.0, 305.0, 820.0, 305.0, 820.0, 308.0, 804.0, 308.0, 804.0, 305.0" shape="poly" alt=":Link" id="areaQovvuDGD.AAAAb26" href="InteractionLifeLineLink__yXaoDGAUCCo_juy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="935.0, 380.0, 935.0, 394.0, 1104.0, 394.0, 1104.0, 380.0" coords2="935.0, 380.0, 935.0, 394.0, 1104.0, 394.0, 1104.0, 380.0" shape="poly" alt=":Link" id="areaTIvvuDGD.AAAAb2L" href="InteractionLifeLineLink__yXaoDGAUCCo_jnr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="682.0, 389.0, 530.0, 575.0, 541.0, 584.0, 693.0, 398.0, 682.0, 389.0" coords2="682.0, 389.0, 530.0, 575.0, 541.0, 584.0, 693.0, 398.0, 682.0, 389.0" shape="poly" alt=":Link" id="areaVIvvuDGD.AAAAbyo" href="InteractionLifeLineLink_ByXaoDGAUCCo_jKg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="345.0, 221.0, 160.0, 351.0, 168.0, 362.0, 353.0, 232.0, 345.0, 221.0" coords2="345.0, 221.0, 160.0, 351.0, 168.0, 362.0, 353.0, 232.0, 345.0, 221.0" shape="poly" alt=":Link" id="areaTIvvuDGD.AAAAb0t" href="InteractionLifeLineLink_DyXaoDGAUCCo_jZd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="167.0, 380.0, 167.0, 394.0, 336.0, 394.0, 336.0, 380.0" coords2="167.0, 380.0, 167.0, 394.0, 336.0, 394.0, 336.0, 380.0" shape="poly" alt=":Link" id="areaQovvuDGD.AAAAb3p" href="InteractionLifeLineLink_iKXaoDGAUCCo_j15.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="172.0, 400.0, 161.0, 408.0, 291.0, 583.0, 302.0, 575.0, 172.0, 400.0" coords2="172.0, 400.0, 161.0, 408.0, 291.0, 583.0, 302.0, 575.0, 172.0, 400.0" shape="poly" alt=":Link" id="areaSovvuDGD.AAAAb5D" href="InteractionLifeLineLink_hKXaoDGAUCCo_kA7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="938.0, 165.0, 938.0, 375.0, 952.0, 375.0, 952.0, 165.0" coords2="938.0, 165.0, 938.0, 375.0, 952.0, 375.0, 952.0, 165.0" shape="poly" alt=":Link" id="areaVovvuDGD.AAAAb9L" href="InteractionLifeLineLink_X_C7uDGD_AAAAV0G.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionActor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionActor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionActor_CyXaoDGAUCCo_i93.html">Administrador : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_jSXaoDGAUCCo_i0b.html">CI_Principal : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_jSXaoDGAUCCo_i2T.html">CI_Listar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_gyXaoDGAUCCo_i4M.html">CE_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_gyXaoDGAUCCo_i6F.html">CC_Gestionar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_CyXaoDGAUCCo_i7_.html">CI_Registrar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_t0U7uDGD_AAAAVyT.html">CE_Ruta : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_ByXaoDGAUCCo_i_e.html">MostrarListaPasaje() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_ByXaoDGAUCCo_jGl.html">muestraFormularioRegistrarPasaje() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_ByXaoDGAUCCo_jNs.html">MuestraMensaje("“La operación se ha realizado con éxitos") : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_DyXaoDGAUCCo_jRn.html">[A == False] MuestraMensaje("“Este campo es requerido") : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_DyXaoDGAUCCo_jVi.html">SeleccionaGestionarPasaje : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_DyXaoDGAUCCo_jcp.html">enviarAccion(listar) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message__yXaoDGAUCCo_jjw.html">listar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message__yXaoDGAUCCo_jq3.html">A := validarCampos() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message__yXaoDGAUCCo_jx_.html">SeleccionaRegistrarPasaje : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_iKXaoDGAUCCo_j5F.html">enviarAccion(registrar) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_iKXaoDGAUCCo_j9A.html">CompletarFormularioRegistrarPasaje(origen, destino, fecha, precio, tranporte, capacidad) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_hKXaoDGAUCCo_kEH.html">enviarAccion(registrar) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_hKXaoDGAUCCo_kIC.html">[B==True] registrar(origen, destino, fecha, precio, tranporte, capacidad) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_K2XauDGD_AAAAQUM.html">[A==True] B := validarDatos() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_kWu6uDGD_AAAAQug.html">[B == False] MuestraMensaje("Datos incorrectos") : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_3JSHuDGD_AAAAV5u.html">listar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIPanel.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="UIPanel_hGrvuDGD_AAAAYkN.html">Panel : UIPanel</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

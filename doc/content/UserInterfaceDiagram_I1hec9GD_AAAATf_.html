@@ -1,0 +1,1626 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface Gestionar Agencia</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface Gestionar Agencia	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|822.0|490.0|80.0|30.0|UIWebButtonInput__vlec9GD_AAAAUPH.html|UIWebButtonInput__vlec9GD_AAAAUPH.html|ei1ec9GD.AAAAWef" id="optionei1ec9GD.AAAAWef">Registrar : UIWebButtonInput</option>
+<option value="shape|802.0|590.0|30.0|30.0|UIWebButtonInput_EAVec9GD_AAAAUo4.html|UIWebButtonInput_EAVec9GD_AAAAUo4.html|Zy1ec9GD.AAAAWlN" id="optionZy1ec9GD.AAAAWlN">M : UIWebButtonInput</option>
+<option value="shape|842.0|590.0|30.0|30.0|UIWebButtonInput_SAVec9GD_AAAAUp_.html|UIWebButtonInput_SAVec9GD_AAAAUp_.html|Ny1ec9GD.AAAAWlg" id="optionNy1ec9GD.AAAAWlg">E : UIWebButtonInput</option>
+<option value="shape|802.0|620.0|30.0|30.0|UIWebButtonInput_WAVec9GD_AAAAUrG.html|UIWebButtonInput_WAVec9GD_AAAAUrG.html|jy1ec9GD.AAAAWlz" id="optionjy1ec9GD.AAAAWlz">M : UIWebButtonInput</option>
+<option value="shape|842.0|620.0|30.0|30.0|UIWebButtonInput_xAVec9GD_AAAAUsN.html|UIWebButtonInput_xAVec9GD_AAAAUsN.html|7y1ec9GD.AAAAWmG" id="option7y1ec9GD.AAAAWmG">E : UIWebButtonInput</option>
+<option value="shape|740.0|490.0|80.0|30.0|UIWebButtonInput_cflec9GD_AAAAUVW.html|UIWebButtonInput_cflec9GD_AAAAUVW.html|AS1ec9GD.AAAAWgB" id="optionAS1ec9GD.AAAAWgB">Eliminar : UIWebButtonInput</option>
+<option value="shape|22.0|520.0|230.0|20.0|UIWebButtonInput_sgxIL9GGAqEGWAJK.html|UIWebButtonInput_sgxIL9GGAqEGWAJK.html|bPfz79GD.AAAAeaD" id="optionbPfz79GD.AAAAeaD">Gestionar Pasaje : UIWebButtonInput</option>
+<option value="shape|22.0|520.0|230.0|20.0|UIWebButtonInput_2aLIL9GGAqEGWANH.html|UIWebButtonInput_2aLIL9GGAqEGWANH.html|XPfz79GD.AAAAeaU" id="optionXPfz79GD.AAAAeaU">Gestionar Pasaje : UIWebButtonInput</option>
+<option value="shape|22.0|560.0|230.0|20.0|UIWebButtonInput_o6rIL9GGAqEGWART.html|UIWebButtonInput_o6rIL9GGAqEGWART.html|fPfz79GD.AAAAeal" id="optionfPfz79GD.AAAAeal">Gestionar Usuario : UIWebButtonInput</option>
+<option value="shape|22.0|600.0|230.0|20.0|UIWebButtonInput_6F7IL9GGAqEGWAXe.html|UIWebButtonInput_6F7IL9GGAqEGWAXe.html|wvfz79GD.AAAAea3" id="optionwvfz79GD.AAAAea3">Gestionar Ruta : UIWebButtonInput</option>
+<option value="shape|22.0|640.0|230.0|20.0|UIWebButtonInput_JF7IL9GGAqEGWAYj.html|UIWebButtonInput_JF7IL9GGAqEGWAYj.html|4vfz79GD.AAAAebJ" id="option4vfz79GD.AAAAebJ">Gestionar Agencia : UIWebButtonInput</option>
+<option value="shape|292.0|600.0|20.0|20.0|UIWebCheckBoxInput_5_lec9GD_AAAAUjV.html|UIWebCheckBoxInput_5_lec9GD_AAAAUjV.html|oy1ec9GD.AAAAWjs" id="optionoy1ec9GD.AAAAWjs">CheckBox : UIWebCheckBoxInput</option>
+<option value="shape|292.0|630.0|20.0|20.0|UIWebCheckBoxInput_d_lec9GD_AAAAUkf.html|UIWebCheckBoxInput_d_lec9GD_AAAAUkf.html|ky1ec9GD.AAAAWkA" id="optionky1ec9GD.AAAAWkA">CheckBox : UIWebCheckBoxInput</option>
+<option value="shape|1012.0|640.0|300.0|30.0|UIWebComboBox_1NVBc9GD_AAAAZdF.html|UIWebComboBox_1NVBc9GD_AAAAZdF.html|1NVBc9GD.AAAAZdD" id="option1NVBc9GD.AAAAZdD">ComboBox : UIWebComboBox</option>
+<option value="shape|1012.0|1170.0|300.0|30.0|UIWebComboBox_pW6Bc9GD_AAAAZb1.html|UIWebComboBox_pW6Bc9GD_AAAAZb1.html|pW6Bc9GD.AAAAZb0" id="optionpW6Bc9GD.AAAAZb0">ComboBox : UIWebComboBox</option>
+<option value="shape|282.0|420.0|320.0|50.0|UIWebLabel_W_lec9GD_AAAAUhL.html|UIWebLabel_W_lec9GD_AAAAUhL.html|XS1ec9GD.AAAAWjG" id="optionXS1ec9GD.AAAAWjG">Listar Agencias : UIWebLabel</option>
+<option value="shape|342.0|540.0|100.0|30.0|UIWebLabel_B_lec9GD_AAAAUiQ.html|UIWebLabel_B_lec9GD_AAAAUiQ.html|_S1ec9GD.AAAAWjZ" id="option_S1ec9GD.AAAAWjZ">Nombre : UIWebLabel</option>
+<option value="shape|802.0|540.0|100.0|30.0|UIWebLabel_gAVec9GD_AAAAUnz.html|UIWebLabel_gAVec9GD_AAAAUnz.html|hy1ec9GD.AAAAWk6" id="optionhy1ec9GD.AAAAWk6">Acciones : UIWebLabel</option>
+<option value="shape|552.0|540.0|100.0|30.0|UIWebLabel_13I_c9GD_AAAAYWk.html|UIWebLabel_13I_c9GD_AAAAYWk.html|13I.c9GD.AAAAYWj" id="option13I.c9GD.AAAAYWj">Dirección : UIWebLabel</option>
+<option value="shape|452.0|540.0|100.0|30.0|UIWebLabel_myQ_c9GD_AAAAYVp.html|UIWebLabel_myQ_c9GD_AAAAYVp.html|ayQ.c9GD.AAAAYVo" id="optionayQ.c9GD.AAAAYVo">Provincia : UIWebLabel</option>
+<option value="shape|672.0|540.0|100.0|30.0|UIWebLabel_OLK_c9GD_AAAAYa1.html|UIWebLabel_OLK_c9GD_AAAAYa1.html|OLK.c9GD.AAAAYa0" id="optionOLK.c9GD.AAAAYa0">Teléfono : UIWebLabel</option>
+<option value="shape|342.0|600.0|100.0|30.0|UIWebLabel_L_lec9GD_AAAAUlp.html|UIWebLabel_L_lec9GD_AAAAUlp.html|Cy1ec9GD.AAAAWkU" id="optionCy1ec9GD.AAAAWkU">Agencia Artemisa : UIWebLabel</option>
+<option value="shape|342.0|630.0|100.0|30.0|UIWebLabel_X_lec9GD_AAAAUmu.html|UIWebLabel_X_lec9GD_AAAAUmu.html|Gy1ec9GD.AAAAWkn" id="optionGy1ec9GD.AAAAWkn">Agencia Angosta : UIWebLabel</option>
+<option value="shape|452.0|600.0|100.0|30.0|UIWebLabel_WoQhc9GD_AAAAZh8.html|UIWebLabel_WoQhc9GD_AAAAZh8.html|WoQhc9GD.AAAAZh6" id="optionWoQhc9GD.AAAAZh6">Artemisa : UIWebLabel</option>
+<option value="shape|452.0|630.0|100.0|30.0|UIWebLabel_eLohc9GD_AAAAZj_.html|UIWebLabel_eLohc9GD_AAAAZj_.html|eLohc9GD.AAAAZj8" id="optioneLohc9GD.AAAAZj8">Artemisa : UIWebLabel</option>
+<option value="shape|672.0|600.0|100.0|30.0|UIWebLabel_uJshc9GD_AAAAZmf.html|UIWebLabel_uJshc9GD_AAAAZmf.html|uJshc9GD.AAAAZmd" id="optionuJshc9GD.AAAAZmd">47394731 : UIWebLabel</option>
+<option value="shape|672.0|630.0|100.0|30.0|UIWebLabel_E_Shc9GD_AAAAZo5.html|UIWebLabel_E_Shc9GD_AAAAZo5.html|E.Shc9GD.AAAAZo3" id="optionE.Shc9GD.AAAAZo3">47366537 : UIWebLabel</option>
+<option value="shape|552.0|600.0|100.0|30.0|UIWebLabel_Vcqhc9GD_AAAAZqp.html|UIWebLabel_Vcqhc9GD_AAAAZqp.html|Vcqhc9GD.AAAAZqn" id="optionVcqhc9GD.AAAAZqn">Calle 33 e/ 50 y 52 : UIWebLabel</option>
+<option value="shape|552.0|630.0|100.0|30.0|UIWebLabel_0fWhc9GD_AAAAZsh.html|UIWebLabel_0fWhc9GD_AAAAZsh.html|0fWhc9GD.AAAAZsf" id="option0fWhc9GD.AAAAZsf">Carretera Quiebra Ancha KM 8 1/2 : UIWebLabel</option>
+<option value="shape|82.0|420.0|140.0|40.0|UIWebLabel_89wIL9GGAqEGWADL.html|UIWebLabel_89wIL9GGAqEGWADL.html|0vfz79GD.AAAAebb" id="option0vfz79GD.AAAAebb">ViajaYá : UIWebLabel</option>
+<option value="shape|1002.0|450.0|320.0|50.0|UIWebLabel_NAVec9GD_AAAAUtU.html|UIWebLabel_NAVec9GD_AAAAUtU.html|3y1ec9GD.AAAAWmZ" id="option3y1ec9GD.AAAAWmZ">Registrar Agencia : UIWebLabel</option>
+<option value="shape|1012.0|540.0|110.0|30.0|UIWebLabel_jflec9GD_AAAAUav.html|UIWebLabel_jflec9GD_AAAAUav.html|WS1ec9GD.AAAAWha" id="optionWS1ec9GD.AAAAWha">Nombre : UIWebLabel</option>
+<option value="shape|1012.0|610.0|110.0|30.0|UIWebLabel_tIR_c9GD_AAAAYeY.html|UIWebLabel_tIR_c9GD_AAAAYeY.html|tIR.c9GD.AAAAYeW" id="optiontIR.c9GD.AAAAYeW">Provincia : UIWebLabel</option>
+<option value="shape|1012.0|680.0|110.0|30.0|UIWebLabel_A5l_c9GD_AAAAYj3.html|UIWebLabel_A5l_c9GD_AAAAYj3.html|A5l.c9GD.AAAAYj1" id="optionA5l.c9GD.AAAAYj1">Teléfono : UIWebLabel</option>
+<option value="shape|1012.0|750.0|110.0|30.0|UIWebLabel_Wfz_c9GD_AAAAYpa.html|UIWebLabel_Wfz_c9GD_AAAAYpa.html|Wfz.c9GD.AAAAYpY" id="optionWfz.c9GD.AAAAYpY">Dirección : UIWebLabel</option>
+<option value="shape|1002.0|980.0|320.0|50.0|UIWebLabel_l2EBc9GD_AAAAY89.html|UIWebLabel_l2EBc9GD_AAAAY89.html|l2EBc9GD.AAAAY87" id="optionl2EBc9GD.AAAAY87">Modificar Agencia : UIWebLabel</option>
+<option value="shape|1012.0|1070.0|110.0|30.0|UIWebLabel_x2EBc9GD_AAAAY74.html|UIWebLabel_x2EBc9GD_AAAAY74.html|x2EBc9GD.AAAAY72" id="optionx2EBc9GD.AAAAY72">Nombre : UIWebLabel</option>
+<option value="shape|1012.0|1140.0|110.0|30.0|UIWebLabel_L2EBc9GD_AAAAY_J.html|UIWebLabel_L2EBc9GD_AAAAY_J.html|L2EBc9GD.AAAAY_H" id="optionL2EBc9GD.AAAAY_H">Provincia : UIWebLabel</option>
+<option value="shape|1012.0|1210.0|110.0|30.0|UIWebLabel_gOEBc9GD_AAAAZBV.html|UIWebLabel_gOEBc9GD_AAAAZBV.html|gOEBc9GD.AAAAZBT" id="optiongOEBc9GD.AAAAZBT">Teléfono : UIWebLabel</option>
+<option value="shape|1012.0|1280.0|110.0|30.0|UIWebLabel_4OEBc9GD_AAAAZCa.html|UIWebLabel_4OEBc9GD_AAAAZCa.html|4OEBc9GD.AAAAZCY" id="option4OEBc9GD.AAAAZCY">Dirección : UIWebLabel</option>
+<option value="shape|342.0|850.0|260.0|50.0|UIWebLabel_sEbal9GAUCCo_j3H.html|UIWebLabel_sEbal9GAUCCo_j3H.html|YBhml9GAUCCo.lB9" id="optionYBhml9GAUCCo.lB9">Notificación : UIWebLabel</option>
+<option value="shape|332.0|930.0|500.0|40.0|UIWebLabel_wEbal9GAUCCo_j2C.html|UIWebLabel_wEbal9GAUCCo_j2C.html|r.hml9GAUCCo.lBq" id="optionr.hml9GAUCCo.lBq">La operación se ha realizado con éxitos ! : UIWebLabel</option>
+<option value="shape|332.0|1080.0|260.0|50.0|UIWebLabel_Bd8ml9GAUCCo_ka3.html|UIWebLabel_Bd8ml9GAUCCo_ka3.html|Ohhml9GAUCCo.lDm" id="optionOhhml9GAUCCo.lDm">Advertencia : UIWebLabel</option>
+<option value="shape|332.0|1160.0|500.0|40.0|UIWebLabel_cd8ml9GAUCCo_kZy.html|UIWebLabel_cd8ml9GAUCCo_kZy.html|Khhml9GAUCCo.lDT" id="optionKhhml9GAUCCo.lDT">¿Está seguro que desea eliminar la agencia ? : UIWebLabel</option>
+<option value="shape|662.0|20.0|320.0|50.0|UIWebLabel_lJIUWDGD_AAAAd_K.html|UIWebLabel_lJIUWDGD_AAAAd_K.html|lJIUWDGD.AAAAd_I" id="optionlJIUWDGD.AAAAd_I">Listar Agencias : UIWebLabel</option>
+<option value="shape|722.0|140.0|100.0|30.0|UIWebLabel_1JIUWDGD_AAAAeAP.html|UIWebLabel_1JIUWDGD_AAAAeAP.html|1JIUWDGD.AAAAeAN" id="option1JIUWDGD.AAAAeAN">Nombre : UIWebLabel</option>
+<option value="shape|832.0|140.0|100.0|30.0|UIWebLabel_7pIUWDGD_AAAAeLT.html|UIWebLabel_7pIUWDGD_AAAAeLT.html|7pIUWDGD.AAAAeLR" id="option7pIUWDGD.AAAAeLR">Provincia : UIWebLabel</option>
+<option value="shape|932.0|140.0|100.0|30.0|UIWebLabel_7pIUWDGD_AAAAeMY.html|UIWebLabel_7pIUWDGD_AAAAeMY.html|7pIUWDGD.AAAAeMW" id="option7pIUWDGD.AAAAeMW">Dirección : UIWebLabel</option>
+<option value="shape|1052.0|140.0|100.0|30.0|UIWebLabel_4ZIUWDGD_AAAAeNd.html|UIWebLabel_4ZIUWDGD_AAAAeNd.html|4ZIUWDGD.AAAAeNb" id="option4ZIUWDGD.AAAAeNb">Teléfono : UIWebLabel</option>
+<option value="shape|722.0|200.0|100.0|30.0|UIWebLabel_EpIUWDGD_AAAAeDo.html|UIWebLabel_EpIUWDGD_AAAAeDo.html|EpIUWDGD.AAAAeDm" id="optionEpIUWDGD.AAAAeDm">Agencia Artemisa : UIWebLabel</option>
+<option value="shape|722.0|230.0|100.0|30.0|UIWebLabel_EpIUWDGD_AAAAeEt.html|UIWebLabel_EpIUWDGD_AAAAeEt.html|EpIUWDGD.AAAAeEr" id="optionEpIUWDGD.AAAAeEr">Agencia Angosta : UIWebLabel</option>
+<option value="shape|832.0|200.0|100.0|30.0|UIWebLabel_8ZIUWDGD_AAAAeOi.html|UIWebLabel_8ZIUWDGD_AAAAeOi.html|8ZIUWDGD.AAAAeOg" id="option8ZIUWDGD.AAAAeOg">Artemisa : UIWebLabel</option>
+<option value="shape|832.0|230.0|100.0|30.0|UIWebLabel_6ZIUWDGD_AAAAePn.html|UIWebLabel_6ZIUWDGD_AAAAePn.html|6ZIUWDGD.AAAAePl" id="option6ZIUWDGD.AAAAePl">Artemisa : UIWebLabel</option>
+<option value="shape|1052.0|200.0|100.0|30.0|UIWebLabel_6ZIUWDGD_AAAAeQs.html|UIWebLabel_6ZIUWDGD_AAAAeQs.html|6ZIUWDGD.AAAAeQq" id="option6ZIUWDGD.AAAAeQq">47394731 : UIWebLabel</option>
+<option value="shape|1052.0|230.0|100.0|30.0|UIWebLabel_5ZIUWDGD_AAAAeRx.html|UIWebLabel_5ZIUWDGD_AAAAeRx.html|5ZIUWDGD.AAAAeRv" id="option5ZIUWDGD.AAAAeRv">47366537 : UIWebLabel</option>
+<option value="shape|932.0|200.0|100.0|30.0|UIWebLabel_5ZIUWDGD_AAAAeS2.html|UIWebLabel_5ZIUWDGD_AAAAeS2.html|5ZIUWDGD.AAAAeS0" id="option5ZIUWDGD.AAAAeS0">Calle 33 e/ 50 y 52 : UIWebLabel</option>
+<option value="shape|932.0|230.0|100.0|30.0|UIWebLabel_bZIUWDGD_AAAAeT7.html|UIWebLabel_bZIUWDGD_AAAAeT7.html|bZIUWDGD.AAAAeT5" id="optionbZIUWDGD.AAAAeT5">Carretera Quiebra Ancha KM 8 1/2 : UIWebLabel</option>
+<option value="shape|2.0|400.0|940.0|390.0|UIWebPanel_4vlec9GD_AAAAUMP.html|UIWebPanel_4vlec9GD_AAAAUMP.html|wi1ec9GD.AAAAWd5" id="optionwi1ec9GD.AAAAWd5">Listar Agencia : UIWebPanel</option>
+<option value="shape|272.0|410.0|648.0|70.0|UIWebPanel_nvlec9GD_AAAAUSe.html|UIWebPanel_nvlec9GD_AAAAUSe.html|ji1ec9GD.AAAAWfZ" id="optionji1ec9GD.AAAAWfZ">titulo : UIWebPanel</option>
+<option value="shape|272.0|525.0|648.0|64.0|UIWebPanel_Aflec9GD_AAAAUTc.html|UIWebPanel_Aflec9GD_AAAAUTc.html|7i1ec9GD.AAAAWfn" id="option7i1ec9GD.AAAAWfn">Panel3 : UIWebPanel</option>
+<option value="shape|272.0|578.0|648.0|177.0|UIWebPanel_4flec9GD_AAAAUUZ.html|UIWebPanel_4flec9GD_AAAAUUZ.html|Pi1ec9GD.AAAAWf0" id="optionPi1ec9GD.AAAAWf0">Panel4 : UIWebPanel</option>
+<option value="shape|12.0|410.0|260.0|370.0|UIWebPanel_i4LwL9GGAqEGWAAj.html|UIWebPanel_i4LwL9GGAqEGWAAj.html|RPfz79GD.AAAAeZt" id="optionRPfz79GD.AAAAeZt">Panel2 : UIWebPanel</option>
+<option value="shape|22.0|420.0|230.0|50.0|UIWebPanel_ePnwL9GGAqEGWABB.html|UIWebPanel_ePnwL9GGAqEGWABB.html|9Pfz79GD.AAAAeZ4" id="option9Pfz79GD.AAAAeZ4">Panel5 : UIWebPanel</option>
+<option value="shape|982.0|430.0|360.0|510.0|UIWebPanel_yvlec9GD_AAAAUNM.html|UIWebPanel_yvlec9GD_AAAAUNM.html|ii1ec9GD.AAAAWeF" id="optionii1ec9GD.AAAAWeF">Registrar Agencia : UIWebPanel</option>
+<option value="shape|992.0|440.0|340.0|70.0|UIWebPanel_Kflec9GD_AAAAUWd.html|UIWebPanel_Kflec9GD_AAAAUWd.html|oS1ec9GD.AAAAWgU" id="optionoS1ec9GD.AAAAWgU">titulo : UIWebPanel</option>
+<option value="shape|982.0|960.0|360.0|510.0|UIWebPanel_1WEBc9GD_AAAAY2p.html|UIWebPanel_1WEBc9GD_AAAAY2p.html|1WEBc9GD.AAAAY2n" id="option1WEBc9GD.AAAAY2n">Modificar Agencia : UIWebPanel</option>
+<option value="shape|992.0|970.0|340.0|70.0|UIWebPanel_42EBc9GD_AAAAY3m.html|UIWebPanel_42EBc9GD_AAAAY3m.html|42EBc9GD.AAAAY3k" id="option42EBc9GD.AAAAY3k">titulo : UIWebPanel</option>
+<option value="shape|312.0|820.0|580.0|190.0|UIWebPanel_d4bal9GAUCCo_jz6.html|UIWebPanel_d4bal9GAUCCo_jz6.html|E.hml9GAUCCo.lBQ" id="optionE.hml9GAUCCo.lBQ">Notificación Agencia : UIWebPanel</option>
+<option value="shape|322.0|830.0|550.0|80.0|UIWebPanel_74bal9GAUCCo_j1E.html|UIWebPanel_74bal9GAUCCo_j1E.html|u.hml9GAUCCo.lBc" id="optionu.hml9GAUCCo.lBc">titulo : UIWebPanel</option>
+<option value="shape|312.0|1050.0|580.0|260.0|UIWebPanel_vN8ml9GAUCCo_kVn.html|UIWebPanel_vN8ml9GAUCCo_kVn.html|GBhml9GAUCCo.lCR" id="optionGBhml9GAUCCo.lCR">Advertencia Agencia : UIWebPanel</option>
+<option value="shape|322.0|1060.0|550.0|80.0|UIWebPanel_Et8ml9GAUCCo_kWk.html|UIWebPanel_Et8ml9GAUCCo_kWk.html|5Bhml9GAUCCo.lCe" id="option5Bhml9GAUCCo.lCe">titulo : UIWebPanel</option>
+<option value="shape|642.0|0.0|560.0|390.0|UIWebPanel_QxIUWDGD_AAAAd19.html|UIWebPanel_QxIUWDGD_AAAAd19.html|QxIUWDGD.AAAAd17" id="optionQxIUWDGD.AAAAd17">Listar Agencia : UIWebPanel</option>
+<option value="shape|652.0|10.0|530.0|70.0|UIWebPanel_XxIUWDGD_AAAAd6P.html|UIWebPanel_XxIUWDGD_AAAAd6P.html|XxIUWDGD.AAAAd6N" id="optionXxIUWDGD.AAAAd6N">titulo : UIWebPanel</option>
+<option value="shape|652.0|120.0|530.0|70.0|UIWebPanel_UJIUWDGD_AAAAd7M.html|UIWebPanel_UJIUWDGD_AAAAd7M.html|UJIUWDGD.AAAAd7K" id="optionUJIUWDGD.AAAAd7K">Panel3 : UIWebPanel</option>
+<option value="shape|652.0|180.0|530.0|180.0|UIWebPanel_UJIUWDGD_AAAAd8J.html|UIWebPanel_UJIUWDGD_AAAAd8J.html|UJIUWDGD.AAAAd8H" id="optionUJIUWDGD.AAAAd8H">Panel4 : UIWebPanel</option>
+<option value="shape|1002.0|890.0|80.0|30.0|UIWebResetInput_2flec9GD_AAAAUXa.html|UIWebResetInput_2flec9GD_AAAAUXa.html|0S1ec9GD.AAAAWgh" id="option0S1ec9GD.AAAAWgh">Cancelar : UIWebResetInput</option>
+<option value="shape|1002.0|1420.0|80.0|30.0|UIWebResetInput_s2EBc9GD_AAAAY4j.html|UIWebResetInput_s2EBc9GD_AAAAY4j.html|s2EBc9GD.AAAAY4h" id="options2EBc9GD.AAAAY4h">Cancelar : UIWebResetInput</option>
+<option value="shape|332.0|1250.0|90.0|30.0|UIWebResetInput_Ot8ml9GAUCCo_kXi.html|UIWebResetInput_Ot8ml9GAUCCo_kXi.html|HBhml9GAUCCo.lCs" id="optionHBhml9GAUCCo.lCs">No : UIWebResetInput</option>
+<option value="shape|390.0|490.0|80.0|30.0|UIWebSubmitInput_jvlec9GD_AAAAURW.html|UIWebSubmitInput_jvlec9GD_AAAAURW.html|1i1ec9GD.AAAAWfG" id="option1i1ec9GD.AAAAWfG">Buscar : UIWebSubmitInput</option>
+<option value="shape|1232.0|890.0|90.0|30.0|UIWebSubmitInput_Rflec9GD_AAAAUYh.html|UIWebSubmitInput_Rflec9GD_AAAAUYh.html|CS1ec9GD.AAAAWg0" id="optionCS1ec9GD.AAAAWg0">Registrar : UIWebSubmitInput</option>
+<option value="shape|1232.0|1420.0|90.0|30.0|UIWebSubmitInput_y2EBc9GD_AAAAY5q.html|UIWebSubmitInput_y2EBc9GD_AAAAY5q.html|y2EBc9GD.AAAAY5o" id="optiony2EBc9GD.AAAAY5o">Registrar : UIWebSubmitInput</option>
+<option value="shape|782.0|1250.0|90.0|30.0|UIWebSubmitInput_Xt8ml9GAUCCo_kYq.html|UIWebSubmitInput_Xt8ml9GAUCCo_kYq.html|Ehhml9GAUCCo.lC_" id="optionEhhml9GAUCCo.lC_">Si : UIWebSubmitInput</option>
+<option value="shape|772.0|80.0|80.0|30.0|UIWebSubmitInput_VxIUWDGD_AAAAd5I.html|UIWebSubmitInput_VxIUWDGD_AAAAd5I.html|VxIUWDGD.AAAAd5G" id="optionVxIUWDGD.AAAAd5G">Buscar : UIWebSubmitInput</option>
+<option value="shape|1012.0|780.0|300.0|80.0|UIWebTextArea_OtABc9GD_AAAAYt6.html|UIWebTextArea_OtABc9GD_AAAAYt6.html|OtABc9GD.AAAAYt5" id="optionOtABc9GD.AAAAYt5">TextArea : UIWebTextArea</option>
+<option value="shape|1012.0|1310.0|300.0|80.0|UIWebTextArea_sOEBc9GD_AAAAZDf.html|UIWebTextArea_sOEBc9GD_AAAAZDf.html|sOEBc9GD.AAAAZDd" id="optionsOEBc9GD.AAAAZDd">TextArea : UIWebTextArea</option>
+<option value="shape|292.0|490.0|100.0|30.0|UIWebTextInput_Vvlec9GD_AAAAUQP.html|UIWebTextInput_Vvlec9GD_AAAAUQP.html|pi1ec9GD.AAAAWez" id="optionpi1ec9GD.AAAAWez">buscar : UIWebTextInput</option>
+<option value="shape|1012.0|570.0|300.0|30.0|UIWebTextInput_lflec9GD_AAAAUZo.html|UIWebTextInput_lflec9GD_AAAAUZo.html|qS1ec9GD.AAAAWhH" id="optionqS1ec9GD.AAAAWhH">Nombre : UIWebTextInput</option>
+<option value="shape|1012.0|710.0|300.0|30.0|UIWebTextInput_xZl_c9GD_AAAAYiw.html|UIWebTextInput_xZl_c9GD_AAAAYiw.html|xZl.c9GD.AAAAYiu" id="optionxZl.c9GD.AAAAYiu">Teléfono : UIWebTextInput</option>
+<option value="shape|1012.0|1100.0|300.0|30.0|UIWebTextInput_u2EBc9GD_AAAAY6x.html|UIWebTextInput_u2EBc9GD_AAAAY6x.html|u2EBc9GD.AAAAY6v" id="optionu2EBc9GD.AAAAY6v">Agencia Angosta : UIWebTextInput</option>
+<option value="shape|1012.0|1240.0|300.0|30.0|UIWebTextInput_32EBc9GD_AAAAZAO.html|UIWebTextInput_32EBc9GD_AAAAZAO.html|32EBc9GD.AAAAZAM" id="option32EBc9GD.AAAAZAM">47394731 : UIWebTextInput</option>
+<option value="shape|672.0|80.0|100.0|30.0|UIWebTextInput_WxIUWDGD_AAAAd4B.html|UIWebTextInput_WxIUWDGD_AAAAd4B.html|WxIUWDGD.AAAAd3_" id="optionWxIUWDGD.AAAAd3_">buscar : UIWebTextInput</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface_Gestionar_Agencia.png" usemap="#diagram_map" class="Image" width="1346.0" height="1474.0"/>				<map name = "diagram_map">
+
+<area coords="82.0, 420.0, 222.0, 460.0" coords2="82.0, 420.0, 222.0, 460.0" shape="rect" alt="ViajaYá:UIWebLabel" id="area0vfz79GD.AAAAebb" href="UIWebLabel_89wIL9GGAqEGWADL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="932.0, 230.0, 1032.0, 260.0" coords2="932.0, 230.0, 1032.0, 260.0" shape="rect" alt="Carretera Quiebra Ancha KM 8 1/2:UIWebLabel" id="areabZIUWDGD.AAAAeT5" href="UIWebLabel_bZIUWDGD_AAAAeT7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="932.0, 200.0, 1032.0, 230.0" coords2="932.0, 200.0, 1032.0, 230.0" shape="rect" alt="Calle 33 e/ 50 y 52:UIWebLabel" id="area5ZIUWDGD.AAAAeS0" href="UIWebLabel_5ZIUWDGD_AAAAeS2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1052.0, 230.0, 1152.0, 260.0" coords2="1052.0, 230.0, 1152.0, 260.0" shape="rect" alt="47366537:UIWebLabel" id="area5ZIUWDGD.AAAAeRv" href="UIWebLabel_5ZIUWDGD_AAAAeRx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1052.0, 200.0, 1152.0, 230.0" coords2="1052.0, 200.0, 1152.0, 230.0" shape="rect" alt="47394731:UIWebLabel" id="area6ZIUWDGD.AAAAeQq" href="UIWebLabel_6ZIUWDGD_AAAAeQs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="832.0, 230.0, 932.0, 260.0" coords2="832.0, 230.0, 932.0, 260.0" shape="rect" alt="Artemisa:UIWebLabel" id="area6ZIUWDGD.AAAAePl" href="UIWebLabel_6ZIUWDGD_AAAAePn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="832.0, 200.0, 932.0, 230.0" coords2="832.0, 200.0, 932.0, 230.0" shape="rect" alt="Artemisa:UIWebLabel" id="area8ZIUWDGD.AAAAeOg" href="UIWebLabel_8ZIUWDGD_AAAAeOi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1052.0, 140.0, 1152.0, 170.0" coords2="1052.0, 140.0, 1152.0, 170.0" shape="rect" alt="Teléfono:UIWebLabel" id="area4ZIUWDGD.AAAAeNb" href="UIWebLabel_4ZIUWDGD_AAAAeNd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="932.0, 140.0, 1032.0, 170.0" coords2="932.0, 140.0, 1032.0, 170.0" shape="rect" alt="Dirección:UIWebLabel" id="area7pIUWDGD.AAAAeMW" href="UIWebLabel_7pIUWDGD_AAAAeMY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="832.0, 140.0, 932.0, 170.0" coords2="832.0, 140.0, 932.0, 170.0" shape="rect" alt="Provincia:UIWebLabel" id="area7pIUWDGD.AAAAeLR" href="UIWebLabel_7pIUWDGD_AAAAeLT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="722.0, 230.0, 822.0, 260.0" coords2="722.0, 230.0, 822.0, 260.0" shape="rect" alt="Agencia Angosta:UIWebLabel" id="areaEpIUWDGD.AAAAeEr" href="UIWebLabel_EpIUWDGD_AAAAeEt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="722.0, 200.0, 822.0, 230.0" coords2="722.0, 200.0, 822.0, 230.0" shape="rect" alt="Agencia Artemisa:UIWebLabel" id="areaEpIUWDGD.AAAAeDm" href="UIWebLabel_EpIUWDGD_AAAAeDo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="722.0, 140.0, 822.0, 170.0" coords2="722.0, 140.0, 822.0, 170.0" shape="rect" alt="Nombre:UIWebLabel" id="area1JIUWDGD.AAAAeAN" href="UIWebLabel_1JIUWDGD_AAAAeAP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="662.0, 20.0, 982.0, 70.0" coords2="662.0, 20.0, 982.0, 70.0" shape="rect" alt="Listar Agencias:UIWebLabel" id="arealJIUWDGD.AAAAd_I" href="UIWebLabel_lJIUWDGD_AAAAd_K.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 640.0, 252.0, 660.0" coords2="22.0, 640.0, 252.0, 660.0" shape="rect" alt="Gestionar Agencia:UIWebButtonInput" id="area4vfz79GD.AAAAebJ" href="UIWebButtonInput_JF7IL9GGAqEGWAYj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 600.0, 252.0, 620.0" coords2="22.0, 600.0, 252.0, 620.0" shape="rect" alt="Gestionar Ruta:UIWebButtonInput" id="areawvfz79GD.AAAAea3" href="UIWebButtonInput_6F7IL9GGAqEGWAXe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 560.0, 252.0, 580.0" coords2="22.0, 560.0, 252.0, 580.0" shape="rect" alt="Gestionar Usuario:UIWebButtonInput" id="areafPfz79GD.AAAAeal" href="UIWebButtonInput_o6rIL9GGAqEGWART.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 520.0, 252.0, 540.0" coords2="22.0, 520.0, 252.0, 540.0" shape="rect" alt="Gestionar Pasaje:UIWebButtonInput" id="areaXPfz79GD.AAAAeaU" href="UIWebButtonInput_2aLIL9GGAqEGWANH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 520.0, 252.0, 540.0" coords2="22.0, 520.0, 252.0, 540.0" shape="rect" alt="Gestionar Pasaje:UIWebButtonInput" id="areabPfz79GD.AAAAeaD" href="UIWebButtonInput_sgxIL9GGAqEGWAJK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 420.0, 252.0, 470.0" coords2="22.0, 420.0, 252.0, 470.0" shape="rect" alt="Panel5:UIWebPanel" id="area9Pfz79GD.AAAAeZ4" href="UIWebPanel_ePnwL9GGAqEGWABB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="332.0, 1080.0, 592.0, 1130.0" coords2="332.0, 1080.0, 592.0, 1130.0" shape="rect" alt="Advertencia:UIWebLabel" id="areaOhhml9GAUCCo.lDm" href="UIWebLabel_Bd8ml9GAUCCo_ka3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="342.0, 850.0, 602.0, 900.0" coords2="342.0, 850.0, 602.0, 900.0" shape="rect" alt="Notificación:UIWebLabel" id="areaYBhml9GAUCCo.lB9" href="UIWebLabel_sEbal9GAUCCo_j3H.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="552.0, 630.0, 652.0, 660.0" coords2="552.0, 630.0, 652.0, 660.0" shape="rect" alt="Carretera Quiebra Ancha KM 8 1/2:UIWebLabel" id="area0fWhc9GD.AAAAZsf" href="UIWebLabel_0fWhc9GD_AAAAZsh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="552.0, 600.0, 652.0, 630.0" coords2="552.0, 600.0, 652.0, 630.0" shape="rect" alt="Calle 33 e/ 50 y 52:UIWebLabel" id="areaVcqhc9GD.AAAAZqn" href="UIWebLabel_Vcqhc9GD_AAAAZqp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="672.0, 630.0, 772.0, 660.0" coords2="672.0, 630.0, 772.0, 660.0" shape="rect" alt="47366537:UIWebLabel" id="areaE.Shc9GD.AAAAZo3" href="UIWebLabel_E_Shc9GD_AAAAZo5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="672.0, 600.0, 772.0, 630.0" coords2="672.0, 600.0, 772.0, 630.0" shape="rect" alt="47394731:UIWebLabel" id="areauJshc9GD.AAAAZmd" href="UIWebLabel_uJshc9GD_AAAAZmf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 630.0, 552.0, 660.0" coords2="452.0, 630.0, 552.0, 660.0" shape="rect" alt="Artemisa:UIWebLabel" id="areaeLohc9GD.AAAAZj8" href="UIWebLabel_eLohc9GD_AAAAZj_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 600.0, 552.0, 630.0" coords2="452.0, 600.0, 552.0, 630.0" shape="rect" alt="Artemisa:UIWebLabel" id="areaWoQhc9GD.AAAAZh6" href="UIWebLabel_WoQhc9GD_AAAAZh8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 980.0, 1322.0, 1030.0" coords2="1002.0, 980.0, 1322.0, 1030.0" shape="rect" alt="Modificar Agencia:UIWebLabel" id="areal2EBc9GD.AAAAY87" href="UIWebLabel_l2EBc9GD_AAAAY89.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="672.0, 540.0, 772.0, 570.0" coords2="672.0, 540.0, 772.0, 570.0" shape="rect" alt="Teléfono:UIWebLabel" id="areaOLK.c9GD.AAAAYa0" href="UIWebLabel_OLK_c9GD_AAAAYa1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="552.0, 540.0, 652.0, 570.0" coords2="552.0, 540.0, 652.0, 570.0" shape="rect" alt="Dirección:UIWebLabel" id="area13I.c9GD.AAAAYWj" href="UIWebLabel_13I_c9GD_AAAAYWk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 540.0, 552.0, 570.0" coords2="452.0, 540.0, 552.0, 570.0" shape="rect" alt="Provincia:UIWebLabel" id="areaayQ.c9GD.AAAAYVo" href="UIWebLabel_myQ_c9GD_AAAAYVp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 450.0, 1322.0, 500.0" coords2="1002.0, 450.0, 1322.0, 500.0" shape="rect" alt="Registrar Agencia:UIWebLabel" id="area3y1ec9GD.AAAAWmZ" href="UIWebLabel_NAVec9GD_AAAAUtU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="842.0, 620.0, 872.0, 650.0" coords2="842.0, 620.0, 872.0, 650.0" shape="rect" alt="E:UIWebButtonInput" id="area7y1ec9GD.AAAAWmG" href="UIWebButtonInput_xAVec9GD_AAAAUsN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="802.0, 620.0, 832.0, 650.0" coords2="802.0, 620.0, 832.0, 650.0" shape="rect" alt="M:UIWebButtonInput" id="areajy1ec9GD.AAAAWlz" href="UIWebButtonInput_WAVec9GD_AAAAUrG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="842.0, 590.0, 872.0, 620.0" coords2="842.0, 590.0, 872.0, 620.0" shape="rect" alt="E:UIWebButtonInput" id="areaNy1ec9GD.AAAAWlg" href="UIWebButtonInput_SAVec9GD_AAAAUp_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="802.0, 590.0, 832.0, 620.0" coords2="802.0, 590.0, 832.0, 620.0" shape="rect" alt="M:UIWebButtonInput" id="areaZy1ec9GD.AAAAWlN" href="UIWebButtonInput_EAVec9GD_AAAAUo4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="802.0, 540.0, 902.0, 570.0" coords2="802.0, 540.0, 902.0, 570.0" shape="rect" alt="Acciones:UIWebLabel" id="areahy1ec9GD.AAAAWk6" href="UIWebLabel_gAVec9GD_AAAAUnz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="342.0, 630.0, 442.0, 660.0" coords2="342.0, 630.0, 442.0, 660.0" shape="rect" alt="Agencia Angosta:UIWebLabel" id="areaGy1ec9GD.AAAAWkn" href="UIWebLabel_X_lec9GD_AAAAUmu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="342.0, 600.0, 442.0, 630.0" coords2="342.0, 600.0, 442.0, 630.0" shape="rect" alt="Agencia Artemisa:UIWebLabel" id="areaCy1ec9GD.AAAAWkU" href="UIWebLabel_L_lec9GD_AAAAUlp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 630.0, 312.0, 650.0" coords2="292.0, 630.0, 312.0, 650.0" shape="rect" alt="CheckBox:UIWebCheckBoxInput" id="areaky1ec9GD.AAAAWkA" href="UIWebCheckBoxInput_d_lec9GD_AAAAUkf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 600.0, 312.0, 620.0" coords2="292.0, 600.0, 312.0, 620.0" shape="rect" alt="CheckBox:UIWebCheckBoxInput" id="areaoy1ec9GD.AAAAWjs" href="UIWebCheckBoxInput_5_lec9GD_AAAAUjV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="342.0, 540.0, 442.0, 570.0" coords2="342.0, 540.0, 442.0, 570.0" shape="rect" alt="Nombre:UIWebLabel" id="area_S1ec9GD.AAAAWjZ" href="UIWebLabel_B_lec9GD_AAAAUiQ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="282.0, 420.0, 602.0, 470.0" coords2="282.0, 420.0, 602.0, 470.0" shape="rect" alt="Listar Agencias:UIWebLabel" id="areaXS1ec9GD.AAAAWjG" href="UIWebLabel_W_lec9GD_AAAAUhL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="652.0, 180.0, 1182.0, 360.0" coords2="652.0, 180.0, 1182.0, 360.0" shape="rect" alt="Panel4:UIWebPanel" id="areaUJIUWDGD.AAAAd8H" href="UIWebPanel_UJIUWDGD_AAAAd8J.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="652.0, 120.0, 1182.0, 190.0" coords2="652.0, 120.0, 1182.0, 190.0" shape="rect" alt="Panel3:UIWebPanel" id="areaUJIUWDGD.AAAAd7K" href="UIWebPanel_UJIUWDGD_AAAAd7M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="652.0, 10.0, 1182.0, 80.0" coords2="652.0, 10.0, 1182.0, 80.0" shape="rect" alt="titulo:UIWebPanel" id="areaXxIUWDGD.AAAAd6N" href="UIWebPanel_XxIUWDGD_AAAAd6P.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="772.0, 80.0, 852.0, 110.0" coords2="772.0, 80.0, 852.0, 110.0" shape="rect" alt="Buscar:UIWebSubmitInput" id="areaVxIUWDGD.AAAAd5G" href="UIWebSubmitInput_VxIUWDGD_AAAAd5I.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="672.0, 80.0, 772.0, 110.0" coords2="672.0, 80.0, 772.0, 110.0" shape="rect" alt="buscar:UIWebTextInput" id="areaWxIUWDGD.AAAAd3_" href="UIWebTextInput_WxIUWDGD_AAAAd4B.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 410.0, 272.0, 780.0" coords2="12.0, 410.0, 272.0, 780.0" shape="rect" alt="Panel2:UIWebPanel" id="areaRPfz79GD.AAAAeZt" href="UIWebPanel_i4LwL9GGAqEGWAAj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="332.0, 1160.0, 832.0, 1200.0" coords2="332.0, 1160.0, 832.0, 1200.0" shape="rect" alt="¿Está seguro que desea eliminar la agencia ?:UIWebLabel" id="areaKhhml9GAUCCo.lDT" href="UIWebLabel_cd8ml9GAUCCo_kZy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="782.0, 1250.0, 872.0, 1280.0" coords2="782.0, 1250.0, 872.0, 1280.0" shape="rect" alt="Si:UIWebSubmitInput" id="areaEhhml9GAUCCo.lC_" href="UIWebSubmitInput_Xt8ml9GAUCCo_kYq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="332.0, 1250.0, 422.0, 1280.0" coords2="332.0, 1250.0, 422.0, 1280.0" shape="rect" alt="No:UIWebResetInput" id="areaHBhml9GAUCCo.lCs" href="UIWebResetInput_Ot8ml9GAUCCo_kXi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="322.0, 1060.0, 872.0, 1140.0" coords2="322.0, 1060.0, 872.0, 1140.0" shape="rect" alt="titulo:UIWebPanel" id="area5Bhml9GAUCCo.lCe" href="UIWebPanel_Et8ml9GAUCCo_kWk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="332.0, 930.0, 832.0, 970.0" coords2="332.0, 930.0, 832.0, 970.0" shape="rect" alt="La operación se ha realizado con éxitos !:UIWebLabel" id="arear.hml9GAUCCo.lBq" href="UIWebLabel_wEbal9GAUCCo_j2C.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="322.0, 830.0, 872.0, 910.0" coords2="322.0, 830.0, 872.0, 910.0" shape="rect" alt="titulo:UIWebPanel" id="areau.hml9GAUCCo.lBc" href="UIWebPanel_74bal9GAUCCo_j1E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 640.0, 1312.0, 670.0" coords2="1012.0, 640.0, 1312.0, 670.0" shape="rect" alt="ComboBox:UIWebComboBox" id="area1NVBc9GD.AAAAZdD" href="UIWebComboBox_1NVBc9GD_AAAAZdF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1170.0, 1312.0, 1200.0" coords2="1012.0, 1170.0, 1312.0, 1200.0" shape="rect" alt="ComboBox:UIWebComboBox" id="areapW6Bc9GD.AAAAZb0" href="UIWebComboBox_pW6Bc9GD_AAAAZb1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1310.0, 1312.0, 1390.0" coords2="1012.0, 1310.0, 1312.0, 1390.0" shape="rect" alt="TextArea:UIWebTextArea" id="areasOEBc9GD.AAAAZDd" href="UIWebTextArea_sOEBc9GD_AAAAZDf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1280.0, 1122.0, 1310.0" coords2="1012.0, 1280.0, 1122.0, 1310.0" shape="rect" alt="Dirección:UIWebLabel" id="area4OEBc9GD.AAAAZCY" href="UIWebLabel_4OEBc9GD_AAAAZCa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1210.0, 1122.0, 1240.0" coords2="1012.0, 1210.0, 1122.0, 1240.0" shape="rect" alt="Teléfono:UIWebLabel" id="areagOEBc9GD.AAAAZBT" href="UIWebLabel_gOEBc9GD_AAAAZBV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1240.0, 1312.0, 1270.0" coords2="1012.0, 1240.0, 1312.0, 1270.0" shape="rect" alt="47394731:UIWebTextInput" id="area32EBc9GD.AAAAZAM" href="UIWebTextInput_32EBc9GD_AAAAZAO.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1140.0, 1122.0, 1170.0" coords2="1012.0, 1140.0, 1122.0, 1170.0" shape="rect" alt="Provincia:UIWebLabel" id="areaL2EBc9GD.AAAAY_H" href="UIWebLabel_L2EBc9GD_AAAAY_J.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1070.0, 1122.0, 1100.0" coords2="1012.0, 1070.0, 1122.0, 1100.0" shape="rect" alt="Nombre:UIWebLabel" id="areax2EBc9GD.AAAAY72" href="UIWebLabel_x2EBc9GD_AAAAY74.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 1100.0, 1312.0, 1130.0" coords2="1012.0, 1100.0, 1312.0, 1130.0" shape="rect" alt="Agencia Angosta:UIWebTextInput" id="areau2EBc9GD.AAAAY6v" href="UIWebTextInput_u2EBc9GD_AAAAY6x.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1232.0, 1420.0, 1322.0, 1450.0" coords2="1232.0, 1420.0, 1322.0, 1450.0" shape="rect" alt="Registrar:UIWebSubmitInput" id="areay2EBc9GD.AAAAY5o" href="UIWebSubmitInput_y2EBc9GD_AAAAY5q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 1420.0, 1082.0, 1450.0" coords2="1002.0, 1420.0, 1082.0, 1450.0" shape="rect" alt="Cancelar:UIWebResetInput" id="areas2EBc9GD.AAAAY4h" href="UIWebResetInput_s2EBc9GD_AAAAY4j.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="992.0, 970.0, 1332.0, 1040.0" coords2="992.0, 970.0, 1332.0, 1040.0" shape="rect" alt="titulo:UIWebPanel" id="area42EBc9GD.AAAAY3k" href="UIWebPanel_42EBc9GD_AAAAY3m.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 780.0, 1312.0, 860.0" coords2="1012.0, 780.0, 1312.0, 860.0" shape="rect" alt="TextArea:UIWebTextArea" id="areaOtABc9GD.AAAAYt5" href="UIWebTextArea_OtABc9GD_AAAAYt6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 750.0, 1122.0, 780.0" coords2="1012.0, 750.0, 1122.0, 780.0" shape="rect" alt="Dirección:UIWebLabel" id="areaWfz.c9GD.AAAAYpY" href="UIWebLabel_Wfz_c9GD_AAAAYpa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 680.0, 1122.0, 710.0" coords2="1012.0, 680.0, 1122.0, 710.0" shape="rect" alt="Teléfono:UIWebLabel" id="areaA5l.c9GD.AAAAYj1" href="UIWebLabel_A5l_c9GD_AAAAYj3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 710.0, 1312.0, 740.0" coords2="1012.0, 710.0, 1312.0, 740.0" shape="rect" alt="Teléfono:UIWebTextInput" id="areaxZl.c9GD.AAAAYiu" href="UIWebTextInput_xZl_c9GD_AAAAYiw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 610.0, 1122.0, 640.0" coords2="1012.0, 610.0, 1122.0, 640.0" shape="rect" alt="Provincia:UIWebLabel" id="areatIR.c9GD.AAAAYeW" href="UIWebLabel_tIR_c9GD_AAAAYeY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 540.0, 1122.0, 570.0" coords2="1012.0, 540.0, 1122.0, 570.0" shape="rect" alt="Nombre:UIWebLabel" id="areaWS1ec9GD.AAAAWha" href="UIWebLabel_jflec9GD_AAAAUav.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 570.0, 1312.0, 600.0" coords2="1012.0, 570.0, 1312.0, 600.0" shape="rect" alt="Nombre:UIWebTextInput" id="areaqS1ec9GD.AAAAWhH" href="UIWebTextInput_lflec9GD_AAAAUZo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1232.0, 890.0, 1322.0, 920.0" coords2="1232.0, 890.0, 1322.0, 920.0" shape="rect" alt="Registrar:UIWebSubmitInput" id="areaCS1ec9GD.AAAAWg0" href="UIWebSubmitInput_Rflec9GD_AAAAUYh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 890.0, 1082.0, 920.0" coords2="1002.0, 890.0, 1082.0, 920.0" shape="rect" alt="Cancelar:UIWebResetInput" id="area0S1ec9GD.AAAAWgh" href="UIWebResetInput_2flec9GD_AAAAUXa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="992.0, 440.0, 1332.0, 510.0" coords2="992.0, 440.0, 1332.0, 510.0" shape="rect" alt="titulo:UIWebPanel" id="areaoS1ec9GD.AAAAWgU" href="UIWebPanel_Kflec9GD_AAAAUWd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="740.0, 490.0, 820.0, 520.0" coords2="740.0, 490.0, 820.0, 520.0" shape="rect" alt="Eliminar:UIWebButtonInput" id="areaAS1ec9GD.AAAAWgB" href="UIWebButtonInput_cflec9GD_AAAAUVW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 578.0, 920.0, 755.0" coords2="272.0, 578.0, 920.0, 755.0" shape="rect" alt="Panel4:UIWebPanel" id="areaPi1ec9GD.AAAAWf0" href="UIWebPanel_4flec9GD_AAAAUUZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 525.0, 920.0, 589.0" coords2="272.0, 525.0, 920.0, 589.0" shape="rect" alt="Panel3:UIWebPanel" id="area7i1ec9GD.AAAAWfn" href="UIWebPanel_Aflec9GD_AAAAUTc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 410.0, 920.0, 480.0" coords2="272.0, 410.0, 920.0, 480.0" shape="rect" alt="titulo:UIWebPanel" id="areaji1ec9GD.AAAAWfZ" href="UIWebPanel_nvlec9GD_AAAAUSe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="390.0, 490.0, 470.0, 520.0" coords2="390.0, 490.0, 470.0, 520.0" shape="rect" alt="Buscar:UIWebSubmitInput" id="area1i1ec9GD.AAAAWfG" href="UIWebSubmitInput_jvlec9GD_AAAAURW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 490.0, 392.0, 520.0" coords2="292.0, 490.0, 392.0, 520.0" shape="rect" alt="buscar:UIWebTextInput" id="areapi1ec9GD.AAAAWez" href="UIWebTextInput_Vvlec9GD_AAAAUQP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="822.0, 490.0, 902.0, 520.0" coords2="822.0, 490.0, 902.0, 520.0" shape="rect" alt="Registrar:UIWebButtonInput" id="areaei1ec9GD.AAAAWef" href="UIWebButtonInput__vlec9GD_AAAAUPH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="642.0, 0.0, 1202.0, 390.0" coords2="642.0, 0.0, 1202.0, 390.0" shape="rect" alt="Listar Agencia:UIWebPanel" id="areaQxIUWDGD.AAAAd17" href="UIWebPanel_QxIUWDGD_AAAAd19.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="312.0, 1050.0, 892.0, 1322.0" coords2="312.0, 1050.0, 892.0, 1322.0" shape="rect" alt="Advertencia Agencia:UIWebPanel" id="areaGBhml9GAUCCo.lCR" href="UIWebPanel_vN8ml9GAUCCo_kVn.html" onmouseover="storeReferenceAndSubdiagramInfos('312.0, 1050.0, 892.0, 1310.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=Dki5M9GGAqBW1JE3/Gestionar agencia/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('312.0, 1050.0, 892.0, 1310.0')"/>
+<area coords="312.0, 820.0, 892.0, 1022.0" coords2="312.0, 820.0, 892.0, 1022.0" shape="rect" alt="Notificación Agencia:UIWebPanel" id="areaE.hml9GAUCCo.lBQ" href="UIWebPanel_d4bal9GAUCCo_jz6.html" onmouseover="storeReferenceAndSubdiagramInfos('312.0, 820.0, 892.0, 1010.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=Dki5M9GGAqBW1JE3/Gestionar agencia/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('312.0, 820.0, 892.0, 1010.0')"/>
+<area coords="982.0, 960.0, 1342.0, 1482.0" coords2="982.0, 960.0, 1342.0, 1482.0" shape="rect" alt="Modificar Agencia:UIWebPanel" id="area1WEBc9GD.AAAAY2n" href="UIWebPanel_1WEBc9GD_AAAAY2p.html" onmouseover="storeReferenceAndSubdiagramInfos('982.0, 960.0, 1342.0, 1470.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=Dki5M9GGAqBW1JE3/Gestionar agencia/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('982.0, 960.0, 1342.0, 1470.0')"/>
+<area coords="982.0, 430.0, 1342.0, 952.0" coords2="982.0, 430.0, 1342.0, 952.0" shape="rect" alt="Registrar Agencia:UIWebPanel" id="areaii1ec9GD.AAAAWeF" href="UIWebPanel_yvlec9GD_AAAAUNM.html" onmouseover="storeReferenceAndSubdiagramInfos('982.0, 430.0, 1342.0, 940.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=Dki5M9GGAqBW1JE3/Gestionar agencia/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('982.0, 430.0, 1342.0, 940.0')"/>
+<area coords="2.0, 400.0, 942.0, 802.0" coords2="2.0, 400.0, 942.0, 802.0" shape="rect" alt="Listar Agencia:UIWebPanel" id="areawi1ec9GD.AAAAWd5" href="UIWebPanel_4vlec9GD_AAAAUMP.html" onmouseover="storeReferenceAndSubdiagramInfos('2.0, 400.0, 942.0, 790.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=X3t5M9GGAqBW1Jv3/Reportar agencia/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('2.0, 400.0, 942.0, 790.0')"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">M : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">E : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">M : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">E : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Eliminar : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Pasaje : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Pasaje : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Usuario : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Ruta : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Agencia : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebCheckBoxInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebCheckBoxInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">CheckBox : UIWebCheckBoxInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebCheckBoxInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebCheckBoxInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">CheckBox : UIWebCheckBoxInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Agencias : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Acciones : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Dirección : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Provincia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Teléfono : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Agencia Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Agencia Angosta : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">47394731 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">47366537 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Calle 33 e/ 50 y 52 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Carretera Quiebra Ancha KM 8 1/2 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">ViajaYá : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Agencia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Provincia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Teléfono : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Dirección : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar Agencia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Provincia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Teléfono : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Dirección : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Notificación : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La operación se ha realizado con éxitos ! : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Advertencia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">¿Está seguro que desea eliminar la agencia ? : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Agencias : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Provincia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Dirección : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Teléfono : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Agencia Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Agencia Angosta : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Artemisa : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">47394731 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">47366537 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Calle 33 e/ 50 y 52 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Carretera Quiebra Ancha KM 8 1/2 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel3 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel4 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel2 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel5 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Notificación Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Advertencia Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Agencia : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel3 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel4 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">No : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Si : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextArea.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextArea.png');">
+					</div>
+					&nbsp; <span class="TableContent">TextArea : UIWebTextArea</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextArea.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextArea.png');">
+					</div>
+					&nbsp; <span class="TableContent">TextArea : UIWebTextArea</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">buscar : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Teléfono : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Agencia Angosta : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">47394731 : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">buscar : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

@@ -1,0 +1,1546 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface Administrar Reserva</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface Administrar Reserva	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|13.0|783.0|397.0|47.0|ShapeEditorShape_KPqY19GAUCCo_m4Q.html|ShapeEditorShape_KPqY19GAUCCo_m4Q.html|KPqY19GAUCCo.m4P" id="optionKPqY19GAUCCo.m4P">a : Freehand Shape</option>
+<option value="shape|13.0|922.0|397.0|45.0|ShapeEditorShape_KPqY19GAUCCo_m4Q.html|ShapeEditorShape_KPqY19GAUCCo_m4Q.html|T08419GAUCCo.nKM" id="optionT08419GAUCCo.nKM">a : Freehand Shape</option>
+<option value="shape|489.0|749.0|397.0|45.0|ShapeEditorShape_WvDE19GAUCCo_nm0.html|ShapeEditorShape_WvDE19GAUCCo_nm0.html|mvDE19GAUCCo.nmy" id="optionmvDE19GAUCCo.nmy">a : Freehand Shape</option>
+<option value="shape|489.0|1009.0|397.0|45.0|ShapeEditorShape_IJrk19GAUCCo_oPc.html|ShapeEditorShape_IJrk19GAUCCo_oPc.html|wJrk19GAUCCo.oPa" id="optionwJrk19GAUCCo.oPa">a : Freehand Shape</option>
+<option value="shape|112.0|272.0|210.0|30.0|UIWebComboBox_aYWHV9GAUCCo_jf3.html|UIWebComboBox_aYWHV9GAUCCo_jf3.html|aYWHV9GAUCCo.jf2" id="optionaYWHV9GAUCCo.jf2">ComboBox3 : UIWebComboBox</option>
+<option value="shape|112.0|382.0|50.0|30.0|UIWebComboBox_vElHV9GAUCCo_jh_.html|UIWebComboBox_vElHV9GAUCCo_jh_.html|vElHV9GAUCCo.jh9" id="optionvElHV9GAUCCo.jh9">ComboBox4 : UIWebComboBox</option>
+<option value="shape|192.0|382.0|50.0|30.0|UIWebComboBox_Yu9HV9GAUCCo_ji5.html|UIWebComboBox_Yu9HV9GAUCCo_ji5.html|Yu9HV9GAUCCo.ji3" id="optionYu9HV9GAUCCo.ji3">ComboBox4 : UIWebComboBox</option>
+<option value="shape|272.0|382.0|50.0|30.0|UIWebComboBox_56DHV9GAUCCo_jlX.html|UIWebComboBox_56DHV9GAUCCo_jlX.html|56DHV9GAUCCo.jlV" id="option56DHV9GAUCCo.jlV">ComboBox4 : UIWebComboBox</option>
+<option value="shape|112.0|192.0|210.0|30.0|UIWebComboBox_FRKHV9GAUCCo_je8.html|UIWebComboBox_FRKHV9GAUCCo_je8.html|FRKHV9GAUCCo.je7" id="optionFRKHV9GAUCCo.je7">ComboBox2 : UIWebComboBox</option>
+<option value="shape|22.0|82.0|390.0|50.0|UIWebLabel_5AV7V9GAUCCo_jIg.html|UIWebLabel_5AV7V9GAUCCo_jIg.html|5AV7V9GAUCCo.jIe" id="option5AV7V9GAUCCo.jIe">Buscar Pasaje : UIWebLabel</option>
+<option value="shape|112.0|162.0|100.0|30.0|UIWebLabel_ovoXV9GAUCCo_jp9.html|UIWebLabel_ovoXV9GAUCCo_jp9.html|ovoXV9GAUCCo.jp8" id="optionovoXV9GAUCCo.jp8">Origen : UIWebLabel</option>
+<option value="shape|112.0|242.0|100.0|30.0|UIWebLabel_rwsXV9GAUCCo_jqg.html|UIWebLabel_rwsXV9GAUCCo_jqg.html|rwsXV9GAUCCo.jqf" id="optionrwsXV9GAUCCo.jqf">Destino: : UIWebLabel</option>
+<option value="shape|112.0|352.0|50.0|30.0|UIWebLabel_d0WXV9GAUCCo_jrw.html|UIWebLabel_d0WXV9GAUCCo_jrw.html|d0WXV9GAUCCo.jrv" id="optiond0WXV9GAUCCo.jrv">Año: : UIWebLabel</option>
+<option value="shape|192.0|352.0|50.0|30.0|UIWebLabel_8BuXV9GAUCCo_jsZ.html|UIWebLabel_8BuXV9GAUCCo_jsZ.html|cBuXV9GAUCCo.jsX" id="optioncBuXV9GAUCCo.jsX">Mes: : UIWebLabel</option>
+<option value="shape|272.0|352.0|50.0|30.0|UIWebLabel_Yh_XV9GAUCCo_juD.html|UIWebLabel_Yh_XV9GAUCCo_juD.html|Yh.XV9GAUCCo.juB" id="optionYh.XV9GAUCCo.juB">Día: : UIWebLabel</option>
+<option value="shape|502.0|82.0|390.0|50.0|UIWebLabel_5Jb3V9GAUCCo_jzq.html|UIWebLabel_5Jb3V9GAUCCo_jzq.html|5Jb3V9GAUCCo.jzo" id="option5Jb3V9GAUCCo.jzo">Seleccionar Viajeros : UIWebLabel</option>
+<option value="shape|572.0|172.0|100.0|30.0|UIWebLabel_kpb3V9GAUCCo_j_U.html|UIWebLabel_kpb3V9GAUCCo_j_U.html|kpb3V9GAUCCo.j.S" id="optionkpb3V9GAUCCo.j.S">Viajeros: : UIWebLabel</option>
+<option value="shape|22.0|642.0|390.0|50.0|UIWebLabel_8UvQ19GAUCCo_llg.html|UIWebLabel_8UvQ19GAUCCo_llg.html|8UvQ19GAUCCo.lle" id="option8UvQ19GAUCCo.lle">Lista de Pasajes : UIWebLabel</option>
+<option value="shape|42.0|882.0|200.0|30.0|UIWebLabel_3jFY19GAUCCo_m7v.html|UIWebLabel_3jFY19GAUCCo_m7v.html|3jFY19GAUCCo.m7t" id="option3jFY19GAUCCo.m7t">La Habana - Santa Clara : UIWebLabel</option>
+<option value="shape|42.0|952.0|80.0|30.0|UIWebLabel_ATFY19GAUCCo_m8y.html|UIWebLabel_ATFY19GAUCCo_m8y.html|_jFY19GAUCCo.m8w" id="option_jFY19GAUCCo.m8w">Omnibus : UIWebLabel</option>
+<option value="shape|142.0|952.0|100.0|30.0|UIWebLabel_ITFY19GAUCCo_m91.html|UIWebLabel_ITFY19GAUCCo_m91.html|ITFY19GAUCCo.m9z" id="optionITFY19GAUCCo.m9z">Asientos: 2 : UIWebLabel</option>
+<option value="shape|282.0|952.0|100.0|30.0|UIWebLabel_kTFY19GAUCCo_m_4.html|UIWebLabel_kTFY19GAUCCo_m_4.html|kTFY19GAUCCo.m.2" id="optionkTFY19GAUCCo.m.2">$ 80.00 : UIWebLabel</option>
+<option value="shape|42.0|912.0|160.0|30.0|UIWebLabel_sTFY19GAUCCo_m_7.html|UIWebLabel_sTFY19GAUCCo_m_7.html|sTFY19GAUCCo.m_5" id="optionsTFY19GAUCCo.m_5">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|42.0|742.0|198.0|30.0|UIWebLabel_VJKo19GAUCCo_msV.html|UIWebLabel_VJKo19GAUCCo_msV.html|VJKo19GAUCCo.msU" id="optionVJKo19GAUCCo.msU">La Habana - Matanzas : UIWebLabel</option>
+<option value="shape|42.0|812.0|48.0|30.0|UIWebLabel_q45o19GAUCCo_muh.html|UIWebLabel_q45o19GAUCCo_muh.html|q45o19GAUCCo.muf" id="optionq45o19GAUCCo.muf">Tren : UIWebLabel</option>
+<option value="shape|142.0|812.0|98.0|30.0|UIWebLabel_5WVo19GAUCCo_mwL.html|UIWebLabel_5WVo19GAUCCo_mwL.html|5WVo19GAUCCo.mwJ" id="option5WVo19GAUCCo.mwJ">Asientos: 6 : UIWebLabel</option>
+<option value="shape|282.0|812.0|98.0|30.0|UIWebLabel_id3o19GAUCCo_mzl.html|UIWebLabel_id3o19GAUCCo_mzl.html|id3o19GAUCCo.mzj" id="optionid3o19GAUCCo.mzj">$ 18.00 : UIWebLabel</option>
+<option value="shape|42.0|772.0|160.0|30.0|UIWebLabel_lb_o19GAUCCo_m1f.html|UIWebLabel_lb_o19GAUCCo_m1f.html|lb_o19GAUCCo.m1d" id="optionlb_o19GAUCCo.m1d">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|502.0|642.0|390.0|50.0|UIWebLabel_TL4w19GAUCCo_mav.html|UIWebLabel_TL4w19GAUCCo_mav.html|TL4w19GAUCCo.mat" id="optionTL4w19GAUCCo.mat">Detalles de la Reserva : UIWebLabel</option>
+<option value="shape|532.0|782.0|200.0|30.0|UIWebLabel_nVwE19GAUCCo_nTA.html|UIWebLabel_nVwE19GAUCCo_nTA.html|nVwE19GAUCCo.nS." id="optionnVwE19GAUCCo.nS.">Origen:    La Habana : UIWebLabel</option>
+<option value="shape|812.0|742.0|50.0|30.0|UIWebLabel_A1wE19GAUCCo_nUD.html|UIWebLabel_A1wE19GAUCCo_nUD.html|A1wE19GAUCCo.nUB" id="optionA1wE19GAUCCo.nUB">Tren : UIWebLabel</option>
+<option value="shape|602.0|872.0|100.0|30.0|UIWebLabel_01wE19GAUCCo_nWJ.html|UIWebLabel_01wE19GAUCCo_nWJ.html|01wE19GAUCCo.nWH" id="option01wE19GAUCCo.nWH">$ 36.00 : UIWebLabel</option>
+<option value="shape|602.0|842.0|160.0|30.0|UIWebLabel_C1wE19GAUCCo_nXM.html|UIWebLabel_C1wE19GAUCCo_nXM.html|C1wE19GAUCCo.nXK" id="optionC1wE19GAUCCo.nXK">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|532.0|842.0|60.0|30.0|UIWebLabel_aM3E19GAUCCo_noo.html|UIWebLabel_aM3E19GAUCCo_noo.html|aM3E19GAUCCo.nom" id="optionaM3E19GAUCCo.nom">Fecha: : UIWebLabel</option>
+<option value="shape|532.0|872.0|60.0|30.0|UIWebLabel_s3_E19GAUCCo_nqz.html|UIWebLabel_s3_E19GAUCCo_nqz.html|s3_E19GAUCCo.nqx" id="options3_E19GAUCCo.nqx">Precio: : UIWebLabel</option>
+<option value="shape|532.0|812.0|200.0|30.0|UIWebLabel_C_4k19GAUCCo_nt1.html|UIWebLabel_C_4k19GAUCCo_nt1.html|C.4k19GAUCCo.ntz" id="optionC.4k19GAUCCo.ntz">Destino:  Matanzas : UIWebLabel</option>
+<option value="shape|522.0|742.0|200.0|30.0|UIWebLabel_3Wpk19GAUCCo_n0B.html|UIWebLabel_3Wpk19GAUCCo_n0B.html|3Wpk19GAUCCo.nz_" id="option3Wpk19GAUCCo.nz_">Detalles : UIWebLabel</option>
+<option value="shape|532.0|1042.0|310.0|30.0|UIWebLabel_SKFk19GAUCCo_n2u.html|UIWebLabel_SKFk19GAUCCo_n2u.html|SKFk19GAUCCo.n2s" id="optionSKFk19GAUCCo.n2s">Carlos Brayan Ramila Chorens : UIWebLabel</option>
+<option value="shape|812.0|1002.0|48.0|30.0|UIWebLabel_GKFk19GAUCCo_n3x.html|UIWebLabel_GKFk19GAUCCo_n3x.html|GKFk19GAUCCo.n3v" id="optionGKFk19GAUCCo.n3v">Precio : UIWebLabel</option>
+<option value="shape|532.0|1072.0|260.0|30.0|UIWebLabel_DKFk19GAUCCo_n9A.html|UIWebLabel_DKFk19GAUCCo_n9A.html|DKFk19GAUCCo.n8." id="optionDKFk19GAUCCo.n8.">Alejandro Santana Viamontes : UIWebLabel</option>
+<option value="shape|522.0|1002.0|198.0|30.0|UIWebLabel_LKFk19GAUCCo_n_D.html|UIWebLabel_LKFk19GAUCCo_n_D.html|LKFk19GAUCCo.n.B" id="optionLKFk19GAUCCo.n.B">Pasajeros : UIWebLabel</option>
+<option value="shape|802.0|1042.0|60.0|30.0|UIWebLabel_YyEU19GAUCCo_oWi.html|UIWebLabel_YyEU19GAUCCo_oWi.html|YyEU19GAUCCo.oWg" id="optionYyEU19GAUCCo.oWg">$ 18.00 : UIWebLabel</option>
+<option value="shape|802.0|1072.0|60.0|30.0|UIWebLabel_8xMU19GAUCCo_oYZ.html|UIWebLabel_8xMU19GAUCCo_oYZ.html|8xMU19GAUCCo.oYX" id="option8xMU19GAUCCo.oYX">$ 18.00 : UIWebLabel</option>
+<option value="shape|1052.0|32.0|390.0|50.0|UIWebLabel_Hz_gL9GGAqEGWNh7.html|UIWebLabel_Hz_gL9GGAqEGWNh7.html|Hz_gL9GGAqEGWNh5" id="optionHz_gL9GGAqEGWNh5">Lista Reservas : UIWebLabel</option>
+<option value="shape|1072.0|272.0|200.0|30.0|UIWebLabel__L_gL9GGAqEGWNpS.html|UIWebLabel__L_gL9GGAqEGWNpS.html|.L_gL9GGAqEGWNpQ" id="option.L_gL9GGAqEGWNpQ">La Habana - Santa Clara : UIWebLabel</option>
+<option value="shape|1072.0|342.0|80.0|30.0|UIWebLabel_JL_gL9GGAqEGWNqV.html|UIWebLabel_JL_gL9GGAqEGWNqV.html|JL_gL9GGAqEGWNqT" id="optionJL_gL9GGAqEGWNqT">Omnibus : UIWebLabel</option>
+<option value="shape|1172.0|342.0|100.0|30.0|UIWebLabel_VL_gL9GGAqEGWNrY.html|UIWebLabel_VL_gL9GGAqEGWNrY.html|VL_gL9GGAqEGWNrW" id="optionVL_gL9GGAqEGWNrW">Asientos: 2 : UIWebLabel</option>
+<option value="shape|1312.0|342.0|100.0|30.0|UIWebLabel_DL_gL9GGAqEGWNsb.html|UIWebLabel_DL_gL9GGAqEGWNsb.html|DL_gL9GGAqEGWNsZ" id="optionDL_gL9GGAqEGWNsZ">$ 80.00 : UIWebLabel</option>
+<option value="shape|1072.0|302.0|160.0|30.0|UIWebLabel_rL_gL9GGAqEGWNte.html|UIWebLabel_rL_gL9GGAqEGWNte.html|rL_gL9GGAqEGWNtc" id="optionrL_gL9GGAqEGWNtc">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|1072.0|132.0|198.0|30.0|UIWebLabel_fz_gL9GGAqEGWNi_.html|UIWebLabel_fz_gL9GGAqEGWNi_.html|fz_gL9GGAqEGWNi8" id="optionfz_gL9GGAqEGWNi8">La Habana - Matanzas : UIWebLabel</option>
+<option value="shape|1072.0|202.0|48.0|30.0|UIWebLabel_wL_gL9GGAqEGWNkB.html|UIWebLabel_wL_gL9GGAqEGWNkB.html|wL_gL9GGAqEGWNj_" id="optionwL_gL9GGAqEGWNj_">Tren : UIWebLabel</option>
+<option value="shape|1172.0|202.0|98.0|30.0|UIWebLabel_EL_gL9GGAqEGWNlE.html|UIWebLabel_EL_gL9GGAqEGWNlE.html|EL_gL9GGAqEGWNlC" id="optionEL_gL9GGAqEGWNlC">Asientos: 6 : UIWebLabel</option>
+<option value="shape|1312.0|202.0|98.0|30.0|UIWebLabel_cL_gL9GGAqEGWNmH.html|UIWebLabel_cL_gL9GGAqEGWNmH.html|cL_gL9GGAqEGWNmF" id="optioncL_gL9GGAqEGWNmF">$ 18.00 : UIWebLabel</option>
+<option value="shape|1072.0|162.0|160.0|30.0|UIWebLabel_yL_gL9GGAqEGWNnK.html|UIWebLabel_yL_gL9GGAqEGWNnK.html|yL_gL9GGAqEGWNnI" id="optionyL_gL9GGAqEGWNnI">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|1322.0|132.0|90.0|30.0|UIWebLabel_8yPQL9GGAqEGWOlW.html|UIWebLabel_8yPQL9GGAqEGWOlW.html|8yPQL9GGAqEGWOlU" id="option8yPQL9GGAqEGWOlU">Realizada : UIWebLabel</option>
+<option value="shape|1072.0|412.0|200.0|30.0|UIWebLabel_a6xQL9GGAqEGWOUy.html|UIWebLabel_a6xQL9GGAqEGWOUy.html|a6xQL9GGAqEGWOUw" id="optiona6xQL9GGAqEGWOUw">Santa Clara - La Habana : UIWebLabel</option>
+<option value="shape|1072.0|482.0|80.0|30.0|UIWebLabel_26xQL9GGAqEGWOV1.html|UIWebLabel_26xQL9GGAqEGWOV1.html|26xQL9GGAqEGWOVz" id="option26xQL9GGAqEGWOVz">Omnibus : UIWebLabel</option>
+<option value="shape|1172.0|482.0|100.0|30.0|UIWebLabel_B6xQL9GGAqEGWOW4.html|UIWebLabel_B6xQL9GGAqEGWOW4.html|B6xQL9GGAqEGWOW2" id="optionB6xQL9GGAqEGWOW2">Asientos: 2 : UIWebLabel</option>
+<option value="shape|1312.0|482.0|100.0|30.0|UIWebLabel_p6xQL9GGAqEGWOX7.html|UIWebLabel_p6xQL9GGAqEGWOX7.html|p6xQL9GGAqEGWOX5" id="optionp6xQL9GGAqEGWOX5">$ 80.00 : UIWebLabel</option>
+<option value="shape|1072.0|442.0|160.0|30.0|UIWebLabel_16xQL9GGAqEGWOY_.html|UIWebLabel_16xQL9GGAqEGWOY_.html|V6xQL9GGAqEGWOY8" id="optionV6xQL9GGAqEGWOY8">21/11/23 06:25 PM : UIWebLabel</option>
+<option value="shape|1332.0|412.0|80.0|30.0|UIWebLabel_HItQL9GGAqEGWOjY.html|UIWebLabel_HItQL9GGAqEGWOjY.html|HItQL9GGAqEGWOjX" id="optionHItQL9GGAqEGWOjX">Cancelada : UIWebLabel</option>
+<option value="shape|572.0|202.0|270.0|200.0|UIWebList_XTWPV9GAUCCo_k65.html|UIWebList_XTWPV9GAUCCo_k65.html|XTWPV9GAUCCo.k64" id="optionXTWPV9GAUCCo.k64">List : UIWebList</option>
+<option value="shape|2.0|52.0|440.0|500.0|UIWebPanel_aAV7V9GAUCCo_jFi.html|UIWebPanel_aAV7V9GAUCCo_jFi.html|aAV7V9GAUCCo.jFg" id="optionaAV7V9GAUCCo.jFg">Buscar Pasaje : UIWebPanel</option>
+<option value="shape|12.0|62.0|410.0|80.0|UIWebPanel_2AV7V9GAUCCo_jGd.html|UIWebPanel_2AV7V9GAUCCo_jGd.html|2AV7V9GAUCCo.jGa" id="option2AV7V9GAUCCo.jGa">titulo : UIWebPanel</option>
+<option value="shape|482.0|52.0|440.0|470.0|UIWebPanel_0Jb3V9GAUCCo_jwr.html|UIWebPanel_0Jb3V9GAUCCo_jwr.html|0Jb3V9GAUCCo.jwp" id="option0Jb3V9GAUCCo.jwp">Reservar Pasaje : UIWebPanel</option>
+<option value="shape|492.0|62.0|410.0|80.0|UIWebPanel_GJb3V9GAUCCo_jxn.html|UIWebPanel_GJb3V9GAUCCo_jxn.html|GJb3V9GAUCCo.jxk" id="optionGJb3V9GAUCCo.jxk">titulo : UIWebPanel</option>
+<option value="shape|2.0|612.0|440.0|500.0|UIWebPanel_zkvQ19GAUCCo_lih.html|UIWebPanel_zkvQ19GAUCCo_lih.html|zkvQ19GAUCCo.lif" id="optionzkvQ19GAUCCo.lif">Listar Pasaje : UIWebPanel</option>
+<option value="shape|12.0|622.0|410.0|80.0|UIWebPanel_vkvQ19GAUCCo_ljd.html|UIWebPanel_vkvQ19GAUCCo_ljd.html|vkvQ19GAUCCo.lja" id="optionvkvQ19GAUCCo.lja">titulo : UIWebPanel</option>
+<option value="shape|32.0|872.0|360.0|120.0|UIWebPanel_9jFY19GAUCCo_m60.html|UIWebPanel_9jFY19GAUCCo_m60.html|9jFY19GAUCCo.m6y" id="option9jFY19GAUCCo.m6y">Panel : UIWebPanel</option>
+<option value="shape|32.0|732.0|360.0|120.0|UIWebPanel_sTrw19GAUCCo_mmn.html|UIWebPanel_sTrw19GAUCCo_mmn.html|sTrw19GAUCCo.mmm" id="optionsTrw19GAUCCo.mmm">Panel : UIWebPanel</option>
+<option value="shape|472.0|602.0|450.0|560.0|UIWebPanel_WL4w19GAUCCo_mXw.html|UIWebPanel_WL4w19GAUCCo_mXw.html|WL4w19GAUCCo.mXu" id="optionWL4w19GAUCCo.mXu">Visualizar Reserva : UIWebPanel</option>
+<option value="shape|492.0|622.0|410.0|80.0|UIWebPanel_hL4w19GAUCCo_mYs.html|UIWebPanel_hL4w19GAUCCo_mYs.html|hL4w19GAUCCo.mYp" id="optionhL4w19GAUCCo.mYp">titulo : UIWebPanel</option>
+<option value="shape|512.0|732.0|370.0|230.0|UIWebPanel_VVwE19GAUCCo_nSF.html|UIWebPanel_VVwE19GAUCCo_nSF.html|VVwE19GAUCCo.nSD" id="optionVVwE19GAUCCo.nSD">Panel : UIWebPanel</option>
+<option value="shape|512.0|982.0|370.0|140.0|UIWebPanel_kKFk19GAUCCo_n1z.html|UIWebPanel_kKFk19GAUCCo_n1z.html|kKFk19GAUCCo.n1x" id="optionkKFk19GAUCCo.n1x">Panel : UIWebPanel</option>
+<option value="shape|1032.0|2.0|440.0|570.0|UIWebPanel_xz_gL9GGAqEGWNeN.html|UIWebPanel_xz_gL9GGAqEGWNeN.html|xz_gL9GGAqEGWNeL" id="optionxz_gL9GGAqEGWNeL">Listar Reservas : UIWebPanel</option>
+<option value="shape|1042.0|12.0|410.0|80.0|UIWebPanel_Vz_gL9GGAqEGWNfJ.html|UIWebPanel_Vz_gL9GGAqEGWNfJ.html|Vz_gL9GGAqEGWNfG" id="optionVz_gL9GGAqEGWNfG">titulo : UIWebPanel</option>
+<option value="shape|1062.0|262.0|360.0|120.0|UIWebPanel_9z_gL9GGAqEGWNgF.html|UIWebPanel_9z_gL9GGAqEGWNgF.html|9z_gL9GGAqEGWNgD" id="option9z_gL9GGAqEGWNgD">Panel : UIWebPanel</option>
+<option value="shape|1062.0|122.0|360.0|120.0|UIWebPanel_Lz_gL9GGAqEGWNhA.html|UIWebPanel_Lz_gL9GGAqEGWNhA.html|Lz_gL9GGAqEGWNg." id="optionLz_gL9GGAqEGWNg.">Panel : UIWebPanel</option>
+<option value="shape|1062.0|402.0|360.0|120.0|UIWebPanel_46xQL9GGAqEGWOSy.html|UIWebPanel_46xQL9GGAqEGWOSy.html|46xQL9GGAqEGWOSw" id="option46xQL9GGAqEGWOSw">Panel : UIWebPanel</option>
+<option value="shape|162.0|472.0|88.0|30.0|UIWebSubmitInput_hAV7V9GAUCCo_jHa.html|UIWebSubmitInput_hAV7V9GAUCCo_jHa.html|hAV7V9GAUCCo.jHX" id="optionhAV7V9GAUCCo.jHX">Buscar : UIWebSubmitInput</option>
+<option value="shape|642.0|442.0|90.0|30.0|UIWebSubmitInput_hJb3V9GAUCCo_jyk.html|UIWebSubmitInput_hJb3V9GAUCCo_jyk.html|hJb3V9GAUCCo.jyh" id="optionhJb3V9GAUCCo.jyh">Reservar : UIWebSubmitInput</option>
+<option value="shape|292.0|882.0|90.0|30.0|UIWebSubmitInput_EUvQ19GAUCCo_lka.html|UIWebSubmitInput_EUvQ19GAUCCo_lka.html|EUvQ19GAUCCo.lkX" id="optionEUvQ19GAUCCo.lkX">Comprar : UIWebSubmitInput</option>
+<option value="shape|292.0|742.0|90.0|30.0|UIWebSubmitInput_V0v419GAUCCo_nQL.html|UIWebSubmitInput_V0v419GAUCCo_nQL.html|V0v419GAUCCo.nQJ" id="optionV0v419GAUCCo.nQJ">Comprar : UIWebSubmitInput</option>
+<option value="shape|722.0|922.0|150.0|30.0|UIWebSubmitInput_1L4w19GAUCCo_mZp.html|UIWebSubmitInput_1L4w19GAUCCo_mZp.html|1L4w19GAUCCo.mZm" id="option1L4w19GAUCCo.mZm">Pagar Reserva : UIWebSubmitInput</option>
+<option value="shape|1342.0|42.0|88.0|30.0|UIWebSubmitInput_6DHMGDGD_AAAAaxx.html|UIWebSubmitInput_6DHMGDGD_AAAAaxx.html|6DHMGDGD.AAAAaxv" id="option6DHMGDGD.AAAAaxv">Reservar : UIWebSubmitInput</option>
+<option value="shape|1322.0|272.0|90.0|30.0|UIWebSubmitInput_WL_gL9GGAqEGWNoN.html|UIWebSubmitInput_WL_gL9GGAqEGWNoN.html|mL_gL9GGAqEGWNoL" id="optionmL_gL9GGAqEGWNoL">Cancelar : UIWebSubmitInput</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface_Administrar_Reserva.png" usemap="#diagram_map" class="Image" width="1476.0" height="1166.0"/>				<map name = "diagram_map">
+
+<area coords="1342.0, 42.0, 1430.0, 72.0" coords2="1342.0, 42.0, 1430.0, 72.0" shape="rect" alt="Reservar:UIWebSubmitInput" id="area6DHMGDGD.AAAAaxv" href="UIWebSubmitInput_6DHMGDGD_AAAAaxx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1322.0, 132.0, 1412.0, 162.0" coords2="1322.0, 132.0, 1412.0, 162.0" shape="rect" alt="Realizada:UIWebLabel" id="area8yPQL9GGAqEGWOlU" href="UIWebLabel_8yPQL9GGAqEGWOlW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1332.0, 412.0, 1412.0, 442.0" coords2="1332.0, 412.0, 1412.0, 442.0" shape="rect" alt="Cancelada:UIWebLabel" id="areaHItQL9GGAqEGWOjX" href="UIWebLabel_HItQL9GGAqEGWOjY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 442.0, 1232.0, 472.0" coords2="1072.0, 442.0, 1232.0, 472.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="areaV6xQL9GGAqEGWOY8" href="UIWebLabel_16xQL9GGAqEGWOY_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1312.0, 482.0, 1412.0, 512.0" coords2="1312.0, 482.0, 1412.0, 512.0" shape="rect" alt="$ 80.00:UIWebLabel" id="areap6xQL9GGAqEGWOX5" href="UIWebLabel_p6xQL9GGAqEGWOX7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1172.0, 482.0, 1272.0, 512.0" coords2="1172.0, 482.0, 1272.0, 512.0" shape="rect" alt="Asientos: 2:UIWebLabel" id="areaB6xQL9GGAqEGWOW2" href="UIWebLabel_B6xQL9GGAqEGWOW4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 482.0, 1152.0, 512.0" coords2="1072.0, 482.0, 1152.0, 512.0" shape="rect" alt="Omnibus:UIWebLabel" id="area26xQL9GGAqEGWOVz" href="UIWebLabel_26xQL9GGAqEGWOV1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 412.0, 1272.0, 442.0" coords2="1072.0, 412.0, 1272.0, 442.0" shape="rect" alt="Santa Clara - La Habana:UIWebLabel" id="areaa6xQL9GGAqEGWOUw" href="UIWebLabel_a6xQL9GGAqEGWOUy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 302.0, 1232.0, 332.0" coords2="1072.0, 302.0, 1232.0, 332.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="arearL_gL9GGAqEGWNtc" href="UIWebLabel_rL_gL9GGAqEGWNte.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1312.0, 342.0, 1412.0, 372.0" coords2="1312.0, 342.0, 1412.0, 372.0" shape="rect" alt="$ 80.00:UIWebLabel" id="areaDL_gL9GGAqEGWNsZ" href="UIWebLabel_DL_gL9GGAqEGWNsb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1172.0, 342.0, 1272.0, 372.0" coords2="1172.0, 342.0, 1272.0, 372.0" shape="rect" alt="Asientos: 2:UIWebLabel" id="areaVL_gL9GGAqEGWNrW" href="UIWebLabel_VL_gL9GGAqEGWNrY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 342.0, 1152.0, 372.0" coords2="1072.0, 342.0, 1152.0, 372.0" shape="rect" alt="Omnibus:UIWebLabel" id="areaJL_gL9GGAqEGWNqT" href="UIWebLabel_JL_gL9GGAqEGWNqV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 272.0, 1272.0, 302.0" coords2="1072.0, 272.0, 1272.0, 302.0" shape="rect" alt="La Habana - Santa Clara:UIWebLabel" id="area.L_gL9GGAqEGWNpQ" href="UIWebLabel__L_gL9GGAqEGWNpS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1322.0, 272.0, 1412.0, 302.0" coords2="1322.0, 272.0, 1412.0, 302.0" shape="rect" alt="Cancelar:UIWebSubmitInput" id="areamL_gL9GGAqEGWNoL" href="UIWebSubmitInput_WL_gL9GGAqEGWNoN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 162.0, 1232.0, 192.0" coords2="1072.0, 162.0, 1232.0, 192.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="areayL_gL9GGAqEGWNnI" href="UIWebLabel_yL_gL9GGAqEGWNnK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1312.0, 202.0, 1410.0, 232.0" coords2="1312.0, 202.0, 1410.0, 232.0" shape="rect" alt="$ 18.00:UIWebLabel" id="areacL_gL9GGAqEGWNmF" href="UIWebLabel_cL_gL9GGAqEGWNmH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1172.0, 202.0, 1270.0, 232.0" coords2="1172.0, 202.0, 1270.0, 232.0" shape="rect" alt="Asientos: 6:UIWebLabel" id="areaEL_gL9GGAqEGWNlC" href="UIWebLabel_EL_gL9GGAqEGWNlE.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 202.0, 1120.0, 232.0" coords2="1072.0, 202.0, 1120.0, 232.0" shape="rect" alt="Tren:UIWebLabel" id="areawL_gL9GGAqEGWNj_" href="UIWebLabel_wL_gL9GGAqEGWNkB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1072.0, 132.0, 1270.0, 162.0" coords2="1072.0, 132.0, 1270.0, 162.0" shape="rect" alt="La Habana - Matanzas:UIWebLabel" id="areafz_gL9GGAqEGWNi8" href="UIWebLabel_fz_gL9GGAqEGWNi_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1052.0, 32.0, 1442.0, 82.0" coords2="1052.0, 32.0, 1442.0, 82.0" shape="rect" alt="Lista Reservas:UIWebLabel" id="areaHz_gL9GGAqEGWNh5" href="UIWebLabel_Hz_gL9GGAqEGWNh7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="802.0, 1072.0, 862.0, 1102.0" coords2="802.0, 1072.0, 862.0, 1102.0" shape="rect" alt="$ 18.00:UIWebLabel" id="area8xMU19GAUCCo.oYX" href="UIWebLabel_8xMU19GAUCCo_oYZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="802.0, 1042.0, 862.0, 1072.0" coords2="802.0, 1042.0, 862.0, 1072.0" shape="rect" alt="$ 18.00:UIWebLabel" id="areaYyEU19GAUCCo.oWg" href="UIWebLabel_YyEU19GAUCCo_oWi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="522.0, 1002.0, 720.0, 1032.0" coords2="522.0, 1002.0, 720.0, 1032.0" shape="rect" alt="Pasajeros:UIWebLabel" id="areaLKFk19GAUCCo.n.B" href="UIWebLabel_LKFk19GAUCCo_n_D.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 1072.0, 792.0, 1102.0" coords2="532.0, 1072.0, 792.0, 1102.0" shape="rect" alt="Alejandro Santana Viamontes:UIWebLabel" id="areaDKFk19GAUCCo.n8." href="UIWebLabel_DKFk19GAUCCo_n9A.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="812.0, 1002.0, 860.0, 1032.0" coords2="812.0, 1002.0, 860.0, 1032.0" shape="rect" alt="Precio:UIWebLabel" id="areaGKFk19GAUCCo.n3v" href="UIWebLabel_GKFk19GAUCCo_n3x.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 1042.0, 842.0, 1072.0" coords2="532.0, 1042.0, 842.0, 1072.0" shape="rect" alt="Carlos Brayan Ramila Chorens:UIWebLabel" id="areaSKFk19GAUCCo.n2s" href="UIWebLabel_SKFk19GAUCCo_n2u.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="522.0, 742.0, 722.0, 772.0" coords2="522.0, 742.0, 722.0, 772.0" shape="rect" alt="Detalles:UIWebLabel" id="area3Wpk19GAUCCo.nz_" href="UIWebLabel_3Wpk19GAUCCo_n0B.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 812.0, 732.0, 842.0" coords2="532.0, 812.0, 732.0, 842.0" shape="rect" alt="Destino:  Matanzas:UIWebLabel" id="areaC.4k19GAUCCo.ntz" href="UIWebLabel_C_4k19GAUCCo_nt1.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 872.0, 592.0, 902.0" coords2="532.0, 872.0, 592.0, 902.0" shape="rect" alt="Precio::UIWebLabel" id="areas3_E19GAUCCo.nqx" href="UIWebLabel_s3_E19GAUCCo_nqz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 842.0, 592.0, 872.0" coords2="532.0, 842.0, 592.0, 872.0" shape="rect" alt="Fecha::UIWebLabel" id="areaaM3E19GAUCCo.nom" href="UIWebLabel_aM3E19GAUCCo_noo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="602.0, 842.0, 762.0, 872.0" coords2="602.0, 842.0, 762.0, 872.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="areaC1wE19GAUCCo.nXK" href="UIWebLabel_C1wE19GAUCCo_nXM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="602.0, 872.0, 702.0, 902.0" coords2="602.0, 872.0, 702.0, 902.0" shape="rect" alt="$ 36.00:UIWebLabel" id="area01wE19GAUCCo.nWH" href="UIWebLabel_01wE19GAUCCo_nWJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="812.0, 742.0, 862.0, 772.0" coords2="812.0, 742.0, 862.0, 772.0" shape="rect" alt="Tren:UIWebLabel" id="areaA1wE19GAUCCo.nUB" href="UIWebLabel_A1wE19GAUCCo_nUD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 782.0, 732.0, 812.0" coords2="532.0, 782.0, 732.0, 812.0" shape="rect" alt="Origen:    La Habana:UIWebLabel" id="areanVwE19GAUCCo.nS." href="UIWebLabel_nVwE19GAUCCo_nTA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="722.0, 922.0, 872.0, 952.0" coords2="722.0, 922.0, 872.0, 952.0" shape="rect" alt="Pagar Reserva:UIWebSubmitInput" id="area1L4w19GAUCCo.mZm" href="UIWebSubmitInput_1L4w19GAUCCo_mZp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 742.0, 382.0, 772.0" coords2="292.0, 742.0, 382.0, 772.0" shape="rect" alt="Comprar:UIWebSubmitInput" id="areaV0v419GAUCCo.nQJ" href="UIWebSubmitInput_V0v419GAUCCo_nQL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 912.0, 202.0, 942.0" coords2="42.0, 912.0, 202.0, 942.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="areasTFY19GAUCCo.m_5" href="UIWebLabel_sTFY19GAUCCo_m_7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="282.0, 952.0, 382.0, 982.0" coords2="282.0, 952.0, 382.0, 982.0" shape="rect" alt="$ 80.00:UIWebLabel" id="areakTFY19GAUCCo.m.2" href="UIWebLabel_kTFY19GAUCCo_m_4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="142.0, 952.0, 242.0, 982.0" coords2="142.0, 952.0, 242.0, 982.0" shape="rect" alt="Asientos: 2:UIWebLabel" id="areaITFY19GAUCCo.m9z" href="UIWebLabel_ITFY19GAUCCo_m91.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 952.0, 122.0, 982.0" coords2="42.0, 952.0, 122.0, 982.0" shape="rect" alt="Omnibus:UIWebLabel" id="area_jFY19GAUCCo.m8w" href="UIWebLabel_ATFY19GAUCCo_m8y.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 882.0, 242.0, 912.0" coords2="42.0, 882.0, 242.0, 912.0" shape="rect" alt="La Habana - Santa Clara:UIWebLabel" id="area3jFY19GAUCCo.m7t" href="UIWebLabel_3jFY19GAUCCo_m7v.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 882.0, 382.0, 912.0" coords2="292.0, 882.0, 382.0, 912.0" shape="rect" alt="Comprar:UIWebSubmitInput" id="areaEUvQ19GAUCCo.lkX" href="UIWebSubmitInput_EUvQ19GAUCCo_lka.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 772.0, 202.0, 802.0" coords2="42.0, 772.0, 202.0, 802.0" shape="rect" alt="21/11/23 06:25 PM:UIWebLabel" id="arealb_o19GAUCCo.m1d" href="UIWebLabel_lb_o19GAUCCo_m1f.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="282.0, 812.0, 380.0, 842.0" coords2="282.0, 812.0, 380.0, 842.0" shape="rect" alt="$ 18.00:UIWebLabel" id="areaid3o19GAUCCo.mzj" href="UIWebLabel_id3o19GAUCCo_mzl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="142.0, 812.0, 240.0, 842.0" coords2="142.0, 812.0, 240.0, 842.0" shape="rect" alt="Asientos: 6:UIWebLabel" id="area5WVo19GAUCCo.mwJ" href="UIWebLabel_5WVo19GAUCCo_mwL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 812.0, 90.0, 842.0" coords2="42.0, 812.0, 90.0, 842.0" shape="rect" alt="Tren:UIWebLabel" id="areaq45o19GAUCCo.muf" href="UIWebLabel_q45o19GAUCCo_muh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 742.0, 240.0, 772.0" coords2="42.0, 742.0, 240.0, 772.0" shape="rect" alt="La Habana - Matanzas:UIWebLabel" id="areaVJKo19GAUCCo.msU" href="UIWebLabel_VJKo19GAUCCo_msV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="502.0, 642.0, 892.0, 692.0" coords2="502.0, 642.0, 892.0, 692.0" shape="rect" alt="Detalles de la Reserva:UIWebLabel" id="areaTL4w19GAUCCo.mat" href="UIWebLabel_TL4w19GAUCCo_mav.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 642.0, 412.0, 692.0" coords2="22.0, 642.0, 412.0, 692.0" shape="rect" alt="Lista de Pasajes:UIWebLabel" id="area8UvQ19GAUCCo.lle" href="UIWebLabel_8UvQ19GAUCCo_llg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="502.0, 82.0, 892.0, 132.0" coords2="502.0, 82.0, 892.0, 132.0" shape="rect" alt="Seleccionar Viajeros:UIWebLabel" id="area5Jb3V9GAUCCo.jzo" href="UIWebLabel_5Jb3V9GAUCCo_jzq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 82.0, 412.0, 132.0" coords2="22.0, 82.0, 412.0, 132.0" shape="rect" alt="Buscar Pasaje:UIWebLabel" id="area5AV7V9GAUCCo.jIe" href="UIWebLabel_5AV7V9GAUCCo_jIg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1062.0, 402.0, 1422.0, 522.0" coords2="1062.0, 402.0, 1422.0, 522.0" shape="rect" alt="Panel:UIWebPanel" id="area46xQL9GGAqEGWOSw" href="UIWebPanel_46xQL9GGAqEGWOSy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1062.0, 122.0, 1422.0, 242.0" coords2="1062.0, 122.0, 1422.0, 242.0" shape="rect" alt="Panel:UIWebPanel" id="areaLz_gL9GGAqEGWNg." href="UIWebPanel_Lz_gL9GGAqEGWNhA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1062.0, 262.0, 1422.0, 382.0" coords2="1062.0, 262.0, 1422.0, 382.0" shape="rect" alt="Panel:UIWebPanel" id="area9z_gL9GGAqEGWNgD" href="UIWebPanel_9z_gL9GGAqEGWNgF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1042.0, 12.0, 1452.0, 92.0" coords2="1042.0, 12.0, 1452.0, 92.0" shape="rect" alt="titulo:UIWebPanel" id="areaVz_gL9GGAqEGWNfG" href="UIWebPanel_Vz_gL9GGAqEGWNfJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="512.0, 982.0, 882.0, 1122.0" coords2="512.0, 982.0, 882.0, 1122.0" shape="rect" alt="Panel:UIWebPanel" id="areakKFk19GAUCCo.n1x" href="UIWebPanel_kKFk19GAUCCo_n1z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 732.0, 392.0, 852.0" coords2="32.0, 732.0, 392.0, 852.0" shape="rect" alt="Panel:UIWebPanel" id="areasTrw19GAUCCo.mmm" href="UIWebPanel_sTrw19GAUCCo_mmn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="512.0, 732.0, 882.0, 962.0" coords2="512.0, 732.0, 882.0, 962.0" shape="rect" alt="Panel:UIWebPanel" id="areaVVwE19GAUCCo.nSD" href="UIWebPanel_VVwE19GAUCCo_nSF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 872.0, 392.0, 992.0" coords2="32.0, 872.0, 392.0, 992.0" shape="rect" alt="Panel:UIWebPanel" id="area9jFY19GAUCCo.m6y" href="UIWebPanel_9jFY19GAUCCo_m60.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="492.0, 622.0, 902.0, 702.0" coords2="492.0, 622.0, 902.0, 702.0" shape="rect" alt="titulo:UIWebPanel" id="areahL4w19GAUCCo.mYp" href="UIWebPanel_hL4w19GAUCCo_mYs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 622.0, 422.0, 702.0" coords2="12.0, 622.0, 422.0, 702.0" shape="rect" alt="titulo:UIWebPanel" id="areavkvQ19GAUCCo.lja" href="UIWebPanel_vkvQ19GAUCCo_ljd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="572.0, 202.0, 842.0, 402.0" coords2="572.0, 202.0, 842.0, 402.0" shape="rect" alt="List:UIWebList" id="areaXTWPV9GAUCCo.k64" href="UIWebList_XTWPV9GAUCCo_k65.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="572.0, 172.0, 672.0, 202.0" coords2="572.0, 172.0, 672.0, 202.0" shape="rect" alt="Viajeros::UIWebLabel" id="areakpb3V9GAUCCo.j.S" href="UIWebLabel_kpb3V9GAUCCo_j_U.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="642.0, 442.0, 732.0, 472.0" coords2="642.0, 442.0, 732.0, 472.0" shape="rect" alt="Reservar:UIWebSubmitInput" id="areahJb3V9GAUCCo.jyh" href="UIWebSubmitInput_hJb3V9GAUCCo_jyk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="492.0, 62.0, 902.0, 142.0" coords2="492.0, 62.0, 902.0, 142.0" shape="rect" alt="titulo:UIWebPanel" id="areaGJb3V9GAUCCo.jxk" href="UIWebPanel_GJb3V9GAUCCo_jxn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 352.0, 322.0, 382.0" coords2="272.0, 352.0, 322.0, 382.0" shape="rect" alt="Día::UIWebLabel" id="areaYh.XV9GAUCCo.juB" href="UIWebLabel_Yh_XV9GAUCCo_juD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="192.0, 352.0, 242.0, 382.0" coords2="192.0, 352.0, 242.0, 382.0" shape="rect" alt="Mes::UIWebLabel" id="areacBuXV9GAUCCo.jsX" href="UIWebLabel_8BuXV9GAUCCo_jsZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 352.0, 162.0, 382.0" coords2="112.0, 352.0, 162.0, 382.0" shape="rect" alt="Año::UIWebLabel" id="aread0WXV9GAUCCo.jrv" href="UIWebLabel_d0WXV9GAUCCo_jrw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 242.0, 212.0, 272.0" coords2="112.0, 242.0, 212.0, 272.0" shape="rect" alt="Destino::UIWebLabel" id="arearwsXV9GAUCCo.jqf" href="UIWebLabel_rwsXV9GAUCCo_jqg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 162.0, 212.0, 192.0" coords2="112.0, 162.0, 212.0, 192.0" shape="rect" alt="Origen:UIWebLabel" id="areaovoXV9GAUCCo.jp8" href="UIWebLabel_ovoXV9GAUCCo_jp9.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="272.0, 382.0, 322.0, 412.0" coords2="272.0, 382.0, 322.0, 412.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="area56DHV9GAUCCo.jlV" href="UIWebComboBox_56DHV9GAUCCo_jlX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="192.0, 382.0, 242.0, 412.0" coords2="192.0, 382.0, 242.0, 412.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaYu9HV9GAUCCo.ji3" href="UIWebComboBox_Yu9HV9GAUCCo_ji5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 382.0, 162.0, 412.0" coords2="112.0, 382.0, 162.0, 412.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areavElHV9GAUCCo.jh9" href="UIWebComboBox_vElHV9GAUCCo_jh_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 272.0, 322.0, 302.0" coords2="112.0, 272.0, 322.0, 302.0" shape="rect" alt="ComboBox3:UIWebComboBox" id="areaaYWHV9GAUCCo.jf2" href="UIWebComboBox_aYWHV9GAUCCo_jf3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="112.0, 192.0, 322.0, 222.0" coords2="112.0, 192.0, 322.0, 222.0" shape="rect" alt="ComboBox2:UIWebComboBox" id="areaFRKHV9GAUCCo.je7" href="UIWebComboBox_FRKHV9GAUCCo_je8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="162.0, 472.0, 250.0, 502.0" coords2="162.0, 472.0, 250.0, 502.0" shape="rect" alt="Buscar:UIWebSubmitInput" id="areahAV7V9GAUCCo.jHX" href="UIWebSubmitInput_hAV7V9GAUCCo_jHa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 62.0, 422.0, 142.0" coords2="12.0, 62.0, 422.0, 142.0" shape="rect" alt="titulo:UIWebPanel" id="area2AV7V9GAUCCo.jGa" href="UIWebPanel_2AV7V9GAUCCo_jGd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1032.0, 2.0, 1472.0, 584.0" coords2="1032.0, 2.0, 1472.0, 584.0" shape="rect" alt="Listar Reservas:UIWebPanel" id="areaxz_gL9GGAqEGWNeL" href="UIWebPanel_xz_gL9GGAqEGWNeN.html" onmouseover="storeReferenceAndSubdiagramInfos('1032.0, 2.0, 1472.0, 572.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=EDolM9GGAqBW1ADF/Administrar reserva/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('1032.0, 2.0, 1472.0, 572.0')"/>
+<area coords="13.0, 922.0, 410.0, 967.0" coords2="13.0, 922.0, 410.0, 967.0" shape="rect" alt="a:Freehand Shape" id="areaT08419GAUCCo.nKM" href="ShapeEditorShape_KPqY19GAUCCo_m4Q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="489.0, 1009.0, 886.0, 1054.0" coords2="489.0, 1009.0, 886.0, 1054.0" shape="rect" alt="a:Freehand Shape" id="areawJrk19GAUCCo.oPa" href="ShapeEditorShape_IJrk19GAUCCo_oPc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="13.0, 783.0, 410.0, 830.0" coords2="13.0, 783.0, 410.0, 830.0" shape="rect" alt="a:Freehand Shape" id="areaKPqY19GAUCCo.m4P" href="ShapeEditorShape_KPqY19GAUCCo_m4Q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="489.0, 749.0, 886.0, 794.0" coords2="489.0, 749.0, 886.0, 794.0" shape="rect" alt="a:Freehand Shape" id="areamvDE19GAUCCo.nmy" href="ShapeEditorShape_WvDE19GAUCCo_nm0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="472.0, 602.0, 922.0, 1174.0" coords2="472.0, 602.0, 922.0, 1174.0" shape="rect" alt="Visualizar Reserva:UIWebPanel" id="areaWL4w19GAUCCo.mXu" href="UIWebPanel_WL4w19GAUCCo_mXw.html" onmouseover="storeReferenceAndSubdiagramInfos('472.0, 602.0, 922.0, 1162.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=EDolM9GGAqBW1ADF/Administrar reserva/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('472.0, 602.0, 922.0, 1162.0')"/>
+<area coords="2.0, 612.0, 442.0, 1124.0" coords2="2.0, 612.0, 442.0, 1124.0" shape="rect" alt="Listar Pasaje:UIWebPanel" id="areazkvQ19GAUCCo.lif" href="UIWebPanel_zkvQ19GAUCCo_lih.html" onmouseover="storeReferenceAndSubdiagramInfos('2.0, 612.0, 442.0, 1112.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=EDolM9GGAqBW1ADF/Administrar reserva/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('2.0, 612.0, 442.0, 1112.0')"/>
+<area coords="482.0, 52.0, 922.0, 534.0" coords2="482.0, 52.0, 922.0, 534.0" shape="rect" alt="Reservar Pasaje:UIWebPanel" id="area0Jb3V9GAUCCo.jwp" href="UIWebPanel_0Jb3V9GAUCCo_jwr.html" onmouseover="storeReferenceAndSubdiagramInfos('482.0, 52.0, 922.0, 522.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=EDolM9GGAqBW1ADF/Administrar reserva/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('482.0, 52.0, 922.0, 522.0')"/>
+<area coords="2.0, 52.0, 442.0, 564.0" coords2="2.0, 52.0, 442.0, 564.0" shape="rect" alt="Buscar Pasaje:UIWebPanel" id="areaaAV7V9GAUCCo.jFg" href="UIWebPanel_aAV7V9GAUCCo_jFi.html" onmouseover="storeReferenceAndSubdiagramInfos('2.0, 52.0, 442.0, 552.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=EDolM9GGAqBW1ADF/Administrar reserva/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('2.0, 52.0, 442.0, 552.0')"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/ShapeEditorShape.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/ShapeEditorShape.png');">
+					</div>
+					&nbsp; <span class="TableContent">a : Freehand Shape</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/ShapeEditorShape.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/ShapeEditorShape.png');">
+					</div>
+					&nbsp; <span class="TableContent">a : Freehand Shape</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/ShapeEditorShape.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/ShapeEditorShape.png');">
+					</div>
+					&nbsp; <span class="TableContent">a : Freehand Shape</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/ShapeEditorShape.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/ShapeEditorShape.png');">
+					</div>
+					&nbsp; <span class="TableContent">a : Freehand Shape</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox3 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox2 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar Pasaje : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Año: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Mes: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Día: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Seleccionar Viajeros : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Viajeros: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Lista de Pasajes : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana - Santa Clara : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Omnibus : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Asientos: 2 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 80.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana - Matanzas : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Tren : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Asientos: 6 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 18.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Detalles de la Reserva : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen:    La Habana : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Tren : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 36.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Fecha: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino:  Matanzas : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Detalles : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Carlos Brayan Ramila Chorens : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Alejandro Santana Viamontes : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Pasajeros : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 18.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 18.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Lista Reservas : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana - Santa Clara : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Omnibus : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Asientos: 2 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 80.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana - Matanzas : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Tren : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Asientos: 6 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 18.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Realizada : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Santa Clara - La Habana : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Omnibus : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Asientos: 2 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">$ 80.00 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">21/11/23 06:25 PM : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelada : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebList.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebList.png');">
+					</div>
+					&nbsp; <span class="TableContent">List : UIWebList</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Reservar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Visualizar Reserva : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Reservas : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Reservar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Comprar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Comprar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Pagar Reserva : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Reservar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

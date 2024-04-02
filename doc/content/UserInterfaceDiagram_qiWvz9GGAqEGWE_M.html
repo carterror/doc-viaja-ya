@@ -1,0 +1,2170 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface Gestionar Pasaje</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface Gestionar Pasaje	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|771.0|122.0|80.0|29.0|UIWebButtonInput_WV_vz9GGAqEGWFR0.html|UIWebButtonInput_WV_vz9GGAqEGWFR0.html|WV.vz9GGAqEGWFRx" id="optionWV.vz9GGAqEGWFRx">Registrar : UIWebButtonInput</option>
+<option value="shape|751.0|231.0|29.0|29.0|UIWebButtonInput_Yt_vz9GGAqEGWFw_.html|UIWebButtonInput_Yt_vz9GGAqEGWFw_.html|Yt.vz9GGAqEGWFw9" id="optionYt.vz9GGAqEGWFw9">M : UIWebButtonInput</option>
+<option value="shape|791.0|231.0|29.0|29.0|UIWebButtonInput_0t_vz9GGAqEGWFyE.html|UIWebButtonInput_0t_vz9GGAqEGWFyE.html|0t.vz9GGAqEGWFyC" id="option0t.vz9GGAqEGWFyC">E : UIWebButtonInput</option>
+<option value="shape|751.0|261.0|29.0|29.0|UIWebButtonInput_8t_vz9GGAqEGWFzJ.html|UIWebButtonInput_8t_vz9GGAqEGWFzJ.html|8t.vz9GGAqEGWFzH" id="option8t.vz9GGAqEGWFzH">M : UIWebButtonInput</option>
+<option value="shape|791.0|261.0|29.0|29.0|UIWebButtonInput_Kt_vz9GGAqEGWF0O.html|UIWebButtonInput_Kt_vz9GGAqEGWF0O.html|Kt.vz9GGAqEGWF0M" id="optionKt.vz9GGAqEGWF0M">E : UIWebButtonInput</option>
+<option value="shape|691.0|122.0|80.0|29.0|UIWebButtonInput__V_vz9GGAqEGWFX3.html|UIWebButtonInput__V_vz9GGAqEGWFX3.html|_V.vz9GGAqEGWFX1" id="option_V.vz9GGAqEGWFX1">Eliminar : UIWebButtonInput</option>
+<option value="shape|42.0|152.0|170.0|20.0|UIWebButtonInput_2aLIL9GGAqEGWANH.html|UIWebButtonInput_2aLIL9GGAqEGWANH.html|Bg1T79GD.AAAAZoI" id="optionBg1T79GD.AAAAZoI">Gestionar Pasaje : UIWebButtonInput</option>
+<option value="shape|42.0|192.0|170.0|20.0|UIWebButtonInput_o6rIL9GGAqEGWART.html|UIWebButtonInput_o6rIL9GGAqEGWART.html|Jg1T79GD.AAAAZoZ" id="optionJg1T79GD.AAAAZoZ">Gestionar Usuario : UIWebButtonInput</option>
+<option value="shape|42.0|232.0|170.0|20.0|UIWebButtonInput_6F7IL9GGAqEGWAXe.html|UIWebButtonInput_6F7IL9GGAqEGWAXe.html|Vg1T79GD.AAAAZor" id="optionVg1T79GD.AAAAZor">Gestionar Ruta : UIWebButtonInput</option>
+<option value="shape|42.0|272.0|170.0|20.0|UIWebButtonInput_JF7IL9GGAqEGWAYj.html|UIWebButtonInput_JF7IL9GGAqEGWAYj.html|dg1T79GD.AAAAZo9" id="optiondg1T79GD.AAAAZo9">Gestionar Agencia : UIWebButtonInput</option>
+<option value="shape|42.0|402.0|170.0|20.0|UIWebButtonInput_bfmieDGD_AAAARYM.html|UIWebButtonInput_bfmieDGD_AAAARYM.html|bfmieDGD.AAAARYK" id="optionbfmieDGD.AAAARYK">Salir : UIWebButtonInput</option>
+<option value="shape|42.0|372.0|170.0|20.0|UIWebButtonInput_GUuieDGD_AAAARZ8.html|UIWebButtonInput_GUuieDGD_AAAARZ8.html|GUuieDGD.AAAARZ6" id="optionGUuieDGD.AAAARZ6">Cuenta : UIWebButtonInput</option>
+<option value="shape|242.0|182.0|20.0|20.0|UIWebCheckBoxInput_gm9CeDGD_AAAARAw.html|UIWebCheckBoxInput_gm9CeDGD_AAAARAw.html|gm9CeDGD.AAAARAu" id="optiongm9CeDGD.AAAARAu">CheckBox : UIWebCheckBoxInput</option>
+<option value="shape|242.0|232.0|20.0|20.0|UIWebCheckBoxInput_VN_vz9GGAqEGWFri.html|UIWebCheckBoxInput_VN_vz9GGAqEGWFri.html|VN.vz9GGAqEGWFrg" id="optionVN.vz9GGAqEGWFrg">CheckBox : UIWebCheckBoxInput</option>
+<option value="shape|242.0|262.0|20.0|20.0|UIWebCheckBoxInput_DN_vz9GGAqEGWFss.html|UIWebCheckBoxInput_DN_vz9GGAqEGWFss.html|DN.vz9GGAqEGWFsq" id="optionDN.vz9GGAqEGWFsq">CheckBox : UIWebCheckBoxInput</option>
+<option value="shape|1002.0|212.0|300.0|29.0|UIWebComboBox_h87vz9GGAqEGWIw4.html|UIWebComboBox_h87vz9GGAqEGWIw4.html|.87vz9GGAqEGWIw3" id="option.87vz9GGAqEGWIw3">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1002.0|292.0|300.0|29.0|UIWebComboBox_Hj3vz9GGAqEGWIxz.html|UIWebComboBox_Hj3vz9GGAqEGWIxz.html|Hj3vz9GGAqEGWIxx" id="optionHj3vz9GGAqEGWIxx">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1002.0|582.0|49.0|29.0|UIWebComboBox_U8Sfz9GGAqEGWJDw.html|UIWebComboBox_U8Sfz9GGAqEGWJDw.html|Fbafz9GGAqEGWJaR" id="optionFbafz9GGAqEGWJaR">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1162.0|582.0|49.0|29.0|UIWebComboBox_28Sfz9GGAqEGWJHm.html|UIWebComboBox_28Sfz9GGAqEGWJHm.html|Pbafz9GGAqEGWJa5" id="optionPbafz9GGAqEGWJa5">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1082.0|582.0|49.0|29.0|UIWebComboBox_q8Sfz9GGAqEGWJFr.html|UIWebComboBox_q8Sfz9GGAqEGWJFr.html|rbafz9GGAqEGWJal" id="optionrbafz9GGAqEGWJal">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1002.0|652.0|49.0|29.0|UIWebComboBox_CnGfz9GGAqEGWJhR.html|UIWebComboBox_CnGfz9GGAqEGWJhR.html|8nGfz9GGAqEGWJhP" id="option8nGfz9GGAqEGWJhP">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1082.0|652.0|49.0|29.0|UIWebComboBox_2nGfz9GGAqEGWJjM.html|UIWebComboBox_2nGfz9GGAqEGWJjM.html|2nGfz9GGAqEGWJjK" id="option2nGfz9GGAqEGWJjK">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1002.0|442.0|300.0|29.0|UIWebComboBox_1I4_z9GGAqEGWKI5.html|UIWebComboBox_1I4_z9GGAqEGWKI5.html|1I4_z9GGAqEGWKI4" id="option1I4_z9GGAqEGWKI4">ComboBox6 : UIWebComboBox</option>
+<option value="shape|1420.0|220.0|300.0|28.0|UIWebComboBox_2Zm_z9GGAqEGWKTw.html|UIWebComboBox_2Zm_z9GGAqEGWKTw.html|2Zm_z9GGAqEGWKTu" id="option2Zm_z9GGAqEGWKTu">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1762.0|222.0|300.0|28.0|UIWebComboBox_hZm_z9GGAqEGWKVr.html|UIWebComboBox_hZm_z9GGAqEGWKVr.html|hZm_z9GGAqEGWKVp" id="optionhZm_z9GGAqEGWKVp">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1422.0|412.0|48.0|28.0|UIWebComboBox_zZm_z9GGAqEGWKah.html|UIWebComboBox_zZm_z9GGAqEGWKah.html|zZm_z9GGAqEGWKaf" id="optionzZm_z9GGAqEGWKaf">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1502.0|412.0|48.0|28.0|UIWebComboBox_nZm_z9GGAqEGWKcc.html|UIWebComboBox_nZm_z9GGAqEGWKcc.html|nZm_z9GGAqEGWKca" id="optionnZm_z9GGAqEGWKca">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1582.0|412.0|48.0|28.0|UIWebComboBox__Zm_z9GGAqEGWKeX.html|UIWebComboBox__Zm_z9GGAqEGWKeX.html|_Zm_z9GGAqEGWKeV" id="option_Zm_z9GGAqEGWKeV">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1662.0|412.0|48.0|28.0|UIWebComboBox_a5m_z9GGAqEGWKjb.html|UIWebComboBox_a5m_z9GGAqEGWKjb.html|a5m_z9GGAqEGWKjZ" id="optiona5m_z9GGAqEGWKjZ">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1742.0|412.0|48.0|28.0|UIWebComboBox_O5m_z9GGAqEGWKlW.html|UIWebComboBox_O5m_z9GGAqEGWKlW.html|O5m_z9GGAqEGWKlU" id="optionO5m_z9GGAqEGWKlU">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1422.0|302.0|300.0|28.0|UIWebComboBox_j5m_z9GGAqEGWKqa.html|UIWebComboBox_j5m_z9GGAqEGWKqa.html|j5m_z9GGAqEGWKqY" id="optionj5m_z9GGAqEGWKqY">ComboBox6 : UIWebComboBox</option>
+<option value="shape|1422.0|802.0|300.0|28.0|UIWebComboBox_SQfqeDGD_AAAATbp.html|UIWebComboBox_SQfqeDGD_AAAATbp.html|SQfqeDGD.AAAATbn" id="optionSQfqeDGD.AAAATbn">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1762.0|802.0|300.0|28.0|UIWebComboBox_RQfqeDGD_AAAATdm.html|UIWebComboBox_RQfqeDGD_AAAATdm.html|RQfqeDGD.AAAATdk" id="optionRQfqeDGD.AAAATdk">ComboBox5 : UIWebComboBox</option>
+<option value="shape|1422.0|992.0|48.0|28.0|UIWebComboBox_zQfqeDGD_AAAATii.html|UIWebComboBox_zQfqeDGD_AAAATii.html|zQfqeDGD.AAAATig" id="optionzQfqeDGD.AAAATig">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1502.0|992.0|48.0|28.0|UIWebComboBox_zQfqeDGD_AAAATkf.html|UIWebComboBox_zQfqeDGD_AAAATkf.html|zQfqeDGD.AAAATkd" id="optionzQfqeDGD.AAAATkd">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1582.0|992.0|48.0|28.0|UIWebComboBox_QwfqeDGD_AAAATmc.html|UIWebComboBox_QwfqeDGD_AAAATmc.html|QwfqeDGD.AAAATma" id="optionQwfqeDGD.AAAATma">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1662.0|992.0|48.0|28.0|UIWebComboBox_hwfqeDGD_AAAATro.html|UIWebComboBox_hwfqeDGD_AAAATro.html|hwfqeDGD.AAAATrm" id="optionhwfqeDGD.AAAATrm">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1742.0|992.0|48.0|28.0|UIWebComboBox_hwfqeDGD_AAAATtl.html|UIWebComboBox_hwfqeDGD_AAAATtl.html|hwfqeDGD.AAAATtj" id="optionhwfqeDGD.AAAATtj">ComboBox4 : UIWebComboBox</option>
+<option value="shape|1422.0|882.0|300.0|28.0|UIWebComboBox_gIfqeDGD_AAAATyx.html|UIWebComboBox_gIfqeDGD_AAAATyx.html|gIfqeDGD.AAAATyv" id="optiongIfqeDGD.AAAATyv">ComboBox6 : UIWebComboBox</option>
+<option value="shape|231.0|51.0|260.0|49.0|UIWebLabel_eN_vz9GGAqEGWFpc.html|UIWebLabel_eN_vz9GGAqEGWFpc.html|eN.vz9GGAqEGWFpa" id="optioneN.vz9GGAqEGWFpa">Listar Pasaje : UIWebLabel</option>
+<option value="shape|271.0|182.0|99.0|29.0|UIWebLabel_JN_vz9GGAqEGWFqf.html|UIWebLabel_JN_vz9GGAqEGWFqf.html|JN.vz9GGAqEGWFqd" id="optionJN.vz9GGAqEGWFqd">Origen : UIWebLabel</option>
+<option value="shape|751.0|182.0|99.0|29.0|UIWebLabel_At_vz9GGAqEGWFv8.html|UIWebLabel_At_vz9GGAqEGWFv8.html|At.vz9GGAqEGWFv6" id="optionAt.vz9GGAqEGWFv6">Acciones : UIWebLabel</option>
+<option value="shape|371.0|182.0|99.0|29.0|UIWebLabel_AAz_z9GGAqEGWL2M.html|UIWebLabel_AAz_z9GGAqEGWL2M.html|AAz_z9GGAqEGWL2K" id="optionAAz_z9GGAqEGWL2K">Destino : UIWebLabel</option>
+<option value="shape|482.0|182.0|59.0|29.0|UIWebLabel_X2H_z9GGAqEGWL40.html|UIWebLabel_X2H_z9GGAqEGWL40.html|X2H_z9GGAqEGWL4z" id="optionX2H_z9GGAqEGWL4z">Transporte : UIWebLabel</option>
+<option value="shape|581.0|182.0|59.0|29.0|UIWebLabel_xhP_z9GGAqEGWL66.html|UIWebLabel_xhP_z9GGAqEGWL66.html|xhP_z9GGAqEGWL64" id="optionxhP_z9GGAqEGWL64">Fecha : UIWebLabel</option>
+<option value="shape|271.0|231.0|99.0|29.0|UIWebLabel_rN_vz9GGAqEGWFt2.html|UIWebLabel_rN_vz9GGAqEGWFt2.html|rN.vz9GGAqEGWFt0" id="optionrN.vz9GGAqEGWFt0">La Habana : UIWebLabel</option>
+<option value="shape|271.0|261.0|99.0|29.0|UIWebLabel_3N_vz9GGAqEGWFu5.html|UIWebLabel_3N_vz9GGAqEGWFu5.html|3N.vz9GGAqEGWFu3" id="option3N.vz9GGAqEGWFu3">Santa Clara : UIWebLabel</option>
+<option value="shape|371.0|231.0|99.0|29.0|UIWebLabel_Wsj_z9GGAqEGWLyy.html|UIWebLabel_Wsj_z9GGAqEGWLyy.html|Wsj_z9GGAqEGWLyw" id="optionWsj_z9GGAqEGWLyw">Santa Clara : UIWebLabel</option>
+<option value="shape|371.0|261.0|99.0|29.0|UIWebLabel_4cT_z9GGAqEGWL0f.html|UIWebLabel_4cT_z9GGAqEGWL0f.html|4cT_z9GGAqEGWL0d" id="option4cT_z9GGAqEGWL0d">La Habana : UIWebLabel</option>
+<option value="shape|472.0|231.0|99.0|29.0|UIWebLabel_iEf_z9GGAqEGWL80.html|UIWebLabel_iEf_z9GGAqEGWL80.html|iEf_z9GGAqEGWL8y" id="optioniEf_z9GGAqEGWL8y">Tren : UIWebLabel</option>
+<option value="shape|472.0|261.0|99.0|29.0|UIWebLabel_V1__z9GGAqEGWL_e.html|UIWebLabel_V1__z9GGAqEGWL_e.html|V1__z9GGAqEGWL.c" id="optionV1__z9GGAqEGWL.c">Avión : UIWebLabel</option>
+<option value="shape|581.0|231.0|150.0|29.0|UIWebLabel_1fwAL9GGAqEGWMAY.html|UIWebLabel_1fwAL9GGAqEGWMAY.html|1fwAL9GGAqEGWMAW" id="option1fwAL9GGAqEGWMAW">11/21/23 17:29 : UIWebLabel</option>
+<option value="shape|581.0|261.0|150.0|29.0|UIWebLabel_TZcAL9GGAqEGWMEw.html|UIWebLabel_TZcAL9GGAqEGWMEw.html|TZcAL9GGAqEGWMEu" id="optionTZcAL9GGAqEGWMEu">11/21/23 17:29 : UIWebLabel</option>
+<option value="shape|72.0|52.0|140.0|40.0|UIWebLabel_89wIL9GGAqEGWADL.html|UIWebLabel_89wIL9GGAqEGWADL.html|zg1T79GD.AAAAZpP" id="optionzg1T79GD.AAAAZpP">ViajaYá : UIWebLabel</option>
+<option value="shape|1012.0|92.0|260.0|49.0|UIWebLabel_mt_vz9GGAqEGWF1T.html|UIWebLabel_mt_vz9GGAqEGWF1T.html|mt.vz9GGAqEGWF1R" id="optionmt.vz9GGAqEGWF1R">Registrar Pasaje : UIWebLabel</option>
+<option value="shape|1002.0|182.0|109.0|29.0|UIWebLabel_e1_vz9GGAqEGWFdG.html|UIWebLabel_e1_vz9GGAqEGWFdG.html|e1.vz9GGAqEGWFdE" id="optione1.vz9GGAqEGWFdE">Origen : UIWebLabel</option>
+<option value="shape|1002.0|262.0|109.0|29.0|UIWebLabel_Fldvz9GGAqEGWIp6.html|UIWebLabel_Fldvz9GGAqEGWIp6.html|Fldvz9GGAqEGWIp4" id="optionFldvz9GGAqEGWIp4">Destino : UIWebLabel</option>
+<option value="shape|1002.0|342.0|109.0|29.0|UIWebLabel_Pzzvz9GGAqEGWIuK.html|UIWebLabel_Pzzvz9GGAqEGWIuK.html|3zzvz9GGAqEGWIuI" id="option3zzvz9GGAqEGWIuI">Capacidad : UIWebLabel</option>
+<option value="shape|1002.0|482.0|109.0|29.0|UIWebLabel_bbkfz9GGAqEGWI3R.html|UIWebLabel_bbkfz9GGAqEGWI3R.html|bbkfz9GGAqEGWI3P" id="optionbbkfz9GGAqEGWI3P">Precio : UIWebLabel</option>
+<option value="shape|1082.0|552.0|49.0|29.0|UIWebLabel_p8Sfz9GGAqEGWJKk.html|UIWebLabel_p8Sfz9GGAqEGWJKk.html|o7afz9GGAqEGWJbe" id="optiono7afz9GGAqEGWJbe">Mes: : UIWebLabel</option>
+<option value="shape|1002.0|552.0|49.0|29.0|UIWebLabel_B8Sfz9GGAqEGWJJh.html|UIWebLabel_B8Sfz9GGAqEGWJJh.html|g7afz9GGAqEGWJbN" id="optiong7afz9GGAqEGWJbN">Año: : UIWebLabel</option>
+<option value="shape|1162.0|552.0|49.0|29.0|UIWebLabel_18Sfz9GGAqEGWJLn.html|UIWebLabel_18Sfz9GGAqEGWJLn.html|k7afz9GGAqEGWJbv" id="optionk7afz9GGAqEGWJbv">Día: : UIWebLabel</option>
+<option value="shape|1002.0|622.0|49.0|29.0|UIWebLabel_5nGfz9GGAqEGWJnC.html|UIWebLabel_5nGfz9GGAqEGWJnC.html|5nGfz9GGAqEGWJnA" id="option5nGfz9GGAqEGWJnA">Hora: : UIWebLabel</option>
+<option value="shape|1082.0|622.0|49.0|29.0|UIWebLabel_NnGfz9GGAqEGWJoF.html|UIWebLabel_NnGfz9GGAqEGWJoF.html|NnGfz9GGAqEGWJoD" id="optionNnGfz9GGAqEGWJoD">Minuto: : UIWebLabel</option>
+<option value="shape|1002.0|412.0|109.0|29.0|UIWebLabel_Nltfz9GGAqEGWJ_n.html|UIWebLabel_Nltfz9GGAqEGWJ_n.html|Nltfz9GGAqEGWJ_l" id="optionNltfz9GGAqEGWJ_l">Transporte : UIWebLabel</option>
+<option value="shape|230.0|1172.0|260.0|49.0|UIWebLabel_xt_vz9GGAqEGWF3Z.html|UIWebLabel_xt_vz9GGAqEGWF3Z.html|xt.vz9GGAqEGWF3X" id="optionxt.vz9GGAqEGWF3X">Notificación : UIWebLabel</option>
+<option value="shape|220.0|1252.0|499.0|40.0|UIWebLabel_QN_vz9GGAqEGWFkR.html|UIWebLabel_QN_vz9GGAqEGWFkR.html|QN.vz9GGAqEGWFkP" id="optionQN.vz9GGAqEGWFkP">La operación se ha realizado con éxitos ! : UIWebLabel</option>
+<option value="shape|221.0|892.0|260.0|49.0|UIWebLabel_Ft_vz9GGAqEGWF4c.html|UIWebLabel_Ft_vz9GGAqEGWF4c.html|Ft.vz9GGAqEGWF4a" id="optionFt.vz9GGAqEGWF4a">Advertencia : UIWebLabel</option>
+<option value="shape|221.0|972.0|499.0|40.0|UIWebLabel_GN_vz9GGAqEGWFoZ.html|UIWebLabel_GN_vz9GGAqEGWFoZ.html|GN.vz9GGAqEGWFoX" id="optionGN.vz9GGAqEGWFoX">¿Está seguro que desea eliminar la pasaje ? : UIWebLabel</option>
+<option value="shape|1432.0|112.0|260.0|48.0|UIWebLabel_et_vz9GGAqEGWF2W.html|UIWebLabel_et_vz9GGAqEGWF2W.html|et.vz9GGAqEGWF2U" id="optionet.vz9GGAqEGWF2U">Modificar Pasaje : UIWebLabel</option>
+<option value="shape|1420.0|192.0|108.0|28.0|UIWebLabel__pm_z9GGAqEGWKOf.html|UIWebLabel__pm_z9GGAqEGWKOf.html|_pm_z9GGAqEGWKOd" id="option_pm_z9GGAqEGWKOd">Origen : UIWebLabel</option>
+<option value="shape|1762.0|192.0|108.0|28.0|UIWebLabel_kZm_z9GGAqEGWKQl.html|UIWebLabel_kZm_z9GGAqEGWKQl.html|kZm_z9GGAqEGWKQj" id="optionkZm_z9GGAqEGWKQj">Destino : UIWebLabel</option>
+<option value="shape|1932.0|272.0|108.0|28.0|UIWebLabel_qZm_z9GGAqEGWKSt.html|UIWebLabel_qZm_z9GGAqEGWKSt.html|KZm_z9GGAqEGWKSr" id="optionKZm_z9GGAqEGWKSr">Capacidad : UIWebLabel</option>
+<option value="shape|1762.0|272.0|108.0|28.0|UIWebLabel_tZm_z9GGAqEGWKZe.html|UIWebLabel_tZm_z9GGAqEGWKZe.html|tZm_z9GGAqEGWKZc" id="optiontZm_z9GGAqEGWKZc">Precio : UIWebLabel</option>
+<option value="shape|1422.0|382.0|48.0|28.0|UIWebLabel_o5m_z9GGAqEGWKgS.html|UIWebLabel_o5m_z9GGAqEGWKgS.html|o5m_z9GGAqEGWKgQ" id="optiono5m_z9GGAqEGWKgQ">Año: : UIWebLabel</option>
+<option value="shape|1502.0|382.0|48.0|28.0|UIWebLabel_05m_z9GGAqEGWKhV.html|UIWebLabel_05m_z9GGAqEGWKhV.html|05m_z9GGAqEGWKhT" id="option05m_z9GGAqEGWKhT">Mes: : UIWebLabel</option>
+<option value="shape|1582.0|382.0|48.0|28.0|UIWebLabel_i5m_z9GGAqEGWKiY.html|UIWebLabel_i5m_z9GGAqEGWKiY.html|i5m_z9GGAqEGWKiW" id="optioni5m_z9GGAqEGWKiW">Día: : UIWebLabel</option>
+<option value="shape|1662.0|382.0|48.0|28.0|UIWebLabel_h5m_z9GGAqEGWKnR.html|UIWebLabel_h5m_z9GGAqEGWKnR.html|h5m_z9GGAqEGWKnP" id="optionh5m_z9GGAqEGWKnP">Hora: : UIWebLabel</option>
+<option value="shape|1742.0|382.0|48.0|28.0|UIWebLabel_55m_z9GGAqEGWKoU.html|UIWebLabel_55m_z9GGAqEGWKoU.html|55m_z9GGAqEGWKoS" id="option55m_z9GGAqEGWKoS">Minuto: : UIWebLabel</option>
+<option value="shape|1422.0|272.0|108.0|28.0|UIWebLabel_N5m_z9GGAqEGWKpX.html|UIWebLabel_N5m_z9GGAqEGWKpX.html|N5m_z9GGAqEGWKpV" id="optionN5m_z9GGAqEGWKpV">Transporte : UIWebLabel</option>
+<option value="shape|1422.0|352.0|108.0|28.0|UIWebLabel_aBMyeDGD_AAAASKN.html|UIWebLabel_aBMyeDGD_AAAASKN.html|aBMyeDGD.AAAASKL" id="optionaBMyeDGD.AAAASKL">Fecha : UIWebLabel</option>
+<option value="shape|1432.0|692.0|260.0|48.0|UIWebLabel_gIfqeDGD_AAAAT3H.html|UIWebLabel_gIfqeDGD_AAAAT3H.html|gIfqeDGD.AAAAT3F" id="optiongIfqeDGD.AAAAT3F">Registrar Pasaje : UIWebLabel</option>
+<option value="shape|1422.0|772.0|107.0|27.0|UIWebLabel_TgfqeDGD_AAAATXT.html|UIWebLabel_TgfqeDGD_AAAATXT.html|TgfqeDGD.AAAATXR" id="optionTgfqeDGD.AAAATXR">Origen : UIWebLabel</option>
+<option value="shape|1762.0|772.0|108.0|28.0|UIWebLabel_QQfqeDGD_AAAATYY.html|UIWebLabel_QQfqeDGD_AAAATYY.html|QQfqeDGD.AAAATYW" id="optionQQfqeDGD.AAAATYW">Destino : UIWebLabel</option>
+<option value="shape|1932.0|852.0|108.0|28.0|UIWebLabel_SQfqeDGD_AAAATak.html|UIWebLabel_SQfqeDGD_AAAATak.html|SQfqeDGD.AAAATai" id="optionSQfqeDGD.AAAATai">Capacidad : UIWebLabel</option>
+<option value="shape|1762.0|852.0|108.0|28.0|UIWebLabel_xQfqeDGD_AAAAThd.html|UIWebLabel_xQfqeDGD_AAAAThd.html|xQfqeDGD.AAAAThb" id="optionxQfqeDGD.AAAAThb">Precio : UIWebLabel</option>
+<option value="shape|1422.0|962.0|48.0|28.0|UIWebLabel_QwfqeDGD_AAAAToZ.html|UIWebLabel_QwfqeDGD_AAAAToZ.html|QwfqeDGD.AAAAToX" id="optionQwfqeDGD.AAAAToX">Año: : UIWebLabel</option>
+<option value="shape|1502.0|962.0|48.0|28.0|UIWebLabel_SwfqeDGD_AAAATpe.html|UIWebLabel_SwfqeDGD_AAAATpe.html|SwfqeDGD.AAAATpc" id="optionSwfqeDGD.AAAATpc">Mes: : UIWebLabel</option>
+<option value="shape|1582.0|962.0|48.0|28.0|UIWebLabel_SwfqeDGD_AAAATqj.html|UIWebLabel_SwfqeDGD_AAAATqj.html|SwfqeDGD.AAAATqh" id="optionSwfqeDGD.AAAATqh">Día: : UIWebLabel</option>
+<option value="shape|1662.0|962.0|48.0|28.0|UIWebLabel_NwfqeDGD_AAAATvi.html|UIWebLabel_NwfqeDGD_AAAATvi.html|NwfqeDGD.AAAATvg" id="optionNwfqeDGD.AAAATvg">Hora: : UIWebLabel</option>
+<option value="shape|1742.0|962.0|48.0|28.0|UIWebLabel_TwfqeDGD_AAAATwn.html|UIWebLabel_TwfqeDGD_AAAATwn.html|TwfqeDGD.AAAATwl" id="optionTwfqeDGD.AAAATwl">Minuto: : UIWebLabel</option>
+<option value="shape|1422.0|852.0|108.0|28.0|UIWebLabel_TwfqeDGD_AAAATxs.html|UIWebLabel_TwfqeDGD_AAAATxs.html|TwfqeDGD.AAAATxq" id="optionTwfqeDGD.AAAATxq">Transporte : UIWebLabel</option>
+<option value="shape|1422.0|932.0|108.0|28.0|UIWebLabel_GIfqeDGD_AAAAT4M.html|UIWebLabel_GIfqeDGD_AAAAT4M.html|GIfqeDGD.AAAAT4K" id="optionGIfqeDGD.AAAAT4K">Fecha : UIWebLabel</option>
+<option value="shape|2.0|2.0|890.0|470.0|UIWebPanel_3l_vz9GGAqEGWFNN.html|UIWebPanel_3l_vz9GGAqEGWFNN.html|3l.vz9GGAqEGWFNL" id="option3l.vz9GGAqEGWFNL">Listar Pasaje : UIWebPanel</option>
+<option value="shape|221.0|41.0|650.0|70.0|UIWebPanel_DV_vz9GGAqEGWFVF.html|UIWebPanel_DV_vz9GGAqEGWFVF.html|DV.vz9GGAqEGWFVC" id="optionDV.vz9GGAqEGWFVC">titulo : UIWebPanel</option>
+<option value="shape|241.0|172.0|630.0|49.0|UIWebPanel_rV_vz9GGAqEGWFWB.html|UIWebPanel_rV_vz9GGAqEGWFWB.html|rV.vz9GGAqEGWFV_" id="optionrV.vz9GGAqEGWFV_">Panel3 : UIWebPanel</option>
+<option value="shape|231.0|211.0|640.0|179.0|UIWebPanel_XV_vz9GGAqEGWFW8.html|UIWebPanel_XV_vz9GGAqEGWFW8.html|XV.vz9GGAqEGWFW6" id="optionXV.vz9GGAqEGWFW6">Panel4 : UIWebPanel</option>
+<option value="shape|22.0|42.0|210.0|410.0|UIWebPanel_i4LwL9GGAqEGWAAj.html|UIWebPanel_i4LwL9GGAqEGWAAj.html|fA1T79GD.AAAAZnh" id="optionfA1T79GD.AAAAZnh">Panel2 : UIWebPanel</option>
+<option value="shape|42.0|52.0|170.0|50.0|UIWebPanel_ePnwL9GGAqEGWABB.html|UIWebPanel_ePnwL9GGAqEGWABB.html|og1T79GD.AAAAZns" id="optionog1T79GD.AAAAZns">Panel5 : UIWebPanel</option>
+<option value="shape|972.0|72.0|340.0|720.0|UIWebPanel_QV_vz9GGAqEGWFOH.html|UIWebPanel_QV_vz9GGAqEGWFOH.html|QV.vz9GGAqEGWFOF" id="optionQV.vz9GGAqEGWFOF">Registrar Pasaje : UIWebPanel</option>
+<option value="shape|982.0|82.0|320.0|70.0|UIWebPanel_I1_vz9GGAqEGWFY8.html|UIWebPanel_I1_vz9GGAqEGWFY8.html|I1.vz9GGAqEGWFY6" id="optionI1.vz9GGAqEGWFY6">titulo : UIWebPanel</option>
+<option value="shape|202.0|1142.0|580.0|189.0|UIWebPanel_8V_vz9GGAqEGWFP9.html|UIWebPanel_8V_vz9GGAqEGWFP9.html|8V.vz9GGAqEGWFP7" id="option8V.vz9GGAqEGWFP7">Notificación Pasaje : UIWebPanel</option>
+<option value="shape|212.0|1152.0|550.0|80.0|UIWebPanel_v1_vz9GGAqEGWFjW.html|UIWebPanel_v1_vz9GGAqEGWFjW.html|v1.vz9GGAqEGWFjU" id="optionv1.vz9GGAqEGWFjU">titulo : UIWebPanel</option>
+<option value="shape|202.0|861.0|580.0|260.0|UIWebPanel_KV_vz9GGAqEGWFQ4.html|UIWebPanel_KV_vz9GGAqEGWFQ4.html|KV.vz9GGAqEGWFQ2" id="optionKV.vz9GGAqEGWFQ2">Advertencia Pasaje : UIWebPanel</option>
+<option value="shape|212.0|871.0|550.0|80.0|UIWebPanel_4N_vz9GGAqEGWFlU.html|UIWebPanel_4N_vz9GGAqEGWFlU.html|4N.vz9GGAqEGWFlS" id="option4N.vz9GGAqEGWFlS">titulo : UIWebPanel</option>
+<option value="shape|1392.0|72.0|720.0|450.0|UIWebPanel__pm_z9GGAqEGWKKf.html|UIWebPanel__pm_z9GGAqEGWKKf.html|.pm_z9GGAqEGWKKd" id="option.pm_z9GGAqEGWKKd">Modificar Pasaje : UIWebPanel</option>
+<option value="shape|1402.0|92.0|690.0|70.0|UIWebPanel_dpm_z9GGAqEGWKLa.html|UIWebPanel_dpm_z9GGAqEGWKLa.html|dpm_z9GGAqEGWKLY" id="optiondpm_z9GGAqEGWKLY">titulo : UIWebPanel</option>
+<option value="shape|1392.0|652.0|720.0|450.0|UIWebPanel_SgfqeDGD_AAAATTL.html|UIWebPanel_SgfqeDGD_AAAATTL.html|SgfqeDGD.AAAATTJ" id="optionSgfqeDGD.AAAATTJ">Modificar Pasaje : UIWebPanel</option>
+<option value="shape|1402.0|672.0|690.0|70.0|UIWebPanel_RgfqeDGD_AAAATUI.html|UIWebPanel_RgfqeDGD_AAAATUI.html|RgfqeDGD.AAAATUG" id="optionRgfqeDGD.AAAATUG">titulo : UIWebPanel</option>
+<option value="shape|1012.0|722.0|89.0|29.0|UIWebResetInput_01_vz9GGAqEGWFZ3.html|UIWebResetInput_01_vz9GGAqEGWFZ3.html|01.vz9GGAqEGWFZ1" id="option01.vz9GGAqEGWFZ1">Cancelar : UIWebResetInput</option>
+<option value="shape|221.0|1062.0|89.0|29.0|UIWebResetInput_MN_vz9GGAqEGWFmP.html|UIWebResetInput_MN_vz9GGAqEGWFmP.html|MN.vz9GGAqEGWFmN" id="optionMN.vz9GGAqEGWFmN">No : UIWebResetInput</option>
+<option value="shape|1422.0|472.0|88.0|28.0|UIWebResetInput_zpm_z9GGAqEGWKMV.html|UIWebResetInput_zpm_z9GGAqEGWKMV.html|zpm_z9GGAqEGWKMT" id="optionzpm_z9GGAqEGWKMT">Cancelar : UIWebResetInput</option>
+<option value="shape|1422.0|1052.0|88.0|28.0|UIWebResetInput_TgfqeDGD_AAAATWM.html|UIWebResetInput_TgfqeDGD_AAAATWM.html|TgfqeDGD.AAAATWK" id="optionTgfqeDGD.AAAATWK">Cancelar : UIWebResetInput</option>
+<option value="shape|341.0|122.0|80.0|29.0|UIWebSubmitInput_VV_vz9GGAqEGWFT_.html|UIWebSubmitInput_VV_vz9GGAqEGWFT_.html|VV.vz9GGAqEGWFT9" id="optionVV.vz9GGAqEGWFT9">Buscar : UIWebSubmitInput</option>
+<option value="shape|1202.0|722.0|89.0|29.0|UIWebSubmitInput_i1_vz9GGAqEGWFa8.html|UIWebSubmitInput_i1_vz9GGAqEGWFa8.html|i1.vz9GGAqEGWFa6" id="optioni1.vz9GGAqEGWFa6">Registrar : UIWebSubmitInput</option>
+<option value="shape|671.0|1062.0|89.0|29.0|UIWebSubmitInput_yN_vz9GGAqEGWFnU.html|UIWebSubmitInput_yN_vz9GGAqEGWFnU.html|yN.vz9GGAqEGWFnS" id="optionyN.vz9GGAqEGWFnS">Si : UIWebSubmitInput</option>
+<option value="shape|1972.0|472.0|88.0|28.0|UIWebSubmitInput_d1_vz9GGAqEGWFgJ.html|UIWebSubmitInput_d1_vz9GGAqEGWFgJ.html|d1.vz9GGAqEGWFgH" id="optiond1.vz9GGAqEGWFgH">Modificar : UIWebSubmitInput</option>
+<option value="shape|1972.0|1052.0|88.0|28.0|UIWebSubmitInput_RgfqeDGD_AAAATVF.html|UIWebSubmitInput_RgfqeDGD_AAAATVF.html|RgfqeDGD.AAAATVD" id="optionRgfqeDGD.AAAATVD">Registrar : UIWebSubmitInput</option>
+<option value="shape|241.0|122.0|99.0|29.0|UIWebTextInput_JV_vz9GGAqEGWFS6.html|UIWebTextInput_JV_vz9GGAqEGWFS6.html|JV.vz9GGAqEGWFS4" id="optionJV.vz9GGAqEGWFS4">buscar : UIWebTextInput</option>
+<option value="shape|1002.0|372.0|300.0|29.0|UIWebTextInput_zzzvz9GGAqEGWItF.html|UIWebTextInput_zzzvz9GGAqEGWItF.html|zzzvz9GGAqEGWItD" id="optionzzzvz9GGAqEGWItD">Capacidad : UIWebTextInput</option>
+<option value="shape|1002.0|512.0|300.0|29.0|UIWebTextInput_9bkfz9GGAqEGWI2M.html|UIWebTextInput_9bkfz9GGAqEGWI2M.html|9bkfz9GGAqEGWI2K" id="option9bkfz9GGAqEGWI2K">Precio : UIWebTextInput</option>
+<option value="shape|1932.0|302.0|130.0|30.0|UIWebTextInput_8Zm_z9GGAqEGWKRo.html|UIWebTextInput_8Zm_z9GGAqEGWKRo.html|8Zm_z9GGAqEGWKRm" id="option8Zm_z9GGAqEGWKRm">50 : UIWebTextInput</option>
+<option value="shape|1762.0|302.0|130.0|30.0|UIWebTextInput_5Zm_z9GGAqEGWKYZ.html|UIWebTextInput_5Zm_z9GGAqEGWKYZ.html|5Zm_z9GGAqEGWKYX" id="option5Zm_z9GGAqEGWKYX">18.00 : UIWebTextInput</option>
+<option value="shape|1932.0|882.0|130.0|30.0|UIWebTextInput_kQfqeDGD_AAAATZd.html|UIWebTextInput_kQfqeDGD_AAAATZd.html|kQfqeDGD.AAAATZb" id="optionkQfqeDGD.AAAATZb">Ingrese la capacidad : UIWebTextInput</option>
+<option value="shape|1762.0|882.0|130.0|30.0|UIWebTextInput_xQfqeDGD_AAAATgW.html|UIWebTextInput_xQfqeDGD_AAAATgW.html|xQfqeDGD.AAAATgU" id="optionxQfqeDGD.AAAATgU">Ingrese el precio : UIWebTextInput</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface_Gestionar_Pasaje.png" usemap="#diagram_map" class="Image" width="2116.0" height="1335.0"/>				<map name = "diagram_map">
+
+<area coords="72.0, 52.0, 212.0, 92.0" coords2="72.0, 52.0, 212.0, 92.0" shape="rect" alt="ViajaYá:UIWebLabel" id="areazg1T79GD.AAAAZpP" href="UIWebLabel_89wIL9GGAqEGWADL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1432.0, 692.0, 1692.0, 740.0" coords2="1432.0, 692.0, 1692.0, 740.0" shape="rect" alt="Registrar Pasaje:UIWebLabel" id="areagIfqeDGD.AAAAT3F" href="UIWebLabel_gIfqeDGD_AAAAT3H.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 372.0, 212.0, 392.0" coords2="42.0, 372.0, 212.0, 392.0" shape="rect" alt="Cuenta:UIWebButtonInput" id="areaGUuieDGD.AAAARZ6" href="UIWebButtonInput_GUuieDGD_AAAARZ8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 402.0, 212.0, 422.0" coords2="42.0, 402.0, 212.0, 422.0" shape="rect" alt="Salir:UIWebButtonInput" id="areabfmieDGD.AAAARYK" href="UIWebButtonInput_bfmieDGD_AAAARYM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="242.0, 182.0, 262.0, 202.0" coords2="242.0, 182.0, 262.0, 202.0" shape="rect" alt="CheckBox:UIWebCheckBoxInput" id="areagm9CeDGD.AAAARAu" href="UIWebCheckBoxInput_gm9CeDGD_AAAARAw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 272.0, 212.0, 292.0" coords2="42.0, 272.0, 212.0, 292.0" shape="rect" alt="Gestionar Agencia:UIWebButtonInput" id="areadg1T79GD.AAAAZo9" href="UIWebButtonInput_JF7IL9GGAqEGWAYj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 232.0, 212.0, 252.0" coords2="42.0, 232.0, 212.0, 252.0" shape="rect" alt="Gestionar Ruta:UIWebButtonInput" id="areaVg1T79GD.AAAAZor" href="UIWebButtonInput_6F7IL9GGAqEGWAXe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 192.0, 212.0, 212.0" coords2="42.0, 192.0, 212.0, 212.0" shape="rect" alt="Gestionar Usuario:UIWebButtonInput" id="areaJg1T79GD.AAAAZoZ" href="UIWebButtonInput_o6rIL9GGAqEGWART.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 152.0, 212.0, 172.0" coords2="42.0, 152.0, 212.0, 172.0" shape="rect" alt="Gestionar Pasaje:UIWebButtonInput" id="areaBg1T79GD.AAAAZoI" href="UIWebButtonInput_2aLIL9GGAqEGWANH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 52.0, 212.0, 102.0" coords2="42.0, 52.0, 212.0, 102.0" shape="rect" alt="Panel5:UIWebPanel" id="areaog1T79GD.AAAAZns" href="UIWebPanel_ePnwL9GGAqEGWABB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="581.0, 261.0, 731.0, 290.0" coords2="581.0, 261.0, 731.0, 290.0" shape="rect" alt="11/21/23 17:29:UIWebLabel" id="areaTZcAL9GGAqEGWMEu" href="UIWebLabel_TZcAL9GGAqEGWMEw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="581.0, 231.0, 731.0, 260.0" coords2="581.0, 231.0, 731.0, 260.0" shape="rect" alt="11/21/23 17:29:UIWebLabel" id="area1fwAL9GGAqEGWMAW" href="UIWebLabel_1fwAL9GGAqEGWMAY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="472.0, 261.0, 571.0, 290.0" coords2="472.0, 261.0, 571.0, 290.0" shape="rect" alt="Avión:UIWebLabel" id="areaV1__z9GGAqEGWL.c" href="UIWebLabel_V1__z9GGAqEGWL_e.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="472.0, 231.0, 571.0, 260.0" coords2="472.0, 231.0, 571.0, 260.0" shape="rect" alt="Tren:UIWebLabel" id="areaiEf_z9GGAqEGWL8y" href="UIWebLabel_iEf_z9GGAqEGWL80.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="581.0, 182.0, 640.0, 211.0" coords2="581.0, 182.0, 640.0, 211.0" shape="rect" alt="Fecha:UIWebLabel" id="areaxhP_z9GGAqEGWL64" href="UIWebLabel_xhP_z9GGAqEGWL66.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="482.0, 182.0, 541.0, 211.0" coords2="482.0, 182.0, 541.0, 211.0" shape="rect" alt="Transporte:UIWebLabel" id="areaX2H_z9GGAqEGWL4z" href="UIWebLabel_X2H_z9GGAqEGWL40.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="371.0, 182.0, 470.0, 211.0" coords2="371.0, 182.0, 470.0, 211.0" shape="rect" alt="Destino:UIWebLabel" id="areaAAz_z9GGAqEGWL2K" href="UIWebLabel_AAz_z9GGAqEGWL2M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="371.0, 261.0, 470.0, 290.0" coords2="371.0, 261.0, 470.0, 290.0" shape="rect" alt="La Habana:UIWebLabel" id="area4cT_z9GGAqEGWL0d" href="UIWebLabel_4cT_z9GGAqEGWL0f.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="371.0, 231.0, 470.0, 260.0" coords2="371.0, 231.0, 470.0, 260.0" shape="rect" alt="Santa Clara:UIWebLabel" id="areaWsj_z9GGAqEGWLyw" href="UIWebLabel_Wsj_z9GGAqEGWLyy.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1432.0, 112.0, 1692.0, 160.0" coords2="1432.0, 112.0, 1692.0, 160.0" shape="rect" alt="Modificar Pasaje:UIWebLabel" id="areaet.vz9GGAqEGWF2U" href="UIWebLabel_et_vz9GGAqEGWF2W.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="221.0, 892.0, 481.0, 941.0" coords2="221.0, 892.0, 481.0, 941.0" shape="rect" alt="Advertencia:UIWebLabel" id="areaFt.vz9GGAqEGWF4a" href="UIWebLabel_Ft_vz9GGAqEGWF4c.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="230.0, 1172.0, 490.0, 1221.0" coords2="230.0, 1172.0, 490.0, 1221.0" shape="rect" alt="Notificación:UIWebLabel" id="areaxt.vz9GGAqEGWF3X" href="UIWebLabel_xt_vz9GGAqEGWF3Z.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 92.0, 1272.0, 141.0" coords2="1012.0, 92.0, 1272.0, 141.0" shape="rect" alt="Registrar Pasaje:UIWebLabel" id="areamt.vz9GGAqEGWF1R" href="UIWebLabel_mt_vz9GGAqEGWF1T.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="791.0, 261.0, 820.0, 290.0" coords2="791.0, 261.0, 820.0, 290.0" shape="rect" alt="E:UIWebButtonInput" id="areaKt.vz9GGAqEGWF0M" href="UIWebButtonInput_Kt_vz9GGAqEGWF0O.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="751.0, 261.0, 780.0, 290.0" coords2="751.0, 261.0, 780.0, 290.0" shape="rect" alt="M:UIWebButtonInput" id="area8t.vz9GGAqEGWFzH" href="UIWebButtonInput_8t_vz9GGAqEGWFzJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="791.0, 231.0, 820.0, 260.0" coords2="791.0, 231.0, 820.0, 260.0" shape="rect" alt="E:UIWebButtonInput" id="area0t.vz9GGAqEGWFyC" href="UIWebButtonInput_0t_vz9GGAqEGWFyE.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="751.0, 231.0, 780.0, 260.0" coords2="751.0, 231.0, 780.0, 260.0" shape="rect" alt="M:UIWebButtonInput" id="areaYt.vz9GGAqEGWFw9" href="UIWebButtonInput_Yt_vz9GGAqEGWFw_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="751.0, 182.0, 850.0, 211.0" coords2="751.0, 182.0, 850.0, 211.0" shape="rect" alt="Acciones:UIWebLabel" id="areaAt.vz9GGAqEGWFv6" href="UIWebLabel_At_vz9GGAqEGWFv8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="271.0, 261.0, 370.0, 290.0" coords2="271.0, 261.0, 370.0, 290.0" shape="rect" alt="Santa Clara:UIWebLabel" id="area3N.vz9GGAqEGWFu3" href="UIWebLabel_3N_vz9GGAqEGWFu5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="271.0, 231.0, 370.0, 260.0" coords2="271.0, 231.0, 370.0, 260.0" shape="rect" alt="La Habana:UIWebLabel" id="arearN.vz9GGAqEGWFt0" href="UIWebLabel_rN_vz9GGAqEGWFt2.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="242.0, 262.0, 262.0, 282.0" coords2="242.0, 262.0, 262.0, 282.0" shape="rect" alt="CheckBox:UIWebCheckBoxInput" id="areaDN.vz9GGAqEGWFsq" href="UIWebCheckBoxInput_DN_vz9GGAqEGWFss.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="242.0, 232.0, 262.0, 252.0" coords2="242.0, 232.0, 262.0, 252.0" shape="rect" alt="CheckBox:UIWebCheckBoxInput" id="areaVN.vz9GGAqEGWFrg" href="UIWebCheckBoxInput_VN_vz9GGAqEGWFri.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="271.0, 182.0, 370.0, 211.0" coords2="271.0, 182.0, 370.0, 211.0" shape="rect" alt="Origen:UIWebLabel" id="areaJN.vz9GGAqEGWFqd" href="UIWebLabel_JN_vz9GGAqEGWFqf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="231.0, 51.0, 491.0, 100.0" coords2="231.0, 51.0, 491.0, 100.0" shape="rect" alt="Listar Pasaje:UIWebLabel" id="areaeN.vz9GGAqEGWFpa" href="UIWebLabel_eN_vz9GGAqEGWFpc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 932.0, 1530.0, 960.0" coords2="1422.0, 932.0, 1530.0, 960.0" shape="rect" alt="Fecha:UIWebLabel" id="areaGIfqeDGD.AAAAT4K" href="UIWebLabel_GIfqeDGD_AAAAT4M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 882.0, 1722.0, 910.0" coords2="1422.0, 882.0, 1722.0, 910.0" shape="rect" alt="ComboBox6:UIWebComboBox" id="areagIfqeDGD.AAAATyv" href="UIWebComboBox_gIfqeDGD_AAAATyx.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 852.0, 1530.0, 880.0" coords2="1422.0, 852.0, 1530.0, 880.0" shape="rect" alt="Transporte:UIWebLabel" id="areaTwfqeDGD.AAAATxq" href="UIWebLabel_TwfqeDGD_AAAATxs.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1742.0, 962.0, 1790.0, 990.0" coords2="1742.0, 962.0, 1790.0, 990.0" shape="rect" alt="Minuto::UIWebLabel" id="areaTwfqeDGD.AAAATwl" href="UIWebLabel_TwfqeDGD_AAAATwn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1662.0, 962.0, 1710.0, 990.0" coords2="1662.0, 962.0, 1710.0, 990.0" shape="rect" alt="Hora::UIWebLabel" id="areaNwfqeDGD.AAAATvg" href="UIWebLabel_NwfqeDGD_AAAATvi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1742.0, 992.0, 1790.0, 1020.0" coords2="1742.0, 992.0, 1790.0, 1020.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areahwfqeDGD.AAAATtj" href="UIWebComboBox_hwfqeDGD_AAAATtl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1662.0, 992.0, 1710.0, 1020.0" coords2="1662.0, 992.0, 1710.0, 1020.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areahwfqeDGD.AAAATrm" href="UIWebComboBox_hwfqeDGD_AAAATro.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1582.0, 962.0, 1630.0, 990.0" coords2="1582.0, 962.0, 1630.0, 990.0" shape="rect" alt="Día::UIWebLabel" id="areaSwfqeDGD.AAAATqh" href="UIWebLabel_SwfqeDGD_AAAATqj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1502.0, 962.0, 1550.0, 990.0" coords2="1502.0, 962.0, 1550.0, 990.0" shape="rect" alt="Mes::UIWebLabel" id="areaSwfqeDGD.AAAATpc" href="UIWebLabel_SwfqeDGD_AAAATpe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 962.0, 1470.0, 990.0" coords2="1422.0, 962.0, 1470.0, 990.0" shape="rect" alt="Año::UIWebLabel" id="areaQwfqeDGD.AAAAToX" href="UIWebLabel_QwfqeDGD_AAAAToZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1582.0, 992.0, 1630.0, 1020.0" coords2="1582.0, 992.0, 1630.0, 1020.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaQwfqeDGD.AAAATma" href="UIWebComboBox_QwfqeDGD_AAAATmc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1502.0, 992.0, 1550.0, 1020.0" coords2="1502.0, 992.0, 1550.0, 1020.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areazQfqeDGD.AAAATkd" href="UIWebComboBox_zQfqeDGD_AAAATkf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 992.0, 1470.0, 1020.0" coords2="1422.0, 992.0, 1470.0, 1020.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areazQfqeDGD.AAAATig" href="UIWebComboBox_zQfqeDGD_AAAATii.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 852.0, 1870.0, 880.0" coords2="1762.0, 852.0, 1870.0, 880.0" shape="rect" alt="Precio:UIWebLabel" id="areaxQfqeDGD.AAAAThb" href="UIWebLabel_xQfqeDGD_AAAAThd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 882.0, 1892.0, 912.0" coords2="1762.0, 882.0, 1892.0, 912.0" shape="rect" alt="Ingrese el precio:UIWebTextInput" id="areaxQfqeDGD.AAAATgU" href="UIWebTextInput_xQfqeDGD_AAAATgW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 802.0, 2062.0, 830.0" coords2="1762.0, 802.0, 2062.0, 830.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="areaRQfqeDGD.AAAATdk" href="UIWebComboBox_RQfqeDGD_AAAATdm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 802.0, 1722.0, 830.0" coords2="1422.0, 802.0, 1722.0, 830.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="areaSQfqeDGD.AAAATbn" href="UIWebComboBox_SQfqeDGD_AAAATbp.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1932.0, 852.0, 2040.0, 880.0" coords2="1932.0, 852.0, 2040.0, 880.0" shape="rect" alt="Capacidad:UIWebLabel" id="areaSQfqeDGD.AAAATai" href="UIWebLabel_SQfqeDGD_AAAATak.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1932.0, 882.0, 2062.0, 912.0" coords2="1932.0, 882.0, 2062.0, 912.0" shape="rect" alt="Ingrese la capacidad:UIWebTextInput" id="areakQfqeDGD.AAAATZb" href="UIWebTextInput_kQfqeDGD_AAAATZd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 772.0, 1870.0, 800.0" coords2="1762.0, 772.0, 1870.0, 800.0" shape="rect" alt="Destino:UIWebLabel" id="areaQQfqeDGD.AAAATYW" href="UIWebLabel_QQfqeDGD_AAAATYY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 772.0, 1529.0, 799.0" coords2="1422.0, 772.0, 1529.0, 799.0" shape="rect" alt="Origen:UIWebLabel" id="areaTgfqeDGD.AAAATXR" href="UIWebLabel_TgfqeDGD_AAAATXT.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 1052.0, 1510.0, 1080.0" coords2="1422.0, 1052.0, 1510.0, 1080.0" shape="rect" alt="Cancelar:UIWebResetInput" id="areaTgfqeDGD.AAAATWK" href="UIWebResetInput_TgfqeDGD_AAAATWM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1972.0, 1052.0, 2060.0, 1080.0" coords2="1972.0, 1052.0, 2060.0, 1080.0" shape="rect" alt="Registrar:UIWebSubmitInput" id="areaRgfqeDGD.AAAATVD" href="UIWebSubmitInput_RgfqeDGD_AAAATVF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1402.0, 672.0, 2092.0, 742.0" coords2="1402.0, 672.0, 2092.0, 742.0" shape="rect" alt="titulo:UIWebPanel" id="areaRgfqeDGD.AAAATUG" href="UIWebPanel_RgfqeDGD_AAAATUI.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 352.0, 1530.0, 380.0" coords2="1422.0, 352.0, 1530.0, 380.0" shape="rect" alt="Fecha:UIWebLabel" id="areaaBMyeDGD.AAAASKL" href="UIWebLabel_aBMyeDGD_AAAASKN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 42.0, 232.0, 452.0" coords2="22.0, 42.0, 232.0, 452.0" shape="rect" alt="Panel2:UIWebPanel" id="areafA1T79GD.AAAAZnh" href="UIWebPanel_i4LwL9GGAqEGWAAj.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 302.0, 1722.0, 330.0" coords2="1422.0, 302.0, 1722.0, 330.0" shape="rect" alt="ComboBox6:UIWebComboBox" id="areaj5m_z9GGAqEGWKqY" href="UIWebComboBox_j5m_z9GGAqEGWKqa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 272.0, 1530.0, 300.0" coords2="1422.0, 272.0, 1530.0, 300.0" shape="rect" alt="Transporte:UIWebLabel" id="areaN5m_z9GGAqEGWKpV" href="UIWebLabel_N5m_z9GGAqEGWKpX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1742.0, 382.0, 1790.0, 410.0" coords2="1742.0, 382.0, 1790.0, 410.0" shape="rect" alt="Minuto::UIWebLabel" id="area55m_z9GGAqEGWKoS" href="UIWebLabel_55m_z9GGAqEGWKoU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1662.0, 382.0, 1710.0, 410.0" coords2="1662.0, 382.0, 1710.0, 410.0" shape="rect" alt="Hora::UIWebLabel" id="areah5m_z9GGAqEGWKnP" href="UIWebLabel_h5m_z9GGAqEGWKnR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1742.0, 412.0, 1790.0, 440.0" coords2="1742.0, 412.0, 1790.0, 440.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaO5m_z9GGAqEGWKlU" href="UIWebComboBox_O5m_z9GGAqEGWKlW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1662.0, 412.0, 1710.0, 440.0" coords2="1662.0, 412.0, 1710.0, 440.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaa5m_z9GGAqEGWKjZ" href="UIWebComboBox_a5m_z9GGAqEGWKjb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1582.0, 382.0, 1630.0, 410.0" coords2="1582.0, 382.0, 1630.0, 410.0" shape="rect" alt="Día::UIWebLabel" id="areai5m_z9GGAqEGWKiW" href="UIWebLabel_i5m_z9GGAqEGWKiY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1502.0, 382.0, 1550.0, 410.0" coords2="1502.0, 382.0, 1550.0, 410.0" shape="rect" alt="Mes::UIWebLabel" id="area05m_z9GGAqEGWKhT" href="UIWebLabel_05m_z9GGAqEGWKhV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 382.0, 1470.0, 410.0" coords2="1422.0, 382.0, 1470.0, 410.0" shape="rect" alt="Año::UIWebLabel" id="areao5m_z9GGAqEGWKgQ" href="UIWebLabel_o5m_z9GGAqEGWKgS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1582.0, 412.0, 1630.0, 440.0" coords2="1582.0, 412.0, 1630.0, 440.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="area_Zm_z9GGAqEGWKeV" href="UIWebComboBox__Zm_z9GGAqEGWKeX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1502.0, 412.0, 1550.0, 440.0" coords2="1502.0, 412.0, 1550.0, 440.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areanZm_z9GGAqEGWKca" href="UIWebComboBox_nZm_z9GGAqEGWKcc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 412.0, 1470.0, 440.0" coords2="1422.0, 412.0, 1470.0, 440.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areazZm_z9GGAqEGWKaf" href="UIWebComboBox_zZm_z9GGAqEGWKah.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 272.0, 1870.0, 300.0" coords2="1762.0, 272.0, 1870.0, 300.0" shape="rect" alt="Precio:UIWebLabel" id="areatZm_z9GGAqEGWKZc" href="UIWebLabel_tZm_z9GGAqEGWKZe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 302.0, 1892.0, 332.0" coords2="1762.0, 302.0, 1892.0, 332.0" shape="rect" alt="18.00:UIWebTextInput" id="area5Zm_z9GGAqEGWKYX" href="UIWebTextInput_5Zm_z9GGAqEGWKYZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 222.0, 2062.0, 250.0" coords2="1762.0, 222.0, 2062.0, 250.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="areahZm_z9GGAqEGWKVp" href="UIWebComboBox_hZm_z9GGAqEGWKVr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1420.0, 220.0, 1720.0, 248.0" coords2="1420.0, 220.0, 1720.0, 248.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="area2Zm_z9GGAqEGWKTu" href="UIWebComboBox_2Zm_z9GGAqEGWKTw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1932.0, 272.0, 2040.0, 300.0" coords2="1932.0, 272.0, 2040.0, 300.0" shape="rect" alt="Capacidad:UIWebLabel" id="areaKZm_z9GGAqEGWKSr" href="UIWebLabel_qZm_z9GGAqEGWKSt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1932.0, 302.0, 2062.0, 332.0" coords2="1932.0, 302.0, 2062.0, 332.0" shape="rect" alt="50:UIWebTextInput" id="area8Zm_z9GGAqEGWKRm" href="UIWebTextInput_8Zm_z9GGAqEGWKRo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1762.0, 192.0, 1870.0, 220.0" coords2="1762.0, 192.0, 1870.0, 220.0" shape="rect" alt="Destino:UIWebLabel" id="areakZm_z9GGAqEGWKQj" href="UIWebLabel_kZm_z9GGAqEGWKQl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1420.0, 192.0, 1528.0, 220.0" coords2="1420.0, 192.0, 1528.0, 220.0" shape="rect" alt="Origen:UIWebLabel" id="area_pm_z9GGAqEGWKOd" href="UIWebLabel__pm_z9GGAqEGWKOf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1422.0, 472.0, 1510.0, 500.0" coords2="1422.0, 472.0, 1510.0, 500.0" shape="rect" alt="Cancelar:UIWebResetInput" id="areazpm_z9GGAqEGWKMT" href="UIWebResetInput_zpm_z9GGAqEGWKMV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1972.0, 472.0, 2060.0, 500.0" coords2="1972.0, 472.0, 2060.0, 500.0" shape="rect" alt="Modificar:UIWebSubmitInput" id="aread1.vz9GGAqEGWFgH" href="UIWebSubmitInput_d1_vz9GGAqEGWFgJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 442.0, 1302.0, 471.0" coords2="1002.0, 442.0, 1302.0, 471.0" shape="rect" alt="ComboBox6:UIWebComboBox" id="area1I4_z9GGAqEGWKI4" href="UIWebComboBox_1I4_z9GGAqEGWKI5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 412.0, 1111.0, 441.0" coords2="1002.0, 412.0, 1111.0, 441.0" shape="rect" alt="Transporte:UIWebLabel" id="areaNltfz9GGAqEGWJ_l" href="UIWebLabel_Nltfz9GGAqEGWJ_n.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1082.0, 622.0, 1131.0, 651.0" coords2="1082.0, 622.0, 1131.0, 651.0" shape="rect" alt="Minuto::UIWebLabel" id="areaNnGfz9GGAqEGWJoD" href="UIWebLabel_NnGfz9GGAqEGWJoF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 622.0, 1051.0, 651.0" coords2="1002.0, 622.0, 1051.0, 651.0" shape="rect" alt="Hora::UIWebLabel" id="area5nGfz9GGAqEGWJnA" href="UIWebLabel_5nGfz9GGAqEGWJnC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1082.0, 652.0, 1131.0, 681.0" coords2="1082.0, 652.0, 1131.0, 681.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="area2nGfz9GGAqEGWJjK" href="UIWebComboBox_2nGfz9GGAqEGWJjM.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 652.0, 1051.0, 681.0" coords2="1002.0, 652.0, 1051.0, 681.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="area8nGfz9GGAqEGWJhP" href="UIWebComboBox_CnGfz9GGAqEGWJhR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1162.0, 552.0, 1211.0, 581.0" coords2="1162.0, 552.0, 1211.0, 581.0" shape="rect" alt="Día::UIWebLabel" id="areak7afz9GGAqEGWJbv" href="UIWebLabel_18Sfz9GGAqEGWJLn.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1082.0, 552.0, 1131.0, 581.0" coords2="1082.0, 552.0, 1131.0, 581.0" shape="rect" alt="Mes::UIWebLabel" id="areao7afz9GGAqEGWJbe" href="UIWebLabel_p8Sfz9GGAqEGWJKk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 552.0, 1051.0, 581.0" coords2="1002.0, 552.0, 1051.0, 581.0" shape="rect" alt="Año::UIWebLabel" id="areag7afz9GGAqEGWJbN" href="UIWebLabel_B8Sfz9GGAqEGWJJh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1162.0, 582.0, 1211.0, 611.0" coords2="1162.0, 582.0, 1211.0, 611.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaPbafz9GGAqEGWJa5" href="UIWebComboBox_28Sfz9GGAqEGWJHm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1082.0, 582.0, 1131.0, 611.0" coords2="1082.0, 582.0, 1131.0, 611.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="arearbafz9GGAqEGWJal" href="UIWebComboBox_q8Sfz9GGAqEGWJFr.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 582.0, 1051.0, 611.0" coords2="1002.0, 582.0, 1051.0, 611.0" shape="rect" alt="ComboBox4:UIWebComboBox" id="areaFbafz9GGAqEGWJaR" href="UIWebComboBox_U8Sfz9GGAqEGWJDw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 482.0, 1111.0, 511.0" coords2="1002.0, 482.0, 1111.0, 511.0" shape="rect" alt="Precio:UIWebLabel" id="areabbkfz9GGAqEGWI3P" href="UIWebLabel_bbkfz9GGAqEGWI3R.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 512.0, 1302.0, 541.0" coords2="1002.0, 512.0, 1302.0, 541.0" shape="rect" alt="Precio:UIWebTextInput" id="area9bkfz9GGAqEGWI2K" href="UIWebTextInput_9bkfz9GGAqEGWI2M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 292.0, 1302.0, 321.0" coords2="1002.0, 292.0, 1302.0, 321.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="areaHj3vz9GGAqEGWIxx" href="UIWebComboBox_Hj3vz9GGAqEGWIxz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 212.0, 1302.0, 241.0" coords2="1002.0, 212.0, 1302.0, 241.0" shape="rect" alt="ComboBox5:UIWebComboBox" id="area.87vz9GGAqEGWIw3" href="UIWebComboBox_h87vz9GGAqEGWIw4.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 342.0, 1111.0, 371.0" coords2="1002.0, 342.0, 1111.0, 371.0" shape="rect" alt="Capacidad:UIWebLabel" id="area3zzvz9GGAqEGWIuI" href="UIWebLabel_Pzzvz9GGAqEGWIuK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 372.0, 1302.0, 401.0" coords2="1002.0, 372.0, 1302.0, 401.0" shape="rect" alt="Capacidad:UIWebTextInput" id="areazzzvz9GGAqEGWItD" href="UIWebTextInput_zzzvz9GGAqEGWItF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 262.0, 1111.0, 291.0" coords2="1002.0, 262.0, 1111.0, 291.0" shape="rect" alt="Destino:UIWebLabel" id="areaFldvz9GGAqEGWIp4" href="UIWebLabel_Fldvz9GGAqEGWIp6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1002.0, 182.0, 1111.0, 211.0" coords2="1002.0, 182.0, 1111.0, 211.0" shape="rect" alt="Origen:UIWebLabel" id="areae1.vz9GGAqEGWFdE" href="UIWebLabel_e1_vz9GGAqEGWFdG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1202.0, 722.0, 1291.0, 751.0" coords2="1202.0, 722.0, 1291.0, 751.0" shape="rect" alt="Registrar:UIWebSubmitInput" id="areai1.vz9GGAqEGWFa6" href="UIWebSubmitInput_i1_vz9GGAqEGWFa8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1012.0, 722.0, 1101.0, 751.0" coords2="1012.0, 722.0, 1101.0, 751.0" shape="rect" alt="Cancelar:UIWebResetInput" id="area01.vz9GGAqEGWFZ1" href="UIWebResetInput_01_vz9GGAqEGWFZ3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="982.0, 82.0, 1302.0, 152.0" coords2="982.0, 82.0, 1302.0, 152.0" shape="rect" alt="titulo:UIWebPanel" id="areaI1.vz9GGAqEGWFY6" href="UIWebPanel_I1_vz9GGAqEGWFY8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1402.0, 92.0, 2092.0, 162.0" coords2="1402.0, 92.0, 2092.0, 162.0" shape="rect" alt="titulo:UIWebPanel" id="areadpm_z9GGAqEGWKLY" href="UIWebPanel_dpm_z9GGAqEGWKLa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="221.0, 972.0, 720.0, 1012.0" coords2="221.0, 972.0, 720.0, 1012.0" shape="rect" alt="¿Está seguro que desea eliminar la pasaje ?:UIWebLabel" id="areaGN.vz9GGAqEGWFoX" href="UIWebLabel_GN_vz9GGAqEGWFoZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="671.0, 1062.0, 760.0, 1091.0" coords2="671.0, 1062.0, 760.0, 1091.0" shape="rect" alt="Si:UIWebSubmitInput" id="areayN.vz9GGAqEGWFnS" href="UIWebSubmitInput_yN_vz9GGAqEGWFnU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="221.0, 1062.0, 310.0, 1091.0" coords2="221.0, 1062.0, 310.0, 1091.0" shape="rect" alt="No:UIWebResetInput" id="areaMN.vz9GGAqEGWFmN" href="UIWebResetInput_MN_vz9GGAqEGWFmP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="220.0, 1252.0, 719.0, 1292.0" coords2="220.0, 1252.0, 719.0, 1292.0" shape="rect" alt="La operación se ha realizado con éxitos !:UIWebLabel" id="areaQN.vz9GGAqEGWFkP" href="UIWebLabel_QN_vz9GGAqEGWFkR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="212.0, 1152.0, 762.0, 1232.0" coords2="212.0, 1152.0, 762.0, 1232.0" shape="rect" alt="titulo:UIWebPanel" id="areav1.vz9GGAqEGWFjU" href="UIWebPanel_v1_vz9GGAqEGWFjW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="212.0, 871.0, 762.0, 951.0" coords2="212.0, 871.0, 762.0, 951.0" shape="rect" alt="titulo:UIWebPanel" id="area4N.vz9GGAqEGWFlS" href="UIWebPanel_4N_vz9GGAqEGWFlU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="691.0, 122.0, 771.0, 151.0" coords2="691.0, 122.0, 771.0, 151.0" shape="rect" alt="Eliminar:UIWebButtonInput" id="area_V.vz9GGAqEGWFX1" href="UIWebButtonInput__V_vz9GGAqEGWFX3.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="231.0, 211.0, 871.0, 390.0" coords2="231.0, 211.0, 871.0, 390.0" shape="rect" alt="Panel4:UIWebPanel" id="areaXV.vz9GGAqEGWFW6" href="UIWebPanel_XV_vz9GGAqEGWFW8.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="241.0, 172.0, 871.0, 221.0" coords2="241.0, 172.0, 871.0, 221.0" shape="rect" alt="Panel3:UIWebPanel" id="arearV.vz9GGAqEGWFV_" href="UIWebPanel_rV_vz9GGAqEGWFWB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="221.0, 41.0, 871.0, 111.0" coords2="221.0, 41.0, 871.0, 111.0" shape="rect" alt="titulo:UIWebPanel" id="areaDV.vz9GGAqEGWFVC" href="UIWebPanel_DV_vz9GGAqEGWFVF.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="341.0, 122.0, 421.0, 151.0" coords2="341.0, 122.0, 421.0, 151.0" shape="rect" alt="Buscar:UIWebSubmitInput" id="areaVV.vz9GGAqEGWFT9" href="UIWebSubmitInput_VV_vz9GGAqEGWFT_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="241.0, 122.0, 340.0, 151.0" coords2="241.0, 122.0, 340.0, 151.0" shape="rect" alt="buscar:UIWebTextInput" id="areaJV.vz9GGAqEGWFS4" href="UIWebTextInput_JV_vz9GGAqEGWFS6.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="771.0, 122.0, 851.0, 151.0" coords2="771.0, 122.0, 851.0, 151.0" shape="rect" alt="Registrar:UIWebButtonInput" id="areaWV.vz9GGAqEGWFRx" href="UIWebButtonInput_WV_vz9GGAqEGWFR0.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="1392.0, 652.0, 2112.0, 1102.0" coords2="1392.0, 652.0, 2112.0, 1102.0" shape="rect" alt="Modificar Pasaje:UIWebPanel" id="areaSgfqeDGD.AAAATTJ" href="UIWebPanel_SgfqeDGD_AAAATTL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="972.0, 72.0, 1312.0, 804.0" coords2="972.0, 72.0, 1312.0, 804.0" shape="rect" alt="Registrar Pasaje:UIWebPanel" id="areaQV.vz9GGAqEGWFOF" href="UIWebPanel_QV_vz9GGAqEGWFOH.html" onmouseover="storeReferenceAndSubdiagramInfos('972.0, 72.0, 1312.0, 792.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=FTlFM9GGAqBW1Nlf/Gestionar pasaje/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('972.0, 72.0, 1312.0, 792.0')"/>
+<area coords="202.0, 1142.0, 782.0, 1343.0" coords2="202.0, 1142.0, 782.0, 1343.0" shape="rect" alt="Notificación Pasaje:UIWebPanel" id="area8V.vz9GGAqEGWFP7" href="UIWebPanel_8V_vz9GGAqEGWFP9.html" onmouseover="storeReferenceAndSubdiagramInfos('202.0, 1142.0, 782.0, 1331.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=FTlFM9GGAqBW1Nlf/Gestionar pasaje/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('202.0, 1142.0, 782.0, 1331.0')"/>
+<area coords="2.0, 2.0, 892.0, 484.0" coords2="2.0, 2.0, 892.0, 484.0" shape="rect" alt="Listar Pasaje:UIWebPanel" id="area3l.vz9GGAqEGWFNL" href="UIWebPanel_3l_vz9GGAqEGWFNN.html" onmouseover="storeReferenceAndSubdiagramInfos('2.0, 2.0, 892.0, 472.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=FTlFM9GGAqBW1Nlf/Gestionar pasaje/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('2.0, 2.0, 892.0, 472.0')"/>
+<area coords="1392.0, 72.0, 2112.0, 534.0" coords2="1392.0, 72.0, 2112.0, 534.0" shape="rect" alt="Modificar Pasaje:UIWebPanel" id="area.pm_z9GGAqEGWKKd" href="UIWebPanel__pm_z9GGAqEGWKKf.html" onmouseover="storeReferenceAndSubdiagramInfos('1392.0, 72.0, 2112.0, 522.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=FTlFM9GGAqBW1Nlf/Gestionar pasaje/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('1392.0, 72.0, 2112.0, 522.0')"/>
+<area coords="202.0, 861.0, 782.0, 1133.0" coords2="202.0, 861.0, 782.0, 1133.0" shape="rect" alt="Advertencia Pasaje:UIWebPanel" id="areaKV.vz9GGAqEGWFQ2" href="UIWebPanel_KV_vz9GGAqEGWFQ4.html" onmouseover="storeReferenceAndSubdiagramInfos('202.0, 861.0, 782.0, 1121.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=FTlFM9GGAqBW1Nlf/Gestionar pasaje/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('202.0, 861.0, 782.0, 1121.0')"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">M : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">E : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">M : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">E : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Eliminar : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Pasaje : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Usuario : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Ruta : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Gestionar Agencia : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Salir : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebButtonInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebButtonInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cuenta : UIWebButtonInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebCheckBoxInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebCheckBoxInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">CheckBox : UIWebCheckBoxInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebCheckBoxInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebCheckBoxInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">CheckBox : UIWebCheckBoxInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebCheckBoxInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebCheckBoxInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">CheckBox : UIWebCheckBoxInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox6 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox6 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox5 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox4 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebComboBox.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebComboBox.png');">
+					</div>
+					&nbsp; <span class="TableContent">ComboBox6 : UIWebComboBox</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Pasaje : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Acciones : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Transporte : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Fecha : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Santa Clara : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Santa Clara : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La Habana : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Tren : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Avión : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">11/21/23 17:29 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">11/21/23 17:29 : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">ViajaYá : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Pasaje : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Capacidad : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Mes: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Año: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Día: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Hora: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Minuto: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Transporte : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Notificación : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">La operación se ha realizado con éxitos ! : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Advertencia : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">¿Está seguro que desea eliminar la pasaje ? : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar Pasaje : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Capacidad : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Año: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Mes: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Día: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Hora: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Minuto: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Transporte : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Fecha : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Pasaje : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Origen : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Destino : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Capacidad : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Año: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Mes: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Día: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Hora: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Minuto: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Transporte : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Fecha : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Listar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel3 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel4 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel2 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Panel5 : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Notificación Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Advertencia Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar Pasaje : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">No : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Cancelar : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Buscar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Si : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Modificar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">buscar : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Capacidad : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Precio : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">50 : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">18.00 : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Ingrese la capacidad : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Ingrese el precio : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Deployment Diagram - Deployment Diagram ViajaYa</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		Deployment Diagram - Deployment Diagram ViajaYa	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|352.0|52.0|130.0|40.0|Component_S9gMzHGAUCCo_G_W.html|Component_S9gMzHGAUCCo_G_W.html|S9gMzHGAUCCo.G_V" id="optionS9gMzHGAUCCo.G_V">Servidor NGINX : Component</option>
+<option value="shape|531.0|52.0|140.0|40.0|Component_KokMzHGAUCCo_HBB.html|Component_KokMzHGAUCCo_HBB.html|KokMzHGAUCCo.HBA" id="optionKokMzHGAUCCo.HBA">Servidor Unicorn : Component</option>
+<option value="shape|452.0|111.0|169.0|40.0|Component_bPKMzHGAUCCo_HFe.html|Component_bPKMzHGAUCCo_HFe.html|bPKMzHGAUCCo.HFd" id="optionbPKMzHGAUCCo.HFd">Django Framework : Component</option>
+<option value="shape|32.0|62.0|130.0|40.0|Component_QrcczHGAUCCo_HYk.html|Component_QrcczHGAUCCo_HYk.html|QrcczHGAUCCo.HYj" id="optionQrcczHGAUCCo.HYj">Navegador Web : Component</option>
+<option value="shape|241.0|262.0|130.0|40.0|Component_ZsI8zHGAUCCo_Hzz.html|Component_ZsI8zHGAUCCo_Hzz.html|ZsI8zHGAUCCo.Hzy" id="optionZsI8zHGAUCCo.Hzy">PostgreSql : Component</option>
+<option value="shape|322.0|2.0|380.0|170.0|Node_4YGAzHGAUCCo_ENo.html|Node_4YGAzHGAUCCo_ENo.html|YYGAzHGAUCCo.ENn" id="optionYYGAzHGAUCCo.ENn">Servidor de Aplicación Web : Node</option>
+<option value="shape|2.0|2.0|189.0|120.0|Node_0jZAzHGAUCCo_EU7.html|Node_0jZAzHGAUCCo_EU7.html|0jZAzHGAUCCo.EU6" id="option0jZAzHGAUCCo.EU6">Cliente : Node</option>
+<option value="shape|182.0|202.0|250.0|110.0|Node_KeygzHGAUCCo_EYe.html|Node_KeygzHGAUCCo_EYe.html|KeygzHGAUCCo.EYd" id="optionKeygzHGAUCCo.EYd">Servidor de Base de datos : Node</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/Deployment_Diagram_ViajaYa.png" usemap="#diagram_map" class="Image" width="706.0" height="316.0"/>				<map name = "diagram_map">
+
+<area coords="241.0, 262.0, 371.0, 302.0" coords2="241.0, 262.0, 371.0, 302.0" shape="rect" alt="PostgreSql:Component" id="areaZsI8zHGAUCCo.Hzy" href="Component_ZsI8zHGAUCCo_Hzz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="32.0, 62.0, 162.0, 102.0" coords2="32.0, 62.0, 162.0, 102.0" shape="rect" alt="Navegador Web:Component" id="areaQrcczHGAUCCo.HYj" href="Component_QrcczHGAUCCo_HYk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="452.0, 111.0, 621.0, 151.0" coords2="452.0, 111.0, 621.0, 151.0" shape="rect" alt="Django Framework:Component" id="areabPKMzHGAUCCo.HFd" href="Component_bPKMzHGAUCCo_HFe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="531.0, 52.0, 671.0, 92.0" coords2="531.0, 52.0, 671.0, 92.0" shape="rect" alt="Servidor Unicorn:Component" id="areaKokMzHGAUCCo.HBA" href="Component_KokMzHGAUCCo_HBB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="352.0, 52.0, 482.0, 92.0" coords2="352.0, 52.0, 482.0, 92.0" shape="rect" alt="Servidor NGINX:Component" id="areaS9gMzHGAUCCo.G_V" href="Component_S9gMzHGAUCCo_G_W.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="182.0, 202.0, 432.0, 312.0" coords2="182.0, 202.0, 432.0, 312.0" shape="rect" alt="Servidor de Base de datos:Node" id="areaKeygzHGAUCCo.EYd" href="Node_KeygzHGAUCCo_EYe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 2.0, 191.0, 122.0" coords2="2.0, 2.0, 191.0, 122.0" shape="rect" alt="Cliente:Node" id="area0jZAzHGAUCCo.EU6" href="Node_0jZAzHGAUCCo_EU7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="322.0, 2.0, 702.0, 172.0" coords2="322.0, 2.0, 702.0, 172.0" shape="rect" alt="Servidor de Aplicación Web:Node" id="areaYYGAzHGAUCCo.ENn" href="Node_4YGAzHGAUCCo_ENo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="492.0, 162.0, 492.0, 273.0, 421.0, 273.0, 421.0, 287.0, 492.0, 287.0, 492.0, 290.0, 506.0, 290.0, 506.0, 287.0, 509.0, 287.0, 509.0, 273.0, 506.0, 273.0, 506.0, 162.0" coords2="492.0, 162.0, 492.0, 273.0, 421.0, 273.0, 421.0, 287.0, 492.0, 287.0, 492.0, 290.0, 506.0, 290.0, 506.0, 287.0, 509.0, 287.0, 509.0, 273.0, 506.0, 273.0, 506.0, 162.0" shape="poly" alt="TCP/IP: 5432:Association" id="areaCSwQzHGAUCCo.Efx" href="Association_8SwQzHGAUCCo_EfU.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="181.0, 65.0, 181.0, 79.0, 331.0, 79.0, 331.0, 65.0" coords2="181.0, 65.0, 181.0, 79.0, 331.0, 79.0, 331.0, 65.0" shape="poly" alt="HTTPS: 443:Association" id="area0DUQzHGAUCCo.EkQ" href="Association_0DUQzHGAUCCo_Ejz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="471.0, 62.0, 471.0, 76.0, 539.0, 76.0, 539.0, 62.0" coords2="471.0, 62.0, 471.0, 76.0, 539.0, 76.0, 539.0, 62.0" shape="poly" alt=":Association" id="areaWxaczHGAUCCo.Haz" href="Association_WxaczHGAUCCo_HaW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="562.0, 82.0, 562.0, 119.0, 576.0, 119.0, 576.0, 82.0" coords2="562.0, 82.0, 562.0, 119.0, 576.0, 119.0, 576.0, 82.0" shape="poly" alt=":Association" id="area3e6czHGAUCCo.HbW" href="Association_3e6czHGAUCCo_Ha5.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_S9gMzHGAUCCo_G_W.html">Servidor NGINX : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_KokMzHGAUCCo_HBB.html">Servidor Unicorn : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_bPKMzHGAUCCo_HFe.html">Django Framework : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_QrcczHGAUCCo_HYk.html">Navegador Web : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Component.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Component.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Component_ZsI8zHGAUCCo_Hzz.html">PostgreSql : Component</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Node.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Node.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Node_4YGAzHGAUCCo_ENo.html">Servidor de Aplicación Web : Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Node.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Node.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Node_0jZAzHGAUCCo_EU7.html">Cliente : Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Node.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Node.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Node_KeygzHGAUCCo_EYe.html">Servidor de Base de datos : Node</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

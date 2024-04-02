@@ -1,0 +1,482 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Communication Diagram - Collaboration Diagram Modificar Pasaje</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		Communication Diagram - Collaboration Diagram Modificar Pasaje	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|29.0|222.0|30.0|60.0|InteractionActor_wY3gyDGAUCCo_gCd.html|InteractionActor_wY3gyDGAUCCo_gCd.html|wY3gyDGAUCCo.gCb" id="optionwY3gyDGAUCCo.gCb">Administrador : Actor</option>
+<option value="shape|269.0|2.0|150.0|40.0|InteractionLifeLine_Ko3gyDGAUCCo_uih.html|InteractionLifeLine_Ko3gyDGAUCCo_uih.html|Ko3gyDGAUCCo.uif" id="optionKo3gyDGAUCCo.uif">CI_Principal : Lifeline</option>
+<option value="shape|229.0|232.0|190.0|40.0|InteractionLifeLine_Jo3gyDGAUCCo_ukZ.html|InteractionLifeLine_Jo3gyDGAUCCo_ukZ.html|Jo3gyDGAUCCo.ukX" id="optionJo3gyDGAUCCo.ukX">CI_Listar_Pasaje : Lifeline</option>
+<option value="shape|989.0|232.0|150.0|40.0|InteractionLifeLine_Jo3gyDGAUCCo_umS.html|InteractionLifeLine_Jo3gyDGAUCCo_umS.html|Jo3gyDGAUCCo.umQ" id="optionJo3gyDGAUCCo.umQ">CE_Pasaje : Lifeline</option>
+<option value="shape|619.0|232.0|260.0|40.0|InteractionLifeLine_zo3gyDGAUCCo_uoL.html|InteractionLifeLine_zo3gyDGAUCCo_uoL.html|zo3gyDGAUCCo.uoJ" id="optionzo3gyDGAUCCo.uoJ">CC_Gestionar_Pasaje : Lifeline</option>
+<option value="shape|239.0|482.0|230.0|40.0|InteractionLifeLine_zo3gyDGAUCCo_gAk.html|InteractionLifeLine_zo3gyDGAUCCo_gAk.html|zo3gyDGAUCCo.gAi" id="optionzo3gyDGAUCCo.gAi">CI_Modificar_Pasaje : Lifeline</option>
+<option value="shape|469.0|212.0|60.0|60.0|Message_wY3gyDGAUCCo_gEE.html|Message_wY3gyDGAUCCo_gEE.html|wY3gyDGAUCCo.gEC" id="optionwY3gyDGAUCCo.gEC">MostrarListaPasaje() : Message</option>
+<option value="shape|609.0|382.0|60.0|60.0|Message_SY3gyDGAUCCo_gLL.html|Message_SY3gyDGAUCCo_gLL.html|SY3gyDGAUCCo.gLJ" id="optionSY3gyDGAUCCo.gLJ">MuestraFormularioModificar() : Message</option>
+<option value="shape|609.0|382.0|60.0|60.0|Message_RY3gyDGAUCCo_gSS.html|Message_RY3gyDGAUCCo_gSS.html|RY3gyDGAUCCo.gSQ" id="optionRY3gyDGAUCCo.gSQ">MuestraMensaje("Operación realizada con éxito") : Message</option>
+<option value="shape|609.0|382.0|60.0|60.0|Message_RY3gyDGAUCCo_gWN.html|Message_RY3gyDGAUCCo_gWN.html|RY3gyDGAUCCo.gWL" id="optionRY3gyDGAUCCo.gWL">[A == False] MuestraMensaje("Datos incorrectos") : Message</option>
+<option value="shape|99.0|92.0|60.0|60.0|Message_RY3gyDGAUCCo_gaI.html|Message_RY3gyDGAUCCo_gaI.html|RY3gyDGAUCCo.gaG" id="optionRY3gyDGAUCCo.gaG">SeleccionaGestionarPasaje : Message</option>
+<option value="shape|499.0|72.0|60.0|60.0|Message_TY3gyDGAUCCo_ghP.html|Message_TY3gyDGAUCCo_ghP.html|TY3gyDGAUCCo.ghN" id="optionTY3gyDGAUCCo.ghN">enviarAccion(GestionarPasaje) : Message</option>
+<option value="shape|919.0|212.0|60.0|60.0|Message_TY3gyDGAUCCo_goW.html|Message_TY3gyDGAUCCo_goW.html|TY3gyDGAUCCo.goU" id="optionTY3gyDGAUCCo.goU">listar() : Message</option>
+<option value="shape|709.0|142.0|60.0|60.0|Message_Q43gyDGAUCCo_gvd.html|Message_Q43gyDGAUCCo_gvd.html|Q43gyDGAUCCo.gvb" id="optionQ43gyDGAUCCo.gvb">A := validar() : Message</option>
+<option value="shape|129.0|212.0|60.0|60.0|Message_Q43gyDGAUCCo_g2k.html|Message_Q43gyDGAUCCo_g2k.html|Q43gyDGAUCCo.g2i" id="optionQ43gyDGAUCCo.g2i">SeleccionaModificarPasaje : Message</option>
+<option value="shape|459.0|262.0|60.0|60.0|Message_i43gyDGAUCCo_g9r.html|Message_i43gyDGAUCCo_g9r.html|i43gyDGAUCCo.g9p" id="optioni43gyDGAUCCo.g9p">enviarAccion(FormModificarPasaje) : Message</option>
+<option value="shape|129.0|332.0|60.0|60.0|Message_i43gyDGAUCCo_hBm.html|Message_i43gyDGAUCCo_hBm.html|i43gyDGAUCCo.hBk" id="optioni43gyDGAUCCo.hBk">CompletarFormModificarPasaje : Message</option>
+<option value="shape|489.0|322.0|60.0|60.0|Message_i43gyDGAUCCo_hIt.html|Message_i43gyDGAUCCo_hIt.html|i43gyDGAUCCo.hIr" id="optioni43gyDGAUCCo.hIr">enviarAccion(ModificarPasaje) : Message</option>
+<option value="shape|919.0|212.0|60.0|60.0|Message_h43gyDGAUCCo_hMo.html|Message_h43gyDGAUCCo_hMo.html|h43gyDGAUCCo.hMm" id="optionh43gyDGAUCCo.hMm">[A==True] modificar() : Message</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/Collaboration_Diagram_Modificar_Pasaje.png" usemap="#diagram_map" class="Image" width="1143.0" height="526.0"/>				<map name = "diagram_map">
+
+<area coords="919.0, 212.0, 979.0, 272.0" coords2="919.0, 212.0, 979.0, 272.0" shape="rect" alt="11: [A==True] modificar():Message" id="areah43gyDGAUCCo.hMm" href="Message_h43gyDGAUCCo_hMo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="489.0, 322.0, 549.0, 382.0" coords2="489.0, 322.0, 549.0, 382.0" shape="rect" alt="9: enviarAccion(ModificarPasaje):Message" id="areai43gyDGAUCCo.hIr" href="Message_i43gyDGAUCCo_hIt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="129.0, 332.0, 189.0, 392.0" coords2="129.0, 332.0, 189.0, 392.0" shape="rect" alt="8: CompletarFormModificarPasaje:Message" id="areai43gyDGAUCCo.hBk" href="Message_i43gyDGAUCCo_hBm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="459.0, 262.0, 519.0, 322.0" coords2="459.0, 262.0, 519.0, 322.0" shape="rect" alt="6: enviarAccion(FormModificarPasaje):Message" id="areai43gyDGAUCCo.g9p" href="Message_i43gyDGAUCCo_g9r.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="129.0, 212.0, 189.0, 272.0" coords2="129.0, 212.0, 189.0, 272.0" shape="rect" alt="5: SeleccionaModificarPasaje:Message" id="areaQ43gyDGAUCCo.g2i" href="Message_Q43gyDGAUCCo_g2k.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="709.0, 142.0, 769.0, 202.0" coords2="709.0, 142.0, 769.0, 202.0" shape="rect" alt="10: A := validar():Message" id="areaQ43gyDGAUCCo.gvb" href="Message_Q43gyDGAUCCo_gvd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="919.0, 212.0, 979.0, 272.0" coords2="919.0, 212.0, 979.0, 272.0" shape="rect" alt="3: listar():Message" id="areaTY3gyDGAUCCo.goU" href="Message_TY3gyDGAUCCo_goW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="499.0, 72.0, 559.0, 132.0" coords2="499.0, 72.0, 559.0, 132.0" shape="rect" alt="2: enviarAccion(GestionarPasaje):Message" id="areaTY3gyDGAUCCo.ghN" href="Message_TY3gyDGAUCCo_ghP.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="99.0, 92.0, 159.0, 152.0" coords2="99.0, 92.0, 159.0, 152.0" shape="rect" alt="1: SeleccionaGestionarPasaje:Message" id="areaRY3gyDGAUCCo.gaG" href="Message_RY3gyDGAUCCo_gaI.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="609.0, 382.0, 669.0, 442.0" coords2="609.0, 382.0, 669.0, 442.0" shape="rect" alt="5: [A == False] MuestraMensaje("Datos incorrectos"):Message" id="areaRY3gyDGAUCCo.gWL" href="Message_RY3gyDGAUCCo_gWN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="609.0, 382.0, 669.0, 442.0" coords2="609.0, 382.0, 669.0, 442.0" shape="rect" alt="14: MuestraMensaje("Operación realizada con éxito"):Message" id="areaRY3gyDGAUCCo.gSQ" href="Message_RY3gyDGAUCCo_gSS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="609.0, 382.0, 669.0, 442.0" coords2="609.0, 382.0, 669.0, 442.0" shape="rect" alt="7: MuestraFormularioModificar():Message" id="areaSY3gyDGAUCCo.gLJ" href="Message_SY3gyDGAUCCo_gLL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="469.0, 212.0, 529.0, 272.0" coords2="469.0, 212.0, 529.0, 272.0" shape="rect" alt="4: MostrarListaPasaje():Message" id="areawY3gyDGAUCCo.gEC" href="Message_wY3gyDGAUCCo_gEE.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="29.0, 222.0, 59.0, 282.0" coords2="29.0, 222.0, 59.0, 282.0" shape="rect" alt="Administrador:Actor" id="areawY3gyDGAUCCo.gCb" href="InteractionActor_wY3gyDGAUCCo_gCd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="239.0, 482.0, 469.0, 522.0" coords2="239.0, 482.0, 469.0, 522.0" shape="rect" alt="CI_Modificar_Pasaje : CI_Modificar_Pasaje:Lifeline" id="areazo3gyDGAUCCo.gAi" href="InteractionLifeLine_zo3gyDGAUCCo_gAk.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="619.0, 232.0, 879.0, 272.0" coords2="619.0, 232.0, 879.0, 272.0" shape="rect" alt="CC_Gestionar_Pasaje : CC_Gestionar_Pasaje:Lifeline" id="areazo3gyDGAUCCo.uoJ" href="InteractionLifeLine_zo3gyDGAUCCo_uoL.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="989.0, 232.0, 1139.0, 272.0" coords2="989.0, 232.0, 1139.0, 272.0" shape="rect" alt="CE_Pasaje : CE_Pasaje:Lifeline" id="areaJo3gyDGAUCCo.umQ" href="InteractionLifeLine_Jo3gyDGAUCCo_umS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="229.0, 232.0, 419.0, 272.0" coords2="229.0, 232.0, 419.0, 272.0" shape="rect" alt="CI_Listar_Pasaje : CI_Listar_Pasaje:Lifeline" id="areaJo3gyDGAUCCo.ukX" href="InteractionLifeLine_Jo3gyDGAUCCo_ukZ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="269.0, 2.0, 419.0, 42.0" coords2="269.0, 2.0, 419.0, 42.0" shape="rect" alt="CI_Principal : CI_Principal:Lifeline" id="areaKo3gyDGAUCCo.uif" href="InteractionLifeLine_Ko3gyDGAUCCo_uih.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="417.0, 30.0, 407.0, 40.0, 620.0, 243.0, 630.0, 233.0, 417.0, 30.0" coords2="417.0, 30.0, 407.0, 40.0, 620.0, 243.0, 630.0, 233.0, 417.0, 30.0" shape="poly" alt=":Link" id="areaTY3gyDGAUCCo.glI" href="InteractionLifeLineLink_TY3gyDGAUCCo_glK.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="409.0, 245.0, 409.0, 259.0, 627.0, 259.0, 627.0, 245.0" coords2="409.0, 245.0, 409.0, 259.0, 627.0, 259.0, 627.0, 245.0" shape="poly" alt=":Link" id="areawY3gyDGAUCCo.gH9" href="InteractionLifeLineLink_wY3gyDGAUCCo_gH_.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="722.0, 172.0, 722.0, 175.0, 719.0, 175.0, 719.0, 189.0, 722.0, 189.0, 722.0, 240.0, 736.0, 240.0, 736.0, 189.0, 752.0, 189.0, 752.0, 240.0, 766.0, 240.0, 766.0, 189.0, 769.0, 189.0, 769.0, 175.0, 766.0, 175.0, 766.0, 172.0, 752.0, 172.0, 752.0, 175.0, 736.0, 175.0, 736.0, 172.0" coords2="722.0, 172.0, 722.0, 175.0, 719.0, 175.0, 719.0, 189.0, 722.0, 189.0, 722.0, 240.0, 736.0, 240.0, 736.0, 189.0, 752.0, 189.0, 752.0, 240.0, 766.0, 240.0, 766.0, 189.0, 769.0, 189.0, 769.0, 175.0, 766.0, 175.0, 766.0, 172.0, 752.0, 172.0, 752.0, 175.0, 736.0, 175.0, 736.0, 172.0" shape="poly" alt=":Link" id="areaQ43gyDGAUCCo.gzW" href="InteractionLifeLineLink_Q43gyDGAUCCo_gzY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="869.0, 245.0, 869.0, 259.0, 997.0, 259.0, 997.0, 245.0" coords2="869.0, 245.0, 869.0, 259.0, 997.0, 259.0, 997.0, 245.0" shape="poly" alt=":Link" id="areaQ43gyDGAUCCo.gsP" href="InteractionLifeLineLink_Q43gyDGAUCCo_gsR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="618.0, 260.0, 458.0, 485.0, 469.0, 493.0, 629.0, 268.0, 618.0, 260.0" coords2="618.0, 260.0, 458.0, 485.0, 469.0, 493.0, 629.0, 268.0, 618.0, 260.0" shape="poly" alt=":Link" id="areaSY3gyDGAUCCo.gPE" href="InteractionLifeLineLink_SY3gyDGAUCCo_gPG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="273.0, 30.0, 47.0, 222.0, 56.0, 233.0, 282.0, 41.0, 273.0, 30.0" coords2="273.0, 30.0, 47.0, 222.0, 56.0, 233.0, 282.0, 41.0, 273.0, 30.0" shape="poly" alt=":Link" id="areaTY3gyDGAUCCo.geB" href="InteractionLifeLineLink_TY3gyDGAUCCo_geD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="50.0, 245.0, 50.0, 259.0, 238.0, 259.0, 238.0, 245.0" coords2="50.0, 245.0, 50.0, 259.0, 238.0, 259.0, 238.0, 245.0" shape="poly" alt=":Link" id="areaQ43gyDGAUCCo.g6d" href="InteractionLifeLineLink_Q43gyDGAUCCo_g6f.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="58.0, 270.0, 48.0, 280.0, 241.0, 493.0, 251.0, 483.0, 58.0, 270.0" coords2="58.0, 270.0, 48.0, 280.0, 241.0, 493.0, 251.0, 483.0, 58.0, 270.0" shape="poly" alt=":Link" id="areai43gyDGAUCCo.hFf" href="InteractionLifeLineLink_i43gyDGAUCCo_hFh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionActor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionActor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionActor_wY3gyDGAUCCo_gCd.html">Administrador : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_Ko3gyDGAUCCo_uih.html">CI_Principal : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_Jo3gyDGAUCCo_ukZ.html">CI_Listar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_Jo3gyDGAUCCo_umS.html">CE_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_zo3gyDGAUCCo_uoL.html">CC_Gestionar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_zo3gyDGAUCCo_gAk.html">CI_Modificar_Pasaje : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_wY3gyDGAUCCo_gEE.html">MostrarListaPasaje() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_SY3gyDGAUCCo_gLL.html">MuestraFormularioModificar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_RY3gyDGAUCCo_gSS.html">MuestraMensaje("Operación realizada con éxito") : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_RY3gyDGAUCCo_gWN.html">[A == False] MuestraMensaje("Datos incorrectos") : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_RY3gyDGAUCCo_gaI.html">SeleccionaGestionarPasaje : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_TY3gyDGAUCCo_ghP.html">enviarAccion(GestionarPasaje) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_TY3gyDGAUCCo_goW.html">listar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_Q43gyDGAUCCo_gvd.html">A := validar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_Q43gyDGAUCCo_g2k.html">SeleccionaModificarPasaje : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_i43gyDGAUCCo_g9r.html">enviarAccion(FormModificarPasaje) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_i43gyDGAUCCo_hBm.html">CompletarFormModificarPasaje : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_i43gyDGAUCCo_hIt.html">enviarAccion(ModificarPasaje) : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Message.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Message.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Message_h43gyDGAUCCo_hMo.html">[A==True] modificar() : Message</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

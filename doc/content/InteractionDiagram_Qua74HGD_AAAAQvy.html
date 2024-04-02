@@ -1,0 +1,384 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>Sequence Diagram - Sequence Diagram Registrar Viajero</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		Sequence Diagram - Sequence Diagram Registrar Viajero	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|388.0|142.0|8.0|34.0|Activation_6FB74HGD_AAAARVN.html|Activation_6FB74HGD_AAAARVN.html|6FB74HGD.AAAARVL" id="option6FB74HGD.AAAARVL">Activation : Activation</option>
+<option value="shape|548.0|142.0|8.0|96.0|Activation_2FB74HGD_AAAARWe.html|Activation_2FB74HGD_AAAARWe.html|2FB74HGD.AAAARWc" id="option2FB74HGD.AAAARWc">Activation : Activation</option>
+<option value="shape|718.0|172.0|8.0|54.0|Activation_xFB74HGD_AAAARZA.html|Activation_xFB74HGD_AAAARZA.html|xFB74HGD.AAAARY." id="optionxFB74HGD.AAAARY.">Activation : Activation</option>
+<option value="shape|908.0|182.0|8.0|12.0|Activation_FFB74HGD_AAAARaR.html|Activation_FFB74HGD_AAAARaR.html|FFB74HGD.AAAARaP" id="optionFFB74HGD.AAAARaP">Activation : Activation</option>
+<option value="shape|218.0|212.0|8.0|12.0|Activation_1FB74HGD_AAAARbi.html|Activation_1FB74HGD_AAAARbi.html|1FB74HGD.AAAARbg" id="option1FB74HGD.AAAARbg">Activation : Activation</option>
+<option value="shape|2.0|2.0|80.0|260.0|InteractionActor_u5B74HGD_AAAARDw.html|InteractionActor_u5B74HGD_AAAARDw.html|u5B74HGD.AAAARDu" id="optionu5B74HGD.AAAARDu">Usuario : Actor</option>
+<option value="shape|192.0|2.0|60.0|260.0|InteractionLifeLine_55B74HGD_AAAARFW.html|InteractionLifeLine_55B74HGD_AAAARFW.html|55B74HGD.AAAARFU" id="option55B74HGD.AAAARFU">cp_listar_viajero : Lifeline</option>
+<option value="shape|522.0|2.0|60.0|260.0|InteractionLifeLine_d5B74HGD_AAAARIG.html|InteractionLifeLine_d5B74HGD_AAAARIG.html|d5B74HGD.AAAARIE" id="optiond5B74HGD.AAAARIE">fr_crearViajero : Lifeline</option>
+<option value="shape|692.0|2.0|60.0|260.0|InteractionLifeLine_b5B74HGD_AAAARLv.html|InteractionLifeLine_b5B74HGD_AAAARLv.html|b5B74HGD.AAAARLt" id="optionb5B74HGD.AAAARLt">sp_ViajeroCreateView : Lifeline</option>
+<option value="shape|882.0|2.0|60.0|260.0|InteractionLifeLine_P5B74HGD_AAAAROf.html|InteractionLifeLine_P5B74HGD_AAAAROf.html|P5B74HGD.AAAAROd" id="optionP5B74HGD.AAAAROd">Viajero : Lifeline</option>
+<option value="shape|362.0|2.0|60.0|260.0|InteractionLifeLine_wFB74HGD_AAAARRR.html|InteractionLifeLine_wFB74HGD_AAAARRR.html|wFB74HGD.AAAARRP" id="optionwFB74HGD.AAAARRP">cp_crear_viajero : Lifeline</option>
+<option value="shape|252.0|72.0|170.0|50.0|NOTE_cFB74HGD_AAAARUB.html|NOTE_cFB74HGD_AAAARUB.html|cFB74HGD.AAAART_" id="optioncFB74HGD.AAAART_">Unnamed Note : Note</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/Sequence_Diagram_Registrar_Viajero.png" usemap="#diagram_map" class="Image" width="946.0" height="266.0"/>				<map name = "diagram_map">
+
+<area docContent="<head>
+    
+  </head>
+  <body>
+    <p>
+      <font color=&quot;#000000&quot; face=&quot;Dialog&quot; size=&quot;11px&quot; style=&quot;font-size:11px&quot;>Diagrama 
+      de secuencia gen&#233;rico</font>
+    </p>
+  </body>" coords="252.0, 72.0, 422.0, 122.0" coords2="252.0, 72.0, 422.0, 122.0" shape="rect" alt="Diagrama de secuencia genérico:Note" id="areacFB74HGD.AAAART_" href="NOTE_cFB74HGD_AAAARUB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon(),showTooltip(this)" onmouseout="hideTooltip()"/>
+<area coords="218.0, 212.0, 226.0, 224.0" coords2="218.0, 212.0, 226.0, 224.0" shape="rect" alt="Activation:Activation" id="area1FB74HGD.AAAARbg" href="Activation_1FB74HGD_AAAARbi.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="908.0, 182.0, 916.0, 194.0" coords2="908.0, 182.0, 916.0, 194.0" shape="rect" alt="Activation:Activation" id="areaFFB74HGD.AAAARaP" href="Activation_FFB74HGD_AAAARaR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="718.0, 172.0, 726.0, 226.0" coords2="718.0, 172.0, 726.0, 226.0" shape="rect" alt="Activation:Activation" id="areaxFB74HGD.AAAARY." href="Activation_xFB74HGD_AAAARZA.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="548.0, 142.0, 556.0, 238.0" coords2="548.0, 142.0, 556.0, 238.0" shape="rect" alt="Activation:Activation" id="area2FB74HGD.AAAARWc" href="Activation_2FB74HGD_AAAARWe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="388.0, 142.0, 396.0, 176.0" coords2="388.0, 142.0, 396.0, 176.0" shape="rect" alt="Activation:Activation" id="area6FB74HGD.AAAARVL" href="Activation_6FB74HGD_AAAARVN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="362.0, 2.0, 422.0, 262.0" coords2="362.0, 2.0, 422.0, 262.0" shape="rect" alt="cp_crear_viajero:Lifeline" id="areawFB74HGD.AAAARRP" href="InteractionLifeLine_wFB74HGD_AAAARRR.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="882.0, 2.0, 942.0, 262.0" coords2="882.0, 2.0, 942.0, 262.0" shape="rect" alt="Viajero:Lifeline" id="areaP5B74HGD.AAAAROd" href="InteractionLifeLine_P5B74HGD_AAAAROf.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="692.0, 2.0, 752.0, 262.0" coords2="692.0, 2.0, 752.0, 262.0" shape="rect" alt="sp_ViajeroCreateView:Lifeline" id="areab5B74HGD.AAAARLt" href="InteractionLifeLine_b5B74HGD_AAAARLv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="522.0, 2.0, 582.0, 262.0" coords2="522.0, 2.0, 582.0, 262.0" shape="rect" alt="fr_crearViajero:Lifeline" id="aread5B74HGD.AAAARIE" href="InteractionLifeLine_d5B74HGD_AAAARIG.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="192.0, 2.0, 252.0, 262.0" coords2="192.0, 2.0, 252.0, 262.0" shape="rect" alt="cp_listar_viajero:Lifeline" id="area55B74HGD.AAAARFU" href="InteractionLifeLine_55B74HGD_AAAARFW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 2.0, 82.0, 262.0" coords2="2.0, 2.0, 82.0, 262.0" shape="rect" alt="Usuario:Actor" id="areau5B74HGD.AAAARDu" href="InteractionActor_u5B74HGD_AAAARDw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="546.0, 165.0, 546.0, 179.0, 728.0, 179.0, 728.0, 165.0" coords2="546.0, 165.0, 546.0, 179.0, 728.0, 179.0, 728.0, 165.0" shape="poly" alt="1.1: / submit /:Message" id="areaDFB74HGD.AAAARcx" href="Message_DFB74HGD_AAAARcz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="216.0, 205.0, 216.0, 219.0, 728.0, 219.0, 728.0, 205.0" coords2="216.0, 205.0, 216.0, 219.0, 728.0, 219.0, 728.0, 205.0" shape="poly" alt="1.1.2: / build / alert("Acción realizada con éxito"):Message" id="areazFB74HGD.AAAARgF" href="Message_zFB74HGD_AAAARgH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="716.0, 175.0, 716.0, 189.0, 918.0, 189.0, 918.0, 175.0" coords2="716.0, 175.0, 716.0, 189.0, 918.0, 189.0, 918.0, 175.0" shape="poly" alt="1.1.1: save():Message" id="arearFB74HGD.AAAARjZ" href="Message_rFB74HGD_AAAARjb.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="36.0, 155.0, 36.0, 169.0, 398.0, 169.0, 398.0, 155.0" coords2="36.0, 155.0, 36.0, 169.0, 398.0, 169.0, 398.0, 155.0" shape="poly" alt="2: Completar Formulario:Message" id="areabFB74HGD.AAAARmt" href="Message_bFB74HGD_AAAARmv.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="386.0, 135.0, 386.0, 149.0, 558.0, 149.0, 558.0, 135.0" coords2="386.0, 135.0, 386.0, 149.0, 558.0, 149.0, 558.0, 135.0" shape="poly" alt="1: / AgregateBy /:Message" id="area7FB74HGD.AAAARqB" href="Message_7FB74HGD_AAAARqD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="" coords2="" shape="poly" alt=":Anchor" id="areanFB74HGD.AAAARtV" href="Anchor_nFB74HGD_AAAARtX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Activation_6FB74HGD_AAAARVN.html">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Activation_2FB74HGD_AAAARWe.html">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Activation_xFB74HGD_AAAARZA.html">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Activation_FFB74HGD_AAAARaR.html">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/Activation.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/Activation.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="Activation_1FB74HGD_AAAARbi.html">Activation : Activation</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionActor.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionActor.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionActor_u5B74HGD_AAAARDw.html">Usuario : Actor</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_55B74HGD_AAAARFW.html">cp_listar_viajero : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_d5B74HGD_AAAARIG.html">fr_crearViajero : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_b5B74HGD_AAAARLv.html">sp_ViajeroCreateView : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_P5B74HGD_AAAAROf.html">Viajero : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/InteractionLifeLine.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/InteractionLifeLine.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="InteractionLifeLine_wFB74HGD_AAAARRR.html">cp_crear_viajero : Lifeline</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/NOTE.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/NOTE.png');">
+					</div>
+					&nbsp; <a target="_content_pane" class="ItemLink" href="NOTE_cFB74HGD_AAAARUB.html">N/A : Note</a>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"><head>
+    
+  </head>
+  <body>
+    <p>
+      <font color="#000000" face="Dialog" size="11px" style="font-size:11px">Diagrama 
+      de secuencia gen&#233;rico</font>
+    </p>
+  </body></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

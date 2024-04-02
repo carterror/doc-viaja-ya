@@ -1,0 +1,474 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface Registrar Usuario</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface Registrar Usuario	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|22.0|32.0|390.0|50.0|UIWebLabel_oC9_l9GAUCCo_o_Y.html|UIWebLabel_oC9_l9GAUCCo_o_Y.html|IC9.l9GAUCCo.o.W" id="optionIC9.l9GAUCCo.o.W">Registrar Usuario : UIWebLabel</option>
+<option value="shape|72.0|532.0|180.0|30.0|UIWebLabel_sAuhl9GAUCCo_pYc.html|UIWebLabel_sAuhl9GAUCCo_pYc.html|MAuhl9GAUCCo.pYb" id="optionMAuhl9GAUCCo.pYb">Si ya tiene cuenta, puede: : UIWebLabel</option>
+<option value="shape|242.0|532.0|100.0|30.0|UIWebLabel_Nlxhl9GAUCCo_pZB.html|UIWebLabel_Nlxhl9GAUCCo_pZB.html|1lxhl9GAUCCo.pZA" id="option1lxhl9GAUCCo.pZA">Iniciar sesión : UIWebLabel</option>
+<option value="shape|512.0|52.0|390.0|50.0|UIWebLabel_nPEqv9GAUCCo_jfl.html|UIWebLabel_nPEqv9GAUCCo_jfl.html|nPEqv9GAUCCo.jfj" id="optionnPEqv9GAUCCo.jfj">Verificación requerida : UIWebLabel</option>
+<option value="shape|542.0|132.0|340.0|80.0|UIWebLabel_ZPEqv9GAUCCo_jdd.html|UIWebLabel_ZPEqv9GAUCCo_jdd.html|ZPEqv9GAUCCo.jdb" id="optionZPEqv9GAUCCo.jdb">Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación: : UIWebLabel</option>
+<option value="shape|2.0|2.0|440.0|590.0|UIWebPanel_dc9_l9GAUCCo_o5I.html|UIWebPanel_dc9_l9GAUCCo_o5I.html|dc9.l9GAUCCo.o5G" id="optiondc9.l9GAUCCo.o5G">Registrar Usuario : UIWebPanel</option>
+<option value="shape|12.0|12.0|410.0|80.0|UIWebPanel_Hc9_l9GAUCCo_o6F.html|UIWebPanel_Hc9_l9GAUCCo_o6F.html|Hc9.l9GAUCCo.o6C" id="optionHc9.l9GAUCCo.o6C">titulo : UIWebPanel</option>
+<option value="shape|492.0|22.0|440.0|340.0|UIWebPanel_L3Eqv9GAUCCo_jZN.html|UIWebPanel_L3Eqv9GAUCCo_jZN.html|L3Eqv9GAUCCo.jZL" id="optionL3Eqv9GAUCCo.jZL">Activar Cuenta : UIWebPanel</option>
+<option value="shape|502.0|32.0|410.0|80.0|UIWebPanel_f3Eqv9GAUCCo_jaV.html|UIWebPanel_f3Eqv9GAUCCo_jaV.html|f3Eqv9GAUCCo.jaS" id="optionf3Eqv9GAUCCo.jaS">titulo : UIWebPanel</option>
+<option value="shape|72.0|372.0|300.0|30.0|UIWebPasswordInput_QFgZl9GAUCCo_qzc.html|UIWebPasswordInput_QFgZl9GAUCCo_qzc.html|QFgZl9GAUCCo.qzb" id="optionQFgZl9GAUCCo.qzb">Password : UIWebPasswordInput</option>
+<option value="shape|72.0|422.0|300.0|30.0|UIWebPasswordInput_5zkZl9GAUCCo_q2Q.html|UIWebPasswordInput_5zkZl9GAUCCo_q2Q.html|5zkZl9GAUCCo.q2O" id="option5zkZl9GAUCCo.q2O">Password : UIWebPasswordInput</option>
+<option value="shape|542.0|292.0|150.0|30.0|UIWebResetInput_jPEqv9GAUCCo_jeg.html|UIWebResetInput_jPEqv9GAUCCo_jeg.html|jPEqv9GAUCCo.jee" id="optionjPEqv9GAUCCo.jee">Reenviar Código : UIWebResetInput</option>
+<option value="shape|162.0|482.0|90.0|30.0|UIWebSubmitInput_089_l9GAUCCo_o7E.html|UIWebSubmitInput_089_l9GAUCCo_o7E.html|089.l9GAUCCo.o7B" id="option089.l9GAUCCo.o7B">Registrar : UIWebSubmitInput</option>
+<option value="shape|782.0|292.0|90.0|30.0|UIWebSubmitInput_cPEqv9GAUCCo_jbS.html|UIWebSubmitInput_cPEqv9GAUCCo_jbS.html|cPEqv9GAUCCo.jbP" id="optioncPEqv9GAUCCo.jbP">Continuar : UIWebSubmitInput</option>
+<option value="shape|72.0|142.0|300.0|30.0|UIWebTextInput__89_l9GAUCCo_o8M.html|UIWebTextInput__89_l9GAUCCo_o8M.html|.89.l9GAUCCo.o8K" id="option.89.l9GAUCCo.o8K">Nombre : UIWebTextInput</option>
+<option value="shape|72.0|202.0|300.0|30.0|UIWebTextInput_5vr_l9GAUCCo_pHm.html|UIWebTextInput_5vr_l9GAUCCo_pHm.html|5vr.l9GAUCCo.pHk" id="option5vr.l9GAUCCo.pHk">Apellido : UIWebTextInput</option>
+<option value="shape|72.0|262.0|300.0|30.0|UIWebTextInput_XZn_l9GAUCCo_pKo.html|UIWebTextInput_XZn_l9GAUCCo_pKo.html|XZn.l9GAUCCo.pKm" id="optionXZn.l9GAUCCo.pKm">No. Identidad : UIWebTextInput</option>
+<option value="shape|72.0|312.0|300.0|30.0|UIWebTextInput_BhChl9GAUCCo_pOu.html|UIWebTextInput_BhChl9GAUCCo_pOu.html|BhChl9GAUCCo.pOs" id="optionBhChl9GAUCCo.pOs">Correo : UIWebTextInput</option>
+<option value="shape|562.0|232.0|300.0|30.0|UIWebTextInput_ePEqv9GAUCCo_jcY.html|UIWebTextInput_ePEqv9GAUCCo_jcY.html|ePEqv9GAUCCo.jcW" id="optionePEqv9GAUCCo.jcW">Código único : UIWebTextInput</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface_Registrar_Usuario.png" usemap="#diagram_map" class="Image" width="936.0" height="596.0"/>				<map name = "diagram_map">
+
+<area coords="512.0, 52.0, 902.0, 102.0" coords2="512.0, 52.0, 902.0, 102.0" shape="rect" alt="Verificación requerida:UIWebLabel" id="areanPEqv9GAUCCo.jfj" href="UIWebLabel_nPEqv9GAUCCo_jfl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 32.0, 412.0, 82.0" coords2="22.0, 32.0, 412.0, 82.0" shape="rect" alt="Registrar Usuario:UIWebLabel" id="areaIC9.l9GAUCCo.o.W" href="UIWebLabel_oC9_l9GAUCCo_o_Y.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="542.0, 292.0, 692.0, 322.0" coords2="542.0, 292.0, 692.0, 322.0" shape="rect" alt="Reenviar Código:UIWebResetInput" id="areajPEqv9GAUCCo.jee" href="UIWebResetInput_jPEqv9GAUCCo_jeg.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="542.0, 132.0, 882.0, 212.0" coords2="542.0, 132.0, 882.0, 212.0" shape="rect" alt="Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación::UIWebLabel" id="areaZPEqv9GAUCCo.jdb" href="UIWebLabel_ZPEqv9GAUCCo_jdd.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="562.0, 232.0, 862.0, 262.0" coords2="562.0, 232.0, 862.0, 262.0" shape="rect" alt="Código único:UIWebTextInput" id="areaePEqv9GAUCCo.jcW" href="UIWebTextInput_ePEqv9GAUCCo_jcY.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="782.0, 292.0, 872.0, 322.0" coords2="782.0, 292.0, 872.0, 322.0" shape="rect" alt="Continuar:UIWebSubmitInput" id="areacPEqv9GAUCCo.jbP" href="UIWebSubmitInput_cPEqv9GAUCCo_jbS.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="502.0, 32.0, 912.0, 112.0" coords2="502.0, 32.0, 912.0, 112.0" shape="rect" alt="titulo:UIWebPanel" id="areaf3Eqv9GAUCCo.jaS" href="UIWebPanel_f3Eqv9GAUCCo_jaV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 422.0, 372.0, 452.0" coords2="72.0, 422.0, 372.0, 452.0" shape="rect" alt="Password:UIWebPasswordInput" id="area5zkZl9GAUCCo.q2O" href="UIWebPasswordInput_5zkZl9GAUCCo_q2Q.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 372.0, 372.0, 402.0" coords2="72.0, 372.0, 372.0, 402.0" shape="rect" alt="Password:UIWebPasswordInput" id="areaQFgZl9GAUCCo.qzb" href="UIWebPasswordInput_QFgZl9GAUCCo_qzc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="242.0, 532.0, 342.0, 562.0" coords2="242.0, 532.0, 342.0, 562.0" shape="rect" alt="Iniciar sesión:UIWebLabel" id="area1lxhl9GAUCCo.pZA" href="UIWebLabel_Nlxhl9GAUCCo_pZB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 532.0, 252.0, 562.0" coords2="72.0, 532.0, 252.0, 562.0" shape="rect" alt="Si ya tiene cuenta, puede::UIWebLabel" id="areaMAuhl9GAUCCo.pYb" href="UIWebLabel_sAuhl9GAUCCo_pYc.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 312.0, 372.0, 342.0" coords2="72.0, 312.0, 372.0, 342.0" shape="rect" alt="Correo:UIWebTextInput" id="areaBhChl9GAUCCo.pOs" href="UIWebTextInput_BhChl9GAUCCo_pOu.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 262.0, 372.0, 292.0" coords2="72.0, 262.0, 372.0, 292.0" shape="rect" alt="No. Identidad:UIWebTextInput" id="areaXZn.l9GAUCCo.pKm" href="UIWebTextInput_XZn_l9GAUCCo_pKo.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 202.0, 372.0, 232.0" coords2="72.0, 202.0, 372.0, 232.0" shape="rect" alt="Apellido:UIWebTextInput" id="area5vr.l9GAUCCo.pHk" href="UIWebTextInput_5vr_l9GAUCCo_pHm.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 142.0, 372.0, 172.0" coords2="72.0, 142.0, 372.0, 172.0" shape="rect" alt="Nombre:UIWebTextInput" id="area.89.l9GAUCCo.o8K" href="UIWebTextInput__89_l9GAUCCo_o8M.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="162.0, 482.0, 252.0, 512.0" coords2="162.0, 482.0, 252.0, 512.0" shape="rect" alt="Registrar:UIWebSubmitInput" id="area089.l9GAUCCo.o7B" href="UIWebSubmitInput_089_l9GAUCCo_o7E.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 12.0, 422.0, 92.0" coords2="12.0, 12.0, 422.0, 92.0" shape="rect" alt="titulo:UIWebPanel" id="areaHc9.l9GAUCCo.o6C" href="UIWebPanel_Hc9_l9GAUCCo_o6F.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="492.0, 22.0, 932.0, 362.0" coords2="492.0, 22.0, 932.0, 362.0" shape="rect" alt="Activar Cuenta:UIWebPanel" id="areaL3Eqv9GAUCCo.jZL" href="UIWebPanel_L3Eqv9GAUCCo_jZN.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 2.0, 442.0, 604.0" coords2="2.0, 2.0, 442.0, 604.0" shape="rect" alt="Registrar Usuario:UIWebPanel" id="areadc9.l9GAUCCo.o5G" href="UIWebPanel_dc9_l9GAUCCo_o5I.html" onmouseover="storeReferenceAndSubdiagramInfos('2.0, 2.0, 442.0, 592.0',new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array(),new Array('UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=IoR5M9GGAqBW1JZU/Autenticar/UseCase','UseCaseDiagram_CVYBM9GGAqBW1A2s.html?shapeid=9loH6DGD.AAAAUYf/Registrar cuenta/UseCase'),new Array()),hideReferenceIcon(),hideSubdiagramIcon(),showTransitorIcon('2.0, 2.0, 442.0, 592.0')"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Usuario : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Si ya tiene cuenta, puede: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Iniciar sesión : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Verificación requerida : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar Usuario : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Activar Cuenta : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPasswordInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPasswordInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Password : UIWebPasswordInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPasswordInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPasswordInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Password : UIWebPasswordInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Reenviar Código : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Registrar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Continuar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nombre : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Apellido : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">No. Identidad : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Correo : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Código único : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>

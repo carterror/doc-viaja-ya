@@ -1,0 +1,490 @@
+<html>
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="report.css" type="text/css"/>
+	<title>User Interface - User Interface Recuperar Contraseña</title>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="link_popup.js"></script>
+	<script type="text/javascript" src="tooltip.js"></script>
+</head>
+<body style="margin-left: 10px; margin-right: 10px; margin-top: 10px; margin-bottom: 10px;" onload="initPage();initDiagram();initGridDiagram();">
+	<div id="spotlight" style="position:absolute; width:100px; height:100px; z-index:2; visibility:hidden">
+		<table id="spotLightTable" onClick="updateCursorPos(event);adjustPopupPositionForSpotLightTable();clearSpotLight()" style="border-style:solid; border-width:3px; border-color:#FF0000" width="100%" cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td id="spotLightCell">
+				</td>
+			</tr>
+		</table>
+	</div>
+	<canvas id="spotlight_c" height="100" style="position:absolute; z-index:2; visibility:hidden" width="100">
+	</canvas>
+	<div id="spotLightResourcesTop" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="spotLightResourcesRight" style="position:absolute; width:100px; height:100px; z-index:1; visibility:hidden">
+		<table cellpadding="0" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<a href="#top">
+						<img style="border:none" src="../images/icons/BackToTop.gif" alt="Back to top"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="javascript:clearSpotLightFromOpenSpecButton();">
+						<img style="border:none" src="../images/icons/OpenSpecification.gif" alt="Open specification"/></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="linkPopupMenuLayer" style="position:absolute;z-index:2;visibility:hidden">
+		<table id="linkPopupMenuTable" style="border-style:solid; border-width:1px; border-color:#000000; background:#FFFFFF; width:250px" width="100%" border="0">
+		</table>
+	</div>
+	<div id="referenceIconLayer" style="position:absolute; z-index:1; visibility:hidden; ">
+		<table style="font-size:1;" width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Ref.gif" style="border:none" onclick="movePopupPositionToReferenceIconPosition();resetPopupForReference();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="subdiagramIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Subdiagram.gif" style="border:none" onclick="movePopupPositionToSubdiagramIconPosition();resetPopupForSubdiagram();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="transitorIconLayer" style="position:absolute; z-index:1; visibility:hidden">
+		<table width="100%" cellpadding="3" border="0" cellspacing="0">
+			<tr>
+				<td>
+					<img src="../images/icons/Transitor.gif" style="border:none" onclick="movePopupPositionToTransitorIconPosition();resetPopupForTransitor();switchPopupShowHideStatus();" />				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="HeaderLine1">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine2">
+			</td>
+		</tr>
+		<tr>
+			<td class="HeaderLine3">
+			</td>
+		</tr>
+	</table>
+	<p class="PageTitle">
+		User Interface - User Interface Recuperar Contraseña	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+<span class="TableContent">Jump to:</span>				<select id="SelectShape" class="TableContent" onChange="scrollWin(this.value);showSpotLight(this.value)">
+<option value="">Please select a model element</option>
+<option value="shape|22.0|32.0|390.0|50.0|UIWebLabel_W6OOl9GAUCCo_nwH.html|UIWebLabel_W6OOl9GAUCCo_nwH.html|W6OOl9GAUCCo.nwF" id="optionW6OOl9GAUCCo.nwF">Recuperación de contraseña : UIWebLabel</option>
+<option value="shape|42.0|112.0|360.0|60.0|UIWebLabel_vaOOl9GAUCCo_nvC.html|UIWebLabel_vaOOl9GAUCCo_nvC.html|PaOOl9GAUCCo.nvA" id="optionPaOOl9GAUCCo.nvA">Ingrese la dirección de correo electrónico asociado con su cuenta. : UIWebLabel</option>
+<option value="shape|22.0|412.0|390.0|50.0|UIWebLabel_hCMul9GAUCCo_oGq.html|UIWebLabel_hCMul9GAUCCo_oGq.html|hCMul9GAUCCo.oGo" id="optionhCMul9GAUCCo.oGo">  Código de verificación : UIWebLabel</option>
+<option value="shape|52.0|492.0|340.0|80.0|UIWebLabel_4CMul9GAUCCo_oFl.html|UIWebLabel_4CMul9GAUCCo_oFl.html|4CMul9GAUCCo.oFj" id="option4CMul9GAUCCo.oFj">Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación: : UIWebLabel</option>
+<option value="shape|512.0|32.0|390.0|50.0|UIWebLabel_YLdq6DGD_AAAAaIV.html|UIWebLabel_YLdq6DGD_AAAAaIV.html|YLdq6DGD.AAAAaIT" id="optionYLdq6DGD.AAAAaIT">Nueva contraseña : UIWebLabel</option>
+<option value="shape|532.0|112.0|360.0|50.0|UIWebLabel_5zdq6DGD_AAAAaHQ.html|UIWebLabel_5zdq6DGD_AAAAaHQ.html|5zdq6DGD.AAAAaHO" id="option5zdq6DGD.AAAAaHO">Ingrese la nueva contraseña para su cuenta. : UIWebLabel</option>
+<option value="shape|2.0|2.0|440.0|340.0|UIWebPanel_kqOOl9GAUCCo_npw.html|UIWebPanel_kqOOl9GAUCCo_npw.html|kqOOl9GAUCCo.npu" id="optionkqOOl9GAUCCo.npu">Recuperar Contraseña : UIWebPanel</option>
+<option value="shape|12.0|12.0|410.0|80.0|UIWebPanel_qqOOl9GAUCCo_nqt.html|UIWebPanel_qqOOl9GAUCCo_nqt.html|qqOOl9GAUCCo.nqq" id="optionqqOOl9GAUCCo.nqq">titulo : UIWebPanel</option>
+<option value="shape|2.0|382.0|440.0|340.0|UIWebPanel_DcMul9GAUCCo_oBa.html|UIWebPanel_DcMul9GAUCCo_oBa.html|9cMul9GAUCCo.oBY" id="option9cMul9GAUCCo.oBY">Activar Cuenta : UIWebPanel</option>
+<option value="shape|12.0|392.0|410.0|80.0|UIWebPanel_3cMul9GAUCCo_oCX.html|UIWebPanel_3cMul9GAUCCo_oCX.html|3cMul9GAUCCo.oCU" id="option3cMul9GAUCCo.oCU">titulo : UIWebPanel</option>
+<option value="shape|492.0|2.0|440.0|370.0|UIWebPanel_Fjdq6DGD_AAAAaDE.html|UIWebPanel_Fjdq6DGD_AAAAaDE.html|Zjdq6DGD.AAAAaDC" id="optionZjdq6DGD.AAAAaDC">Recuperar Contraseña : UIWebPanel</option>
+<option value="shape|502.0|12.0|410.0|80.0|UIWebPanel_ETdq6DGD_AAAAaEC.html|UIWebPanel_ETdq6DGD_AAAAaEC.html|ETdq6DGD.AAAAaD_" id="optionETdq6DGD.AAAAaD_">titulo : UIWebPanel</option>
+<option value="shape|52.0|652.0|150.0|30.0|UIWebResetInput_5gJul9GAUCCo_ofh.html|UIWebResetInput_5gJul9GAUCCo_ofh.html|5gJul9GAUCCo.off" id="option5gJul9GAUCCo.off">Reenviar Código : UIWebResetInput</option>
+<option value="shape|182.0|252.0|90.0|30.0|UIWebSubmitInput_gaOOl9GAUCCo_nsz.html|UIWebSubmitInput_gaOOl9GAUCCo_nsz.html|AaOOl9GAUCCo.nsw" id="optionAaOOl9GAUCCo.nsw">Continuar : UIWebSubmitInput</option>
+<option value="shape|292.0|652.0|90.0|30.0|UIWebSubmitInput_y8Mul9GAUCCo_oDW.html|UIWebSubmitInput_y8Mul9GAUCCo_oDW.html|y8Mul9GAUCCo.oDT" id="optiony8Mul9GAUCCo.oDT">Continuar : UIWebSubmitInput</option>
+<option value="shape|662.0|312.0|90.0|30.0|UIWebSubmitInput_HTdq6DGD_AAAAaFB.html|UIWebSubmitInput_HTdq6DGD_AAAAaFB.html|HTdq6DGD.AAAAaE." id="optionHTdq6DGD.AAAAaE.">Continuar : UIWebSubmitInput</option>
+<option value="shape|72.0|182.0|300.0|30.0|UIWebTextInput_GaOOl9GAUCCo_nt7.html|UIWebTextInput_GaOOl9GAUCCo_nt7.html|6aOOl9GAUCCo.nt5" id="option6aOOl9GAUCCo.nt5">Correo : UIWebTextInput</option>
+<option value="shape|72.0|592.0|300.0|30.0|UIWebTextInput_d8Mul9GAUCCo_oEe.html|UIWebTextInput_d8Mul9GAUCCo_oEe.html|d8Mul9GAUCCo.oEc" id="optiond8Mul9GAUCCo.oEc">Código único : UIWebTextInput</option>
+<option value="shape|562.0|182.0|300.0|30.0|UIWebTextInput_6zdq6DGD_AAAAaGJ.html|UIWebTextInput_6zdq6DGD_AAAAaGJ.html|6zdq6DGD.AAAAaGH" id="option6zdq6DGD.AAAAaGH">Nueva Contraseña : UIWebTextInput</option>
+<option value="shape|562.0|242.0|300.0|30.0|UIWebTextInput_bmvq6DGD_AAAAaRD.html|UIWebTextInput_bmvq6DGD_AAAAaRD.html|bmvq6DGD.AAAAaRB" id="optionbmvq6DGD.AAAAaRB">Confirmación de Contraseña : UIWebTextInput</option>
+</select>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td>
+				<img id = "diagram" src = "../images/User_Interface_Recuperar_Contrasea.png" usemap="#diagram_map" class="Image" width="936.0" height="726.0"/>				<map name = "diagram_map">
+
+<area coords="512.0, 32.0, 902.0, 82.0" coords2="512.0, 32.0, 902.0, 82.0" shape="rect" alt="Nueva contraseña:UIWebLabel" id="areaYLdq6DGD.AAAAaIT" href="UIWebLabel_YLdq6DGD_AAAAaIV.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 412.0, 412.0, 462.0" coords2="22.0, 412.0, 412.0, 462.0" shape="rect" alt="  Código de verificación:UIWebLabel" id="areahCMul9GAUCCo.oGo" href="UIWebLabel_hCMul9GAUCCo_oGq.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="22.0, 32.0, 412.0, 82.0" coords2="22.0, 32.0, 412.0, 82.0" shape="rect" alt="Recuperación de contraseña:UIWebLabel" id="areaW6OOl9GAUCCo.nwF" href="UIWebLabel_W6OOl9GAUCCo_nwH.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="562.0, 242.0, 862.0, 272.0" coords2="562.0, 242.0, 862.0, 272.0" shape="rect" alt="Confirmación de Contraseña:UIWebTextInput" id="areabmvq6DGD.AAAAaRB" href="UIWebTextInput_bmvq6DGD_AAAAaRD.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="532.0, 112.0, 892.0, 162.0" coords2="532.0, 112.0, 892.0, 162.0" shape="rect" alt="Ingrese la nueva contraseña para su cuenta.:UIWebLabel" id="area5zdq6DGD.AAAAaHO" href="UIWebLabel_5zdq6DGD_AAAAaHQ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="562.0, 182.0, 862.0, 212.0" coords2="562.0, 182.0, 862.0, 212.0" shape="rect" alt="Nueva Contraseña:UIWebTextInput" id="area6zdq6DGD.AAAAaGH" href="UIWebTextInput_6zdq6DGD_AAAAaGJ.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="662.0, 312.0, 752.0, 342.0" coords2="662.0, 312.0, 752.0, 342.0" shape="rect" alt="Continuar:UIWebSubmitInput" id="areaHTdq6DGD.AAAAaE." href="UIWebSubmitInput_HTdq6DGD_AAAAaFB.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="502.0, 12.0, 912.0, 92.0" coords2="502.0, 12.0, 912.0, 92.0" shape="rect" alt="titulo:UIWebPanel" id="areaETdq6DGD.AAAAaD_" href="UIWebPanel_ETdq6DGD_AAAAaEC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="52.0, 652.0, 202.0, 682.0" coords2="52.0, 652.0, 202.0, 682.0" shape="rect" alt="Reenviar Código:UIWebResetInput" id="area5gJul9GAUCCo.off" href="UIWebResetInput_5gJul9GAUCCo_ofh.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="52.0, 492.0, 392.0, 572.0" coords2="52.0, 492.0, 392.0, 572.0" shape="rect" alt="Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación::UIWebLabel" id="area4CMul9GAUCCo.oFj" href="UIWebLabel_4CMul9GAUCCo_oFl.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 592.0, 372.0, 622.0" coords2="72.0, 592.0, 372.0, 622.0" shape="rect" alt="Código único:UIWebTextInput" id="aread8Mul9GAUCCo.oEc" href="UIWebTextInput_d8Mul9GAUCCo_oEe.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="292.0, 652.0, 382.0, 682.0" coords2="292.0, 652.0, 382.0, 682.0" shape="rect" alt="Continuar:UIWebSubmitInput" id="areay8Mul9GAUCCo.oDT" href="UIWebSubmitInput_y8Mul9GAUCCo_oDW.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 392.0, 422.0, 472.0" coords2="12.0, 392.0, 422.0, 472.0" shape="rect" alt="titulo:UIWebPanel" id="area3cMul9GAUCCo.oCU" href="UIWebPanel_3cMul9GAUCCo_oCX.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="42.0, 112.0, 402.0, 172.0" coords2="42.0, 112.0, 402.0, 172.0" shape="rect" alt="Ingrese la dirección de correo electrónico asociado con su cuenta.:UIWebLabel" id="areaPaOOl9GAUCCo.nvA" href="UIWebLabel_vaOOl9GAUCCo_nvC.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="72.0, 182.0, 372.0, 212.0" coords2="72.0, 182.0, 372.0, 212.0" shape="rect" alt="Correo:UIWebTextInput" id="area6aOOl9GAUCCo.nt5" href="UIWebTextInput_GaOOl9GAUCCo_nt7.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="182.0, 252.0, 272.0, 282.0" coords2="182.0, 252.0, 272.0, 282.0" shape="rect" alt="Continuar:UIWebSubmitInput" id="areaAaOOl9GAUCCo.nsw" href="UIWebSubmitInput_gaOOl9GAUCCo_nsz.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="12.0, 12.0, 422.0, 92.0" coords2="12.0, 12.0, 422.0, 92.0" shape="rect" alt="titulo:UIWebPanel" id="areaqqOOl9GAUCCo.nqq" href="UIWebPanel_qqOOl9GAUCCo_nqt.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="492.0, 2.0, 932.0, 372.0" coords2="492.0, 2.0, 932.0, 372.0" shape="rect" alt="Recuperar Contraseña:UIWebPanel" id="areaZjdq6DGD.AAAAaDC" href="UIWebPanel_Fjdq6DGD_AAAAaDE.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 382.0, 442.0, 722.0" coords2="2.0, 382.0, 442.0, 722.0" shape="rect" alt="Activar Cuenta:UIWebPanel" id="area9cMul9GAUCCo.oBY" href="UIWebPanel_DcMul9GAUCCo_oBa.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+<area coords="2.0, 2.0, 442.0, 342.0" coords2="2.0, 2.0, 442.0, 342.0" shape="rect" alt="Recuperar Contraseña:UIWebPanel" id="areakqOOl9GAUCCo.npu" href="UIWebPanel_kqOOl9GAUCCo_npw.html" onmouseover="hideReferenceIcon(),hideSubdiagramIcon(),hideTransitorIcon()"/>
+</map>			</td>
+		</tr>
+	</table>
+	<p>
+	</p>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="Category">
+				Model Elements			</td>
+		</tr>
+		<tr>
+			<td style="height: 5px">
+			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td colSpan="4" class="TableHeaderLine">
+			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine1">
+			</td>
+		</tr>
+		<tr class="TableHeader">
+			<td class="TableCellSpaceHolder10Px">
+			</td>
+			<td width="30%">
+<span class="TableHeaderText">Name</span>			</td>
+			<td class="TableCellSpaceHolder20Px">
+			</td>
+			<td>
+<span class="TableHeaderText">Documentation</span>			</td>
+		</tr>
+		<tr>
+			<td colSpan="4" class="TableHeaderLine2">
+			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Recuperación de contraseña : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Ingrese la dirección de correo electrónico asociado con su cuenta. : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">  Código de verificación : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Para continuar, complete este paso de verificación. Hemos enviado un código única al correo electrónico ejemplo@gmail.com. Por favor ingréselo a continuación: : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nueva contraseña : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebLabel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebLabel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Ingrese la nueva contraseña para su cuenta. : UIWebLabel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Recuperar Contraseña : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Activar Cuenta : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">Recuperar Contraseña : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebPanel.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebPanel.png');">
+					</div>
+					&nbsp; <span class="TableContent">titulo : UIWebPanel</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebResetInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebResetInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Reenviar Código : UIWebResetInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Continuar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Continuar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebSubmitInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebSubmitInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Continuar : UIWebSubmitInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Correo : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Código único : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow1">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Nueva Contraseña : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+		<tr class="TableRow2">
+			<td>
+			</td>
+			<td>
+				<span class="TableContent">
+					<div style="float: left; width: 18px !important;height: 18px !important;background-image:url(../images/icons/UIWebTextInput.png) !important; background-image:url(''); filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/icons/UIWebTextInput.png');">
+					</div>
+					&nbsp; <span class="TableContent">Confirmación de Contraseña : UIWebTextInput</span>				</span>
+			</td>
+			<td>
+			</td>
+			<td>
+<span class="TableContent"></span>			</td>
+		</tr>
+	</table>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="TableCellSpaceHolder1PxTall">
+			</td>
+		</tr>
+		<tr>
+			<td class="TableFooter">
+			</td>
+		</tr>
+	</table>
+	<div style="height: 20px">
+	</div>
+	<table width="100%" cellpadding="0" border="0" cellspacing="0">
+		<tr>
+			<td class="FooterLine">
+			</td>
+		</tr>
+	</table>
+	<div class="HeaderText">
+		ViajaYAv3 Documentation	</div>
+</body>
+</html>
